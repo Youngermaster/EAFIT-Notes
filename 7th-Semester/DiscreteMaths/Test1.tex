@@ -1,0 +1,97 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[utf8]{inputenc}
+\title{Parcial 1}
+\date{Febrero 16 de 2021}
+\author{Juan Manuel Young Hoyos \thanks{201810117010}}
+
+\begin{document}
+    \maketitle
+
+    \section{}
+
+    ¿Es posible definir recursivamente el conjunto de los números reales no negativos? En
+    caso afirmativo, presentar la definición. En caso negativo, justificar su respuesta.
+
+    \section{}
+
+    Un estudiante A dice que puede definir una función f de los enteros positivos a los 
+    enteros positivos por las siguientes ecuaciones:
+
+    \[ f(1)=2 \]
+    \[ f(1) = 2 \]
+    \[ f(n) = 1 + f(f(n-1),\:si \; n>=2 \]
+
+    Un estudiante B dice que la función f no está bien definida. ¿Cuál estudiante tiene la razón?
+
+    \begin{itemize}
+        \item El estudiante B tiene la razón.
+    \end{itemize}
+
+    \section{}
+
+    Supongamos que le solicitan demostrar por inducción matemática que $n = n + 1$, 
+    para todo número natural $n >= 1$. Su demostración falla porque no es posible demostrar:
+
+    \begin{itemize}
+        \item Ni el paso base, ni el paso inductivo.
+    \end{itemize}
+ 
+    \section{}
+
+    El conjunto potencia (o conjunto de partes) del conjunto vacío, denotado P($\emptyset$), es:
+
+     \begin{itemize}
+         \item  $\emptyset \cap \{\emptyset\} $
+     \end{itemize}
+
+    \section{}
+
+    El argumento del elemento es un método de demostración empleado para demostrar que un conjunto
+    es un subconjunto de otro conjunto. Este método se puede emplear para demostrar que dos conjuntos son iguales porque:
+
+    \begin{itemize}
+        \item si $ A = B $ implica que $ A \subseteq B $ y $ B \subseteq A $
+    \end{itemize}
+
+    \section{}
+
+    Se define un conjunto S de forma recursiva como sigue:
+    
+    I. Base: $\in$ $\in$ S
+    
+    II. Recursión: Si s $\in$ S, entonces,
+    
+    a. 0s1 $\in$ S
+    
+    b. 1s0 $\in$ S
+    
+    III. Restricción: No hay nada en S que no sean objetos definidos en I y II.
+
+    Demostrar por inducción estructural que cada cadena en S tiene el mismo número de ceros que de unos:
+
+    \[ S = \{0, 1\}\]
+
+    \[s \in S^*,\; entonces\; s0,\; s1 \in S^*\]
+
+    \[n \in Nat\]
+
+    \[PR1.\; s \in S^* \rightarrow 0s1 \in S^*\]
+
+    \[P(s) \rightarrow P(0s1)\]
+
+    \[PR2.\; s \in S^* \rightarrow 1s0 \in S^*\]
+
+    \[P(s) \rightarrow P(1s0)\]
+
+    \section{}
+
+    La relación lógica entre los principios de inducción matemática e inducción matemática fuerte, 
+    para los números naturales, implica que:
+
+    \begin{itemize}
+        \item Ninguna de las anteriores, un enunciado se puede demostrar con inducción matemática, si y sólo si, 
+        el enunciado se puede demostrar con inducción matemática fuerte.
+    \end{itemize}
+
+
+\end{document}
