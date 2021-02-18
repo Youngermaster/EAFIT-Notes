@@ -1,0 +1,99 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[utf8]{inputenc}
+\title{Parcial 1}
+\date{Febrero 16 de 2021}
+\author{Juan Manuel Young Hoyos \thanks{201810117010}}
+\begin{document}
+    \maketitle
+    
+    Profesor: Luis Antonio Quintero
+
+
+    \section{30\%}
+
+     \[ X_{ij} = Cantidad\;del\;producto\; j\;elaborados\;por\;el\;taller\;i\;en\;una\;hora \]
+
+     \(  
+	maximizar Z = 70 (X_{11} + X_{21}) + 75 (X_{12} + X_{22} + 80(X_{13} + X_{23}) - X_{11} (\frac{1500}{40}) - X_{12} (\frac{1500}{30})
+	- X_{13} (\frac{1500}{20}) - X_{21} (\frac{1200}{30}) - X_{22} (\frac{1200}{25}) - X_{23} (\frac{1200}{20}) 
+     \)
+
+     \[ S.A.:  \]
+
+     \[ X_{11} \geq 40, X_{12} \geq 30, X_{13} \geq 20, X_{21} \geq 30, X_{22} \geq 25, X_{23} \geq 20 \]
+
+     \[
+	 X_{11} (\frac{1500}{40}) + X_{12} (\frac{1500}{30}) +  X_{13} (\frac{1500}{20}) \leq 1500
+     \]
+
+    \[
+	  X_{21} (\frac{1200}{30}) + X_{22} (\frac{1200}{25}) + X_{23} (\frac{1200}{20})  \leq 1200
+     \]
+
+     \[ X_{ij} \geq 0\]
+
+    \section{30\%}
+
+    \[ X_{ij} = Cantidad\;de\;ingrediente\; i \;utilizado\;en\;el\;alimento\; j \]
+
+    \(  
+	maximizar Z = 30(X_{11} +  X_{21} + X_{31}) ( \frac{precio}{Lb} * (Lb))  + 35 (X_{12} + X_{22} + X_{32}) *  ( \frac{precio}{Lb}
+	 * (Lb))   + 50 (X_{13} + X_{23} + X_{33}) *  ( \frac{precio}{Lb} * (Lb)) - 15(X_{11} + X_{12} + X_{13}) *  ( \frac{precio}{Lb}
+	 * (Lb)) - 12(X_{21} + X_{22} + X_{33}) *  ( \frac{precio}{Lb} * (Lb)) - 19(X_{31} + X_{32} + X_{33}) *  ( \frac{precio}{Lb} * (Lb)) 
+   \)
+
+      \[ S.A.:  \]
+
+     \[ X_{11} + X_{12} + X_{13} \leq 2400 [Lb] \]
+
+     \[ X_{21} + X_{22} + X_{23} \leq 1800 [Lb] \]
+
+     \[ X_{31} + X_{32} + X_{33} \leq 1200 [Lb] \]
+
+      \[ Cachorros:  \]
+
+      \[ X_{11} \geq 0.15 (X_{11} + X_{21} + X_{31} [Lb]  \]
+
+      \[ X_{21} \geq 0.15 (X_{11} + X_{21} + X_{31} [Lb]  \]
+
+      \[ X_{31} \geq 0.15 (X_{11} + X_{21} + X_{31} [Lb]  \]
+
+     \[ Adultos:  \]
+
+      \[ X_{32} \leq 0.4 (X_{12} + X_{22} + X_{32} [Lb]  \]
+
+     \[ Adultos:  \]
+
+      \[ X_{13} \geq 0.4 (X_{13} + X_{23} + X_{33} [Lb]  \]
+
+     \[ X_{ij} \geq 0\]
+
+    \section{20\%}
+
+
+
+    \section{20\%}
+
+    \[  X_i = Number\;de\;empleados\;que\;inician\;la\;jornada\;en\;la\;hora\; i \]
+  
+    \[ i = 12 p.m., 4 a.m.,  8 a.m., 12 a.m., 4 p.m., 8  p.m. \]
+
+    \[ Minimizar Z = X_1, X_2, X_3, X_4, X_5, X_6  \]
+
+    \[ S.A.:  \]
+
+    \[  X_1 + X_6 \geq 3  \]
+
+    \[  X_1 + X_2 \geq 5 \]
+
+    \[  X_2 + X_3 \geq 10 \]
+
+    \[  X_3 + X_4 \geq 6 \]
+
+    \[  X_4 + X_5 \geq 10 \]
+
+    \[  X_5 + X_6 \geq 8 \]
+
+    \[  X_i \geq 0 \]
+
+\end{document}
