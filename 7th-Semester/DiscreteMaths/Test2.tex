@@ -1,0 +1,40 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\providecommand{\dotminus}{\mathbin{\mathpalette\xdotminus\relax}}
+\newcommand{\xdotminus}[2]{%
+  \ooalign{\hidewidth$\vcenter{\hbox{$#1\dot{}$}}$\hidewidth\cr$#1-$\cr}%
+}
+\title{Parcial 2, Punto 5}
+\author{Juan Manuel Young Hoyos}
+\date{March 16, 2021}
+
+\begin{document}
+
+\maketitle
+
+Sea A un subconjunto de un conjunto universal U. Construir una demostración algebraica para la siguiente identidad:
+ $A \dotminus  U= A^c$
+Justificar cada paso de la demostración indicando una propiedad del Teorema 6.2.2 del texto guía
+
+\[ (A - U) \cup (U - A) = A^c \]
+
+\[ (A \cap U^c) \cup (U \cap A^c) = A^c \]
+
+\[ (A \cap \emptyset) \cup (U \cap A^c) = A^c \]
+
+\[ \emptyset \cup (U \cap A^c) = A^c \]
+
+\[ (\emptyset \cup U) \cap (\emptyset \cup A^c) = A^c \]
+
+\[ U \cap  A^c = A^c \]
+
+\[ A^c = A^c\]
+
+\end{document}
