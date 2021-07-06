@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[margin=0.25in]{geometry}
+\usepackage{pgfplots}
+\usepackage{pdftexcmds}
+\pgfplotsset{width=10cm,compat=1.9}
+\title{Calculus module III}
+\author{Juan Manuel Young Hoyos}
+\date{July 2021}
+\begin{document}
+\maketitle
+
+\section*{Ecuaciones Paramétricas}
+En matemáticas, un sistema de ecuaciones paramétricas permite representar una curva o superficie
+en el plano o en el espacio, mediante valores que recorren un intervalo de números reales, mediante
+una variable, llamada parámetro, considerando cada coordenada de un punto como una función dependiente
+del parámetro.
+Por ejemplo:
+
+\[ x = f(t)\]
+\[ y = g(t)\]
+
+%Here begins the 2D plot
+\begin{tikzpicture}
+\begin{axis}
+\addplot[color=red]{exp(x^2)};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+    title=Example using the mesh parameter,
+    hide axis,
+    colormap/cool,
+]
+\addplot3[
+    mesh,
+    samples=50,
+    domain=-8:8,
+]
+{sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
+\addlegendentry{\[ sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2) \]}
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
