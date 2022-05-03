@@ -1,0 +1,49 @@
+\documentclass{article} % Formatting of the template
+
+% Packages to make things easier
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[margin=2cm, top=2cm, includefoot]{geometry}
+\usepackage{graphicx} % To insert images
+\usepackage[table,xcdraw]{xcolor} % To detect colors
+\usepackage[most]{tcolorbox} % To insert color boxes with text
+\usepackage{fancyhdr} % Defines the page style
+\usepackage[hidelinks]{hyperref} % Allow us to use hyperlinks
+\usepackage{parskip} % Solves some tabulation problems
+\usepackage{smartdiagram} % Allow us to insert diagrams
+\usepackage{listings} % Allow us to insert code
+\usepackage{zed-csp} % Allow us to insert schemes or tables
+\setlength{\arrayrulewidth}{0.5mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{1.5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT VARIABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sections/paper_variables.tex}
+\input{sections/paper_colors.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT STYLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sections/styles.tex}
+
+\begin{document}
+\cfoot{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ALL THE INTRODUCTION OF THE FILE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sections/cover_page.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTERS OF THE PROJECT GOES HERE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sections/table_of_contents.tex}
+\input{sections/disclaimer.tex} % This section is optional, is should be used in enterprise documents only.
+\input{sections/antecedents.tex}
+\input{sections/objectives.tex}
+\input{sections/vulnerability_analysis.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REFERENCE SECTION 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
