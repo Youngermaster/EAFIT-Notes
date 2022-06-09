@@ -1,0 +1,55 @@
+\section{Operating Systems Interruptions}
+
+The idea is just research and implementation of some of the operating system interruptions.
+
+\subsection{What is and O.S. Interruption?}
+
+An interrupt is a signal emitted by hardware or software when a process or an event needs immediate
+attention. It alerts the processor to a high-priority process requiring interruption of the current
+working process.
+
+\subsection{Buffer overflow}
+
+A buffer overflow occurs when a program or process attempts to write more data to a fixed-length
+block of memory, or buffer, than the buffer is allocated to hold. Buffers contain a defined amount
+of data; any extra data will overwrite data values in memory addresses adjacent to the destination
+buffer.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{\BufferOverflowDiagram}
+    \caption{Buffer overflow diagram, image taken from imperva.com}
+\end{figure}
+
+\vspace{0.2cm}
+
+Now let's test it out with the language C and Rust. So we will have the following files for this
+test:
+
+\begin{itemize}
+    \item \textit{\textbf{Makefile}}, this file allow us to build or clean the project.
+    \item \textit{\textbf{avoid_memory_leaks.rs}},  this file shows an implementation of how Rust
+    handles the memory leaks.
+    \item \textit{\textbf{buffer_overflow.c}}, this file shows an implementation of how to do a
+    buffer overflow with C.
+    \item \textit{\textbf{get_memory_leaks.sh}}, this script shows if Valgrind can help us with type
+    of problems.
+\end{itemize}
+
+\begin{lstlisting}[language=C, caption=This script allow us to extract nmap generated info]
+// https://github.com/Youngermaster/ST0257-Operating-Systems/blob/main/Challenges/Challenge_1/BufferOverflow/buffer_overflow.c
+
+#include <stdio.h>
+
+int main(int argc, char const *argv[]) {
+    char *s = "hello world";
+    char c = s[20];
+    printf("%p - %p -> %d\n", &c, __builtin_frame_address(0), c);
+    printf("%p - %p -> %s\n", &s, __builtin_frame_address(0), s);
+    printf("%p - %p -> %d\n", &s[20], __builtin_frame_address(0), s[20]);
+    return 0;
+}
+\end{lstlisting}
+
+
+\clearpage
