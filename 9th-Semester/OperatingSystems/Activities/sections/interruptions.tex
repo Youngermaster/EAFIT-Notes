@@ -2,7 +2,7 @@
 
 The idea is just research and implementation of some of the operating system interruptions.
 
-\subsection{What is and O.S. Interruption?}
+\subsection{What is an O.S. Interruption?}
 
 An interrupt is a signal emitted by hardware or software when a process or an event needs immediate
 attention. It alerts the processor to a high-priority process requiring interruption of the current
@@ -18,7 +18,7 @@ buffer.
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{\BufferOverflowDiagram}
-    \caption{Buffer overflow diagram, image taken from imperva.com}
+    \caption{Buffer overflow diagram, image taken from imperva.com.}
 \end{figure}
 
 \vspace{0.2cm}
@@ -28,15 +28,45 @@ test:
 
 \begin{itemize}
     \item \textit{\textbf{Makefile}}, this file allow us to build or clean the project.
-    \item \textit{\textbf{avoid_memory_leaks.rs}},  this file shows an implementation of how Rust
-    handles the memory leaks.
-    \item \textit{\textbf{buffer_overflow.c}}, this file shows an implementation of how to do a
-    buffer overflow with C.
-    \item \textit{\textbf{get_memory_leaks.sh}}, this script shows if Valgrind can help us with type
+    \item \textit{\textbf{avoid memory leaks.rs}}, this file shows an implementation of how Rust handles the memory leaks.
+    \item \textit{\textbf{buffer overflow.c}}, this file shows an implementation of how to do a buffer overflow with C.
+    \item \textit{\textbf{get memory leaks.sh}}, this script shows if Valgrind can help us with type
     of problems.
 \end{itemize}
 
-\begin{lstlisting}[language=C, caption=This script allow us to extract nmap generated info]
+\clearpage
+
+Now let's run the following \textit{\textbf{Makefile}} with the command \textit{\textbf{make}}, and
+we should get an executable.
+
+\begin{lstlisting}[language=Make, caption=This file allow us to build or clean the project.]
+# https://github.com/Youngermaster/ST0257-Operating-Systems/blob/main/Challenges/Challenge_1/BufferOverflow/Makefile
+
+CC=gcc
+CFLAGS=-g -Wall
+EXE=buffer_overflow
+REXE=avoid_memory_leaks
+
+all: $(EXE)
+
+%: %.c
+	$(CC) $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf *.o $(EXE)
+
+rust:
+	rustc $(REXE).rs
+
+cleanRust:
+	rm -rf *.o $(REXE)
+
+\end{lstlisting}
+
+The executable is made from the following code, where we are accessing to an outbound position.
+
+\begin{lstlisting}[language=C, caption=This file shows an implementation of how to do a buffer
+    overflow with C.]
 // https://github.com/Youngermaster/ST0257-Operating-Systems/blob/main/Challenges/Challenge_1/BufferOverflow/buffer_overflow.c
 
 #include <stdio.h>
@@ -50,6 +80,29 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 \end{lstlisting}
+
+Now, after the build we run it, and we get the following output:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{\BufferOverflowExample}
+    \caption{Screenshot of the commands made in the terminal and the results.}
+\end{figure}
+
+We get the word \textit{"hello world"}, however, as we can see we got a random number, in this case
+the number \textit{45}. And what is the problem with that? The problem is that we are able to access
+to a random memory value, due to security issues and/or unexpected behaviours, imageine an airplane
+crash due to a little calculus modified by a Buffer Overflow.
+
+\subsection{Heap Memory Leak}
+
+Memory leak occurs when programmers create a memory in heap and forget to delete it. The
+consequences of memory leak is that it reduces the performance of the computer by reducing the
+amount of available memory. Eventually, in the worst case, too much of the available memory may
+become allocated and all or part of the system or device stops working correctly, the application
+fails, or the system slows down vastly.
+
+
 
 
 \clearpage
