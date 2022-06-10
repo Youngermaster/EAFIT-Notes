@@ -94,6 +94,48 @@ the number \textit{45}. And what is the problem with that? The problem is that w
 to a random memory value, due to security issues and/or unexpected behaviours, imageine an airplane
 crash due to a little calculus modified by a Buffer Overflow.
 
+\subsubsection{How can we avoid it?}
+
+We have some options, but right now the most common are those two:
+
+\begin{itemize}
+    \item We should pay attention to our C programs memory management.
+    \item We can use another languages that solves that problem, using \textit{Garbage Collectors},
+    \textit{Borrowing and checkers}, etc.
+\end{itemize}
+
+Maybe a \textit{Garbage Collector} approach is not a bad idea, however if we want maximum
+performance just maybe that is not the right path. Now let's check the \textit{Borrowing and checkers}
+option with the language \textit{Rust}. Now let's run the following code with the command
+\textit{rustc ourRustFile.rs}
+
+
+\begin{lstlisting}[language=C++, caption=This file shows an implementation of how Rust handles the
+    memory leaks.]
+// https://github.com/Youngermaster/ST0257-Operating-Systems/blob/main/Challenges/Challenge_1/BufferOverflow/avoid_memory_leaks.rs
+
+fn main() {
+    // Fixed-size array (type signature is superfluous)
+    let xs: [i32; 5] = [1, 2, 3, 4, 5];
+
+    // Indexing starts at 0
+    println!("first element of the array: {}", xs[0]);
+
+    // ! Rust compilation will break this code inmediately!
+    println!("first element of the array: {}", xs[20]);
+}
+\end{lstlisting}
+
+And there is and interesting output, even if the \textit{C} language allowed us to get a memory
+value far from our scope, although \textit{Rust} before compilation does not allow us to compile
+\textit{"bad code"}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{\BufferOverflowExampleTwo}
+    \caption{Screenshot of the commands made in the terminal and the results of the Rust code.}
+\end{figure}
+
 \subsection{Heap Memory Leak}
 
 Memory leak occurs when programmers create a memory in heap and forget to delete it. The
@@ -102,6 +144,14 @@ amount of available memory. Eventually, in the worst case, too much of the avail
 become allocated and all or part of the system or device stops working correctly, the application
 fails, or the system slows down vastly.
 
+Now let's test it out with the language C. So we will have the following files for this test:
+
+\begin{itemize}
+    \item \textit{\textbf{Makefile}}, this file allow us to build or clean the project.
+    \item \textit{\textbf{buffer overflow.c}}, this file shows an implementation of how to do a buffer overflow with C.
+    \item \textit{\textbf{get memory leaks.sh}}, this script shows if Valgrind can help us with type
+    of problems.
+\end{itemize}
 
 
 
