@@ -60,7 +60,6 @@ rust:
 
 cleanRust:
 	rm -rf *.o $(REXE)
-
 \end{lstlisting}
 
 The executable is made from the following code, where we are accessing to an outbound position.
@@ -152,6 +151,48 @@ Now let's test it out with the language C. So we will have the following files f
     \item \textit{\textbf{get memory leaks.sh}}, this script shows if Valgrind can help us with type
     of problems.
 \end{itemize}
+
+Now let's run the following \textit{\textbf{Makefile}} with the command \textit{\textbf{make}}, and
+we should get an executable.
+
+\begin{lstlisting}[language=Make, caption=This file allow us to build or clean the project.]
+# https://github.com/Youngermaster/ST0257-Operating-Systems/blob/main/Challenges/Challenge_1/HeapMemoryLeak/Makefile
+CC=gcc
+CFLAGS=-g -Wall
+EXE=memory_leak
+
+all: $(EXE)
+
+%: %.c
+	$(CC) $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf *.o $(EXE)
+\end{lstlisting}
+
+The executable is made from the following code, where we get a memory leak.
+
+\begin{lstlisting}[language=C, caption=This file shows an implementation of how to do a implement a
+    memory leak with C.]
+// https://github.com/Youngermaster/ST0257-Operating-Systems/blob/main/Challenges/Challenge_1/HeapMemoryLeak/memory_leak.c
+
+#include <stdlib.h>
+
+void f(void) {
+	int* x = malloc(10 * sizeof(int));
+	x[10] = 0;        // problem 1: heap block overrun
+}                    // problem 2: memory leak -- x not freed
+
+int main(void) {
+	f();
+	return 0;
+}
+\end{lstlisting}
+
+Now, after the build we run it, and we got 0 errors. So what is the problem? Well, the problem is
+that wen we are programming we are not freeing that memory, if our codebase grows, there is a chance
+to slow down a lot our program.
+
 
 
 
