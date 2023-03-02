@@ -25,14 +25,48 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teoremas/Teorema 6.2.2.md",
+                "file": "6.2 Propiedades de conjuntos.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "8deaf335f6b7f109",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "7.1 Funciones definidas sobre conjuntos generales.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "25e64127baba92a3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Teoremas/Teorema 7.1.1.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5bc46664c81e9b49",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Ejemplo-Definicion-de-Funcion.excalidraw.md"
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +132,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teoremas/Teorema 6.2.2.md",
+                "file": "7.1 Funciones definidas sobre conjuntos generales.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +149,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teoremas/Teorema 6.2.2.md",
+                "file": "7.1 Funciones definidas sobre conjuntos generales.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +172,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teoremas/Teorema 6.2.2.md"
+                "file": "7.1 Funciones definidas sobre conjuntos generales.md"
               }
             }
           }
@@ -161,15 +195,18 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "c49784119b1fe088",
+  "active": "8deaf335f6b7f109",
   "lastOpenFiles": [
-    "6.3 Refutaciones y demostraciones algebraicas.md",
-    "Excalidraw/Drawing 2023-03-02 10.57.46.excalidraw.md",
+    "Teoremas/Teorema 7.1.1.md",
+    "7.1 Funciones definidas sobre conjuntos generales.md",
     "6.2 Propiedades de conjuntos.md",
     "Teoremas/Teorema 6.2.2.md",
+    "6.3 Refutaciones y demostraciones algebraicas.md",
+    "Excalidraw/Ejemplo-Definicion-de-Funcion.excalidraw.md",
+    "Excalidraw",
+    "Excalidraw/Drawing 2023-03-02 10.57.46.excalidraw.md",
     "Teoremas",
     "Excalidraw/Drawing 2023-03-02 10.57.46.excalidraw.png",
-    "Excalidraw",
     "6.3 Refutaciones y demostraciones algebraicas",
     "6.2 Propiedades de conjuntos",
     "6.1",
