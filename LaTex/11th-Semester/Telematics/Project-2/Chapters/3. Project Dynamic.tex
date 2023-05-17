@@ -1,3 +1,73 @@
 \section{Proyecto Dinámico}
 
-Stuff.
+\subsection{OSPF}
+
+En este proyecto, uno de los aspectos fundamentales para garantizar la robustez
+y la escalabilidad de nuestra infraestructura de red es la implementación de
+una estrategia de enrutamiento eficiente. A lo largo de este trabajo, hemos
+enfatizado la importancia del VLSM y el subnetting en el diseño de nuestra red.
+Sin embargo, para añadir una capa adicional de eficiencia y flexibilidad, hemos
+optado por implementar el Protocolo de Estado de Enlace Abierto
+(Open Shortest Path First, OSPF).
+\\
+
+OSPF es un protocolo de enrutamiento de estado de enlace, que es especialmente
+adecuado para redes de gran tamaño, como la que estamos diseñando para esta
+empresa multinacional. Al combinarlo con nuestra estrategia de VLSM y
+subnetting, y dada nuestra topología de red en estrella y el esperado alto
+volumen de tráfico de la página web de la empresa, OSPF se presenta como una
+solución ideal para gestionar eficazmente el tráfico de red y asegurar una
+conectividad ininterrumpida.
+\\
+
+La importancia de OSPF en este proyecto radica en su capacidad para determinar
+la ruta más corta y menos congestionada para el envío de paquetes de datos en
+la red. Esto se logra mediante el algoritmo de Dijkstra, que OSPF utiliza para
+calcular las rutas más eficientes. Esta capacidad es particularmente relevante
+dada la estructura de nuestra red, que conecta todas las sedes de la empresa a
+un nodo central, en este caso, la sede principal en Bogotá.
+\\
+
+Además, OSPF es un protocolo de enrutamiento dinámico, lo que significa que es
+capaz de adaptarse rápidamente a los cambios en la red. En caso de un fallo de
+red o un cambio en la topología de la red, OSPF puede ajustar rápidamente las
+rutas de los paquetes de datos para evitar la interrupción de la conectividad.
+Esta capacidad de recuperación y adaptabilidad, combinada con la flexibilidad
+proporcionada por VLSM y subnetting, es esencial para mantener la disponibilidad
+del sitio web de la empresa y garantizar un rendimiento óptimo,
+independientemente del volumen de tráfico.
+\\
+
+En las siguientes secciones, detallaré cómo hemos implementado OSPF en nuestra
+infraestructura de red, y cómo esta decisión, en combinación con el uso de VLSM
+y subnetting, contribuye a los objetivos de robustez, escalabilidad y
+eficiencia de nuestro diseño de red. Estamos convencidos de que, con la
+implementación de OSPF, estaremos mejor equipados para enfrentar los desafíos
+que presenta la gestión de una red de gran tamaño y alto tráfico.
+
+\subsection{Implementación}
+
+Como ya se sabe, nuestra infraestructura de red se basa en una topología de
+estrella, donde la ciudad de Bogotá actúa como el nodo central o router
+principal. Desde Bogotá, las conexiones se extienden a través de cables seriales
+hacia las demás ciudades, que incluyen Medellín, Barranquilla, Rionegro, Cali,
+Popayán, entre otras, mientras que las conexiones internas se gestionan mediante
+cables ethernet.
+\\
+
+Es importante destacar que, a pesar de estar interconectados, cada uno de los
+routers tiene un direccionamiento de red único. Este diseño incorpora un total
+de 7 switches, cada uno de los cuales está conectado a 3 clientes, lo que suma
+un total de 21 clientes en toda la red.
+\\
+
+Para cada router, asignamos una dirección IP y su correspondiente máscara de
+subred. Con estas configuraciones, la puerta de enlace predeterminada
+corresponde a la dirección IP configurada en los routers. Los switches, por otro
+lado, actúan como puntos de conexión y, por lo tanto, no requieren configuraciones adicionales.
+\\
+
+Realizamos la configuración de los routers, específicamente el modelo 1841, a
+través de la terminal. Asimismo, fue necesario añadir dos interfaces seriales a
+la configuración de la interfaz web para garantizar una comunicación efectiva en
+toda la red.

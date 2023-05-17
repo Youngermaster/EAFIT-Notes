@@ -2,50 +2,123 @@
 
 \subsection{VLSM}
 
-Ahora bien, antes de comenzar a desarrollar e implementar nuestra solución,
-lo mejor es definir completamente la infraestructura y primero usaremos
-VLSM \textit{(Variable Length Subnet Mask)}. Entonces en la siguiente sección,
-nos centraremos en un componente crítico de la gestión de redes: el Subneteo de
-Longitud de Máscara Variable \textit{(Variable Length Subnet Masking, VLSM)}.
+Ahora bien, antes de comenzar a desarrollar e implementar nuestra solución, es
+esencial definir completamente la infraestructura. Para esto, utilizaremos
+VLSM (Variable Length Subnet Mask) y técnicas de subnetting. En la siguiente
+sección, nos centraremos en dos componentes críticos de la gestión de redes:
+el Subneteo de Longitud de Máscara Variable
+(Variable Length Subnet Masking, VLSM) y el Subnetting.
 \\
 
-VLSM es una técnica que permite dividir eficientemente el espacio de
-direcciones IP en subredes de diferentes tamaños, según las necesidades
-específicas de cada subred. Es una mejora significativa respecto al subneteo de
-longitud de máscara fija, que obliga a todas las subredes a ser del mismo
-tamaño, lo que puede resultar en una utilización ineficiente del espacio de
-direcciones IP.
+
+En el contexto de nuestro proyecto, tanto VLSM como el Subnetting son esenciales
+por diversas razones. Utilizamos VLSM principalmente para los routers. Esta
+técnica nos permite maximizar el uso del espacio de direcciones IP asignado a
+la empresa.
 \\
 
-En el contexto de nuestro proyecto, VLSM es esencial por varias razones.
-Primero, nos permite maximizar el uso del espacio de direcciones IP asignado a
-la empresa. Dado que las diferentes sedes y departamentos de la empresa pueden
-tener diferentes necesidades en términos de cantidad de hosts requeridos, el uso
-de VLSM nos permite asignar el espacio de direcciones de manera eficiente, 
-minimizando el desperdicio.
+
+Por otro lado, para el resto de la red, recurrimos al subnetting para crear
+subredes que se ajusten a las necesidades específicas de cada sede o
+departamento. Esta estrategia puede mejorar el rendimiento de la red al reducir
+la cantidad de tráfico de enrutamiento innecesario, y al mismo tiempo, nos
+permite aplicar políticas de seguridad más granulares, mejorando así la
+seguridad de la red.
 \\
 
-En segundo lugar, VLSM puede mejorar el rendimiento de la red al reducir la
-cantidad de tráfico de enrutamiento innecesario. Al diseñar subredes que se
-ajusten a las necesidades específicas de cada sede o departamento, podemos
-minimizar la cantidad de tráfico de red que necesita ser enrutado a través de la
-red principal, lo que a su vez puede mejorar el rendimiento general de la red.
+Finalmente, la combinación de VLSM y subnetting es una herramienta poderosa que
+nos permite diseñar e implementar una red que es eficiente, segura y capaz de
+satisfacer las necesidades específicas de la empresa.
 \\
 
-Finalmente, el uso de VLSM puede ayudar a mejorar la seguridad de la red. Al
-segmentar la red en subredes de diferentes tamaños, podemos aplicar políticas
-de seguridad más granulares, lo que nos permite tener un control más preciso
-sobre quién puede acceder a qué partes de la red.
-\\
+Ahora bien, tenemos 7 redes de oficinas y 6 redes \textit{WAN}. En teoría se
+podrían hacer con 8 subredes dejando la última subred con VLSM. Ahora bien, es
+bueno tener en cuenta que:
 
-En resumen, VLSM es una herramienta poderosa que nos permite diseñar e
-implementar una red que es eficiente, segura y capaz de satisfacer las
-necesidades específicas de la empresa (del ejercicio). En las siguientes
-páginas, detallaremos cómo implementaremos VLSM en el diseño de nuestra red.
-\\
+\begin{itemize}
+    \item \(2^3 = 8\), Red \(\rightarrow\) IP privada \textbf{clase B}.
+    \item \(2^4 = 16\), máscara de 16.
+    \item Haremos 8 subredes y la última le haremos VLSM.
+\end{itemize}
 
-Ahora bien, tenemos 7 redes de oficinas
+En la siguiente tabla, \cref{table: subnetting 1}, \textbf{Usaremos la IP \(132.18.0.0/16\)}
+para realizar el subnetting.
 
+\begin{table}[ht]
+\rowcolors{2}{EAFIT-blue!10}{white}
+\centering
+\caption{Subnetting usando la IP \(132.18.0.0/16\).}
+\begin{tabular}[t]{ccccc}
+\toprule
+\color{EAFIT-blue}\textbf{Subred}&\color{EAFIT-blue}\textbf{Dirección de Broadcast}&\color{EAFIT-blue}\textbf{Interavalo de direcciones}\\
+\midrule
+\(132.18.0.0\)&\(132.18.31.255\)&\(132.18.0.1 - 132.18.31.254\)\\
+\(132.18.32.0\)&\(132.18.63.255\)&\(132.18.32.1 - 132.18.63.254\)\\
+\(132.18.64.0\)&\(132.18.95.255\)&\(132.18.64.1 - 132.18.95.254\)\\
+\(132.18.96.0\)&\(132.18.127.255\)&\(132.18.86.1 - 132.18.127.254\)\\
+\(132.18.128.0\)&\(132.18.159.255\)&\(132.18.128.1 - 132.18.159.254\)\\
+\(132.18.160.0\)&\(132.18.191.255\)&\(132.18.160.1 - 132.18.191.254\)\\
+\(132.18.192.0\)&\(132.18.223.255\)&\(132.18.192.1 - 132.18.223.254\)\\
+\(132.18.224.0\)&\(132.18.255.255\)&\(132.18.224.1 - 132.18.255.254\)\\
+\bottomrule
+\end{tabular}
+\label{table: subnetting 1}
+\end{table}
+
+En la siguiente tabla, \cref{table: VLSM WAN}, realizaremos el VLSM para las 
+redes WAN. Es bueno tener en cuenta que:
+
+\begin{itemize}
+    \item Máscara \(30 \rightarrow 255.255.255.252 \).
+    \item IP \(\rightarrow 132.18.224.0 \).
+\end{itemize}
+
+\begin{table}[ht]
+\rowcolors{2}{EAFIT-blue!10}{white}
+\centering
+\caption{VLSM para las redes WAN con la IP \(132.18.224.0\).}
+\begin{tabular}[t]{ccccc}
+\toprule
+\color{EAFIT-blue}\textbf{Subred}&\color{EAFIT-blue}\textbf{Dirección de Broadcast}&\color{EAFIT-blue}\textbf{Interavalo de direcciones}\\
+\midrule
+\(132.18.224.0\)&\(132.18.224.3\)&\(132.18.224.1 - 132.18.224.2\)\\
+\(132.18.224.4\)&\(132.18.224.7\)&\(132.18.224.5 - 132.18.224.6\)\\
+\(132.18.224.8\)&\(132.18.224.11\)&\(132.18.224.9 - 132.18.224.10\)\\
+\(132.18.224.12\)&\(132.18.224.15\)&\(132.18.224.13 - 132.18.224.14\)\\
+\(132.18.224.16\)&\(132.18.224.19\)&\(132.18.224.17 - 132.18.224.18\)\\
+\(132.18.224.20\)&\(132.18.224.23\)&\(132.18.224.21 - 132.18.224.22\)\\
+\(132.18.224.24\)&\(132.18.224.27\)&\(132.18.224.25 - 132.18.224.26\)\\
+\(132.18.224.28\)&\(132.18.224.31\)&\(132.18.224.29 - 132.18.224.30\)\\
+\(132.18.224.32\)&\(132.18.224.35\)&\(132.18.224.33 - 132.18.224.34\)\\
+\(132.18.224.36\)&\(132.18.224.39\)&\(132.18.224.37 - 132.18.224.38\)\\
+\bottomrule
+\end{tabular}
+\label{table: VLSM WAN}
+\end{table}
+
+\newpage
 \subsection{Implementación}
 
-Ahora bien, para implementarlo realizamos lo siguiente:
+Ahora bien, para implementarlo como se mencionó anteriormente tenemos una
+topología de estrella en donde nos encontramos con una ciudad o router
+principal el cual es Bogotá, que de este se deriva por medio de un
+\textbf{cable serial} las demás ciudades las cuales son Medellín, Barranquilla,
+Río negro, Cali, Popayán y las demás están conectados por un
+\textbf{cable ethernet}. Con esto también debemos aclarar que cada una de las
+redes tiene un direccionamiento diferente a pesar de que los \textbf{routers}
+estén unidos. Contamos con \textbf{7 switches} conectados a 3 clientes cada uno,
+lo que nos da un total de 21 clientes en todo el esquema de red.
+\\
+
+Después lo que hicimos fue agregar el esquema a los \textbf{routers}, que en
+este caso usamos el \textbf{2950}, también poner la \textbf{tarjeta ethernet},
+y hacer este mismo proceso con todos los \textbf{routers}. Después de esto, se
+tiene que conectar los \textbf{switches} por medio de \textbf{ethernet}, y el
+resto por serial, y así mismo configurar cada uno, en este caso configuramos
+los \textbf{routers} con \textbf{Ethernet/0}, y los \textbf{switches} en
+\textbf{serial0/1}.
+
+Después de esto lo que hacemos es que en cada \textbf{router} le asignamos las
+rutas estáticas, ósea, asignarle la red remota y su dirección IP a la cual se le
+enviaran los paquetes hacia otra red, y por último activar/encender el puerto
+(\textbf{On}).
