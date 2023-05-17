@@ -1,3 +1,51 @@
 \section{Proyecto Estático}
 
-Stuff.
+\subsection{VLSM}
+
+Ahora bien, antes de comenzar a desarrollar e implementar nuestra solución,
+lo mejor es definir completamente la infraestructura y primero usaremos
+VLSM \textit{(Variable Length Subnet Mask)}. Entonces en la siguiente sección,
+nos centraremos en un componente crítico de la gestión de redes: el Subneteo de
+Longitud de Máscara Variable \textit{(Variable Length Subnet Masking, VLSM)}.
+\\
+
+VLSM es una técnica que permite dividir eficientemente el espacio de
+direcciones IP en subredes de diferentes tamaños, según las necesidades
+específicas de cada subred. Es una mejora significativa respecto al subneteo de
+longitud de máscara fija, que obliga a todas las subredes a ser del mismo
+tamaño, lo que puede resultar en una utilización ineficiente del espacio de
+direcciones IP.
+\\
+
+En el contexto de nuestro proyecto, VLSM es esencial por varias razones.
+Primero, nos permite maximizar el uso del espacio de direcciones IP asignado a
+la empresa. Dado que las diferentes sedes y departamentos de la empresa pueden
+tener diferentes necesidades en términos de cantidad de hosts requeridos, el uso
+de VLSM nos permite asignar el espacio de direcciones de manera eficiente, 
+minimizando el desperdicio.
+\\
+
+En segundo lugar, VLSM puede mejorar el rendimiento de la red al reducir la
+cantidad de tráfico de enrutamiento innecesario. Al diseñar subredes que se
+ajusten a las necesidades específicas de cada sede o departamento, podemos
+minimizar la cantidad de tráfico de red que necesita ser enrutado a través de la
+red principal, lo que a su vez puede mejorar el rendimiento general de la red.
+\\
+
+Finalmente, el uso de VLSM puede ayudar a mejorar la seguridad de la red. Al
+segmentar la red en subredes de diferentes tamaños, podemos aplicar políticas
+de seguridad más granulares, lo que nos permite tener un control más preciso
+sobre quién puede acceder a qué partes de la red.
+\\
+
+En resumen, VLSM es una herramienta poderosa que nos permite diseñar e
+implementar una red que es eficiente, segura y capaz de satisfacer las
+necesidades específicas de la empresa (del ejercicio). En las siguientes
+páginas, detallaremos cómo implementaremos VLSM en el diseño de nuestra red.
+\\
+
+Ahora bien, tenemos 7 redes de oficinas
+
+\subsection{Implementación}
+
+Ahora bien, para implementarlo realizamos lo siguiente:
