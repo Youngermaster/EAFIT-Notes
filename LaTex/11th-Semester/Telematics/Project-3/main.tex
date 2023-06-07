@@ -1,0 +1,43 @@
+\documentclass[a4paper, table]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\decimalpoint
+\input{General/Preamble} % Loads in the preamble 
+\input{General/Settings} % Loads in user defined settings
+\begin{document}
+
+% Inserts the front page
+\input{Chapters/0. Frontpage}
+\newpage
+
+% Generates a ToC without page number
+{\hypersetup{linkcolor=black} % Keeps the ToC black even with non-black linkcolor
+\tableofcontents\thispagestyle{empty}}
+\newpage
+
+% contains the introduction
+\input{Chapters/1. Introduction.tex} \pagenumbering{arabic}
+\newpage
+
+% contains the project, but the static mode
+\input{Chapters/2. Development.tex}
+\newpage
+
+% contains the project, but the static mode
+\input{Chapters/3. Project Dynamic.tex}
+\newpage
+
+% contains the conclusion of the project
+\input{Chapters/4. Conclusions.tex}
+\newpage
+
+% contains inspiration for formatting tables, images, text citations etc.
+% \input{Chapters/Z. Template.tex}
+% \newpage
+
+% Creates references using the Biblatex 
+\bibliographystyle{plain}
+\bibliography{General/References.bib}
+\newpage
+
+\end{document}
