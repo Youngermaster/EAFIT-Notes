@@ -1,17 +1,22 @@
 \section{Conclusiones}
 
-Para concluir, el diseño e implementación de la infraestructura de red para esta
-empresa multinacional ha sido un proyecto desafiante pero sumamente
-gratificante. Hemos logrado conceptualizar y poner en práctica una solución
-robusta y escalable que no solo satisface las necesidades actuales de la
-empresa, sino que también está preparada para adaptarse a su crecimiento futuro.
+
+El proyecto ha proporcionado una plataforma invaluable para desarrollar
+habilidades esenciales en el diseño e implementación de redes de área local,
+enfocándose particularmente en los aspectos de conmutación y enrutamiento. El
+éxito del proyecto es una clara demostración de la capacidad de diseñar e
+implementar una infraestructura de red compleja, que es una habilidad esencial
+en la era digital actual.
 \\
 
-La implementación de la topología de red en estrella ha proporcionado una
-estructura confiable y eficiente para la gestión del tráfico de red. Al conectar
-todas las sedes a un nodo central, hemos asegurado una comunicación fluida entre
-todas las localidades, y la flexibilidad inherente a esta arquitectura nos
-permitirá expandir y adaptar la red a medida que la empresa continúe creciendo.
+Por un lado, hemos diseñado y desplegado una arquitectura de red de tres capas
+en Bogotá y una arquitectura Core/Collapsed en Medellín, proporcionando
+valiosos aprendizajes sobre la implementación de diversas arquitecturas de red
+y su impacto en la capacidad de manejo de tráfico de la red y la conectividad
+entre localidades. El diseño e implementación de estas arquitecturas de red han
+brindado una comprensión más profunda de los conceptos de conmutación,
+esenciales para el funcionamiento efectivo de cualquier red.
+
 
 \begin{figure}[H]
     \centering
@@ -20,74 +25,37 @@ permitirá expandir y adaptar la red a medida que la empresa continúe creciendo
     \label{fig: Topologia Completa de la red}
 \end{figure}
 
-Además, el despliegue de la página web de la empresa en un clúster de servidores
-web ha permitido manejar eficazmente un alto volumen de tráfico, garantizando un
-rendimiento óptimo y una alta disponibilidad del sitio web. Esta solución ofrece
-una gran tolerancia a fallos y permite ajustar los recursos de acuerdo con la
-demanda, asegurando que la empresa pueda mantenerse al día con las necesidades
-cambiantes de sus clientes.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Figures/4. Conclusions/web_page.png}
-    \caption{Página web desplegada}
-    \label{fig: deployed web page}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Figures/4. Conclusions/internet_simulation.png}
-    \caption{Simulación de acceso a internet}
-    \label{fig: internet simulation}
-\end{figure}
-
-Además, la implementación de VLSM ha sido esencial para maximizar el uso del
-espacio de direcciones IP y mejorar el rendimiento y la seguridad de la red. Al
-permitir una asignación más eficiente del espacio de direcciones y políticas de
-seguridad más granulares, VLSM ha demostrado ser una herramienta poderosa para
-la gestión de redes.
+Por otro lado, al implementar el esquema de direccionamiento VLSM y el
+protocolo de enrutamiento OSPF, hemos obtenido una experiencia práctica en el
+manejo de técnicas de enrutamiento, que son cruciales para dirigir el tráfico
+de red de manera eficiente. Esta experiencia práctica en enrutamiento ha
+proporcionado una comprensión más profunda de cómo se maneja el tráfico de red,
+permitiendo una mayor optimización y eficiencia en el diseño de redes.
 \\
 
-En una sección crucial de este proyecto, implementamos el Protocolo de Estado de
-Enlace Abierto (Open Shortest Path First, OSPF) como nuestro protocolo de
-enrutamiento dinámico. OSPF es un protocolo de enrutamiento de estado de enlace
-que es ampliamente utilizado en redes de gran escala debido a su eficiencia,
-escalabilidad y capacidad para recuperarse rápidamente ante fallos de red.
+Además, otro aspecto fundamental de este proyecto fue la implementación de
+Network Address Translation (NAT). NAT es crucial para conservar el espacio de
+direcciones IP y también para proporcionar seguridad adicional a la red interna.
+En nuestro caso, lo utilizamos para permitir que los diversos nodos de la red se
+comuniquen con Internet, utilizando una dirección IP pública. Esto no sólo
+preservó nuestras direcciones IP internas, sino que también permitió a los
+nodos de la red acceder a recursos en Internet de manera eficiente. La
+implementación exitosa de NAT proporcionó una experiencia práctica valiosa en
+esta técnica esencial de enrutamiento y destacó su importancia en el diseño e
+implementación de redes de área local.
 \\
 
-La adopción de OSPF en nuestra infraestructura de red presenta varias ventajas
-significativas. En primer lugar, OSPF es un protocolo de enrutamiento sin clase,
-lo que significa que es compatible con VLSM y CIDR, permitiéndonos aprovechar
-al máximo el espacio de direcciones IP disponible y mejorar la eficiencia de la
-red.
+En términos de aprendizaje y desarrollo de habilidades, este proyecto ha sido
+inmensamente provechoso. Ha permitido aplicar conocimientos teóricos en un
+escenario práctico y realista, y ha demostrado que la teoría puede traducirse
+en prácticas de red eficaces y eficientes. Como resultado, estamos en una mejor
+posición para abordar futuros desafíos de diseño e implementación de redes.
 \\
 
-En segundo lugar, OSPF utiliza el algoritmo de Dijkstra para calcular la ruta
-más corta a través de una red, lo que resulta en una gestión de tráfico
-eficiente y efectiva. Este enfoque también garantiza una rápida convergencia de
-la red en caso de fallos o cambios en la topología de la red, ya que cualquier
-cambio en la topología se propaga rápidamente a través de la red.
-\\
-
-Además, OSPF admite el equilibrio de carga en múltiples rutas de igual costo, lo
-que puede aumentar la disponibilidad y redundancia de la red. Esto es
-especialmente útil en nuestra implementación, ya que nos permite manejar grandes
-volúmenes de tráfico web de manera eficiente.
-\\
-
-Finalmente, OSPF es un protocolo de enrutamiento de código abierto, lo que
-significa que no estamos atados a un proveedor específico de hardware de red y
-tenemos una gran flexibilidad para adaptar y ajustar la configuración de la red
-a nuestras necesidades específicas.
-\\
-
-Por lo tanto, la implementación de OSPF ha sido un componente clave para
-asegurar una red robusta, resiliente y eficiente.
-\\
-
-En resumen, este proyecto ha sido un ejemplo de cómo un diseño de red cuidadoso
-y una implementación eficaz pueden ayudar a una empresa a satisfacer sus
-necesidades de conectividad, mejorar su rendimiento y asegurar su futuro
-crecimiento. Estamos orgullosos de lo que hemos logrado y confiamos en que esta
-infraestructura de red servirá bien a la empresa (del ejercicio) en los años 
-venideros.
+En resumen, al final de este proyecto, no solo hemos entregado una red funcional
+y robusta, sino que también hemos adquirido y perfeccionado habilidades
+esenciales en el diseño e implementación de redes de área local, con un enfoque
+particular en la conmutación y el enrutamiento. Estas habilidades y
+conocimientos serán valiosos para afrontar futuros desafíos en el campo de las
+redes.
