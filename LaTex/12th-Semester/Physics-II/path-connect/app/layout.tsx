@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 export const metadata: Metadata = {
   title: {
@@ -31,7 +33,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <>
+    <DndProvider backend={HTML5Backend}>
       <html lang="en" suppressHydrationWarning>
         <head />
         <body
@@ -42,6 +44,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="relative flex min-h-screen flex-col">
+              Pene
               <SiteHeader />
               <div className="flex-1">{children}</div>
             </div>
@@ -49,6 +52,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </ThemeProvider>
         </body>
       </html>
-    </>
-  )
+    </DndProvider>
+  );
 }
