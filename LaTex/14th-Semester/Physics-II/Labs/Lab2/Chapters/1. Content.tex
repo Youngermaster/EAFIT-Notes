@@ -113,9 +113,45 @@ tabla:}
 \end{figure}
 
 \subsubsection{¿Cuál es la ecuación del gráfico?}
+
+La ecuación de la recta ajustada a los datos, según la gráfica, es:
+\[
+E = 18.653 \cdot \left(\frac{1}{r^2}\right) - 12.443
+\]
+donde:
+\begin{itemize}
+    \item \( E \) es el campo eléctrico en kV/m.
+    \item \( \frac{1}{r^2} \) es el inverso del cuadrado de la distancia en m\(^2\).
+\end{itemize}
+
 \subsubsection{¿Qué significado físico tienen la pendiente y el intercepto de la recta de ajuste
 por mínimos cuadrados?}
+\begin{itemize}
+    \item \textbf{Pendiente (18.653 kV·m\(^2\)):} La pendiente de la recta en una gráfica de \( E \) versus \( \frac{1}{r^2} \) está relacionada con la constante de proporcionalidad en la ley de Coulomb, es decir, \( k \cdot Q \), donde \( k \) es la constante de Coulomb y \( Q \) es la carga de la fuente. En este caso, la pendiente nos da una medida de \( k \cdot Q \), ajustada a las unidades del sistema de medición.
+    \item \textbf{Intercepto (-12.443 kV/m):} El intercepto idealmente debería ser cero según la ley teórica de Coulomb, ya que \( E \) debería ser cero cuando \( r \) tiende a infinito (\(\frac{1}{r^2} = 0\)). Un intercepto negativo puede indicar una desviación en la calibración del instrumento o la presencia de un campo eléctrico de fondo.
+\end{itemize}
+
 \subsubsection{¿Qué unidades tienen la pendiente y el intercepto de la recta de ajuste?}
+\begin{itemize}
+    \item \textbf{Unidades de la Pendiente:} Las unidades de la pendiente son kV·m\(^2\), lo cual es consistente con la forma de la ecuación \( E = k \frac{Q}{r^2} \), donde \( E \) está en kV/m y \( \frac{1}{r^2} \) en m\(^{-2}\).
+    \item \textbf{Unidades del Intercepto:} Las unidades del intercepto son kV/m, que son las mismas unidades que las del campo eléctrico \( E \).
+\end{itemize}
 
 \section{Causas de Error}
+Las principales causas de error en este experimento podrían incluir:
+\begin{itemize}
+    \item Errores en la calibración del medidor de campo eléctrico que podrían haber afectado la precisión de las mediciones.
+    \item Influencias externas como campos electromagnéticos no controlados en el laboratorio que podrían haber interferido con las mediciones.
+    \item Inexactitudes en la medición de distancias que podrían haber introducido variaciones en los resultados.
+    \item No alinear perfectamente el sensor con el centro de la esfera cargada, lo que podría alterar los valores medidos.
+    \item La pérdida de carga de la esfera durante el experimento debido a condiciones ambientales como la humedad o aislamiento inadecuado.
+\end{itemize}
+
 \section{Conclusiones}
+A partir del experimento realizado, se pueden extraer las siguientes conclusiones:
+\begin{itemize}
+    \item El experimento demostró efectivamente la presencia de cargas eléctricas en diferentes materiales y cómo estas se manifiestan al interactuar con su entorno.
+    \item Se observaron y confirmaron dos tipos fundamentales de interacciones eléctricas: la atracción entre cargas opuestas y la repulsión entre cargas iguales.
+    \item Las mediciones del campo eléctrico corroboraron la relación inversamente proporcional entre el campo eléctrico y el cuadrado de la distancia a la fuente de carga, proporcionando una validación empírica robusta de la Ley de Coulomb.
+    \item Los resultados experimentales, alineados estrechamente con los principios teóricos, refuerzan la comprensión de las leyes fundamentales de la electrostática y su aplicabilidad en contextos reales.
+\end{itemize}
