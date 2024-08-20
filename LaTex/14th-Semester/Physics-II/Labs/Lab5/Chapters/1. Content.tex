@@ -169,21 +169,138 @@ Las resistencias y condensadores equivalentes permiten simplificar el análisis 
 \textbf{¿Por qué los amperímetros deben conectarse en serie en el circuito?}
 Los amperímetros deben conectarse en serie para poder medir la totalidad de la corriente que fluye a través del circuito. Si se conectaran de otra manera, como en paralelo, podrían cortocircuitar el circuito en el punto de medición o no medir correctamente la corriente que pasa por otros componentes del circuito.
 
+\section{Procedimiento Experimental y Resultados: Montaje 3 Simulaciones en TinkerCad}
+
+\subsection{Conexiones en Serie}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/serie.png}
+      \captionof{figure}{Simulación Conexión en Serie}
+      \label{fig: Simulacion Conexion Serie}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/serieA1.png}
+      \captionof{figure}{Simulación Conexión en Serie $I_{R_1-R_2}$}
+      \label{fig: Simulacion Conexion Serie A1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/serieA2.png}
+      \captionof{figure}{Simulación Conexión en Serie $I_{R_4-R_5}$}
+      \label{fig: Simulacion Conexion Serie A2}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/serieV1.png}
+      \captionof{figure}{Simulación Conexión en Serie $V_{R_4}$}
+      \label{fig: Simulacion Conexion Serie V1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/serieV2.png}
+      \captionof{figure}{Simulación Conexión en Serie $V_{R_5}$}
+      \label{fig: Simulacion Conexion Serie V2}
+    \end{minipage}
+\end{figure}
+
+\subsection{Conexiones en Paralelo}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/paralelo.png}
+      \captionof{figure}{Simulación Conexión en Paralelo}
+      \label{fig: Simulacion Conexion Paralelo}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/paraleloA.png}
+      \captionof{figure}{Simulación Conexión en Paralelo en nodo $a$}
+      \label{fig: Simulacion Conexion Paralelo A}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/paraleloB.png}
+      \captionof{figure}{Simulación Conexión en Paralelo en nodo $b$}
+      \label{fig: Simulacion Conexion Paralelo B}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/paraleloC.png}
+      \captionof{figure}{Simulación Conexión en Paralelo en nodo $c$}
+      \label{fig: Simulacion Conexion Paralelo C}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/paraleloD.png}
+      \captionof{figure}{Simulación Conexión en Paralelo en nodo $d$}
+      \label{fig: Simulacion Conexion Paralelo D}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/paraleloAR1.png}
+      \captionof{figure}{Simulación Conexión en Paralelo $I_{R_1}$}
+      \label{fig: Simulacion Conexion Paralelo IR1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/paraleloAR2.png}
+      \captionof{figure}{Simulación Conexión en Paralelo $I_{R_2}$}
+      \label{fig: Simulacion Conexion Paralelo IR2}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/paraleloAR3.png}
+      \captionof{figure}{Simulación Conexión en Paralelo $I_{R_3}$}
+      \label{fig: Simulacion Conexion Paralelo IR3}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/paraleloAR4.png}
+      \captionof{figure}{Simulación Conexión en Paralelo $I_{R_4}$}
+      \label{fig: Simulacion Conexion Paralelo IR4}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/1. Content/simulation/paraleloAR5.png}
+      \captionof{figure}{Simulación Conexión en Paralelo $I_{R_5}$}
+      \label{fig: Simulacion Conexion Paralelo IR5}
+    \end{minipage}
+\end{figure}
+
+
 \section{Causas de Error}
 Las principales causas de error en este experimento podrían incluir:
 \begin{itemize}
-    \item Inexactitudes en la calibración del voltímetro y del medidor de campo eléctrico, que podrían haber afectado la precisión de las mediciones de voltaje y campo eléctrico.
-    \item Variaciones en la separación real entre las placas comparada con la separación medida, afectando la relación calculada del campo eléctrico.
-    \item Influencias de campos electromagnéticos externos, especialmente si el laboratorio no está adecuadamente aislado de fuentes de interferencia.
-    \item Errores en la conexión y configuración de los capacitores, especialmente en las configuraciones de serie y paralelo, que podrían afectar las mediciones de capacitancia.
-    \item Humedad ambiental que podría haber influido en las propiedades dieléctricas de las placas, alterando los valores esperados del campo eléctrico y las capacitancias.
+    \item Errores de calibración en los instrumentos de medición como amperímetros y voltímetros que podrían haber afectado las mediciones de corriente y voltaje respectivamente.
+    \item Resistencias internas de los instrumentos de medición que, aunque diseñadas para minimizar su impacto, pueden introducir pequeñas variaciones en las mediciones.
+    \item Variaciones en las resistencias reales respecto a sus valores nominales, lo que podría afectar la distribución de la corriente y el voltaje en el circuito.
+    \item Errores en la conexión de los componentes del circuito que podrían haber creado caminos de corriente adicionales o contactos imperfectos.
+    \item Influencias ambientales como la temperatura, que puede cambiar las propiedades de los materiales de los componentes, especialmente las resistencias.
 \end{itemize}
 
 \section{Conclusiones}
 A partir del experimento realizado, se pueden extraer las siguientes conclusiones:
 \begin{itemize}
-    \item Los resultados confirmaron la teoría de que el campo eléctrico entre dos placas paralelas es directamente proporcional al voltaje aplicado y varía inversamente con la distancia entre las placas.
-    \item Se verificó que para capacitores en serie, el capacitor equivalente es siempre menor que la menor capacitancia individual de los capacitores involucrados. Esto es consistente con la teoría y se observó en todas las configuraciones de serie experimentadas.
-    \item Para los capacitores en paralelo, se confirmó que el capacitor equivalente siempre es mayor que la mayor capacitancia individual. Esto fue apoyado por las mediciones experimentales, donde las capacitancias equivalentes excedieron la mayor capacitancia individual en cada configuración de paralelo probada.
-    \item Las discrepancias observadas entre los valores teóricos y experimentales de las capacitancias sugieren la presencia de factores perturbadores no contemplados en el análisis inicial, destacando la importancia de considerar variables ambientales y técnicas de medición en la interpretación de resultados experimentales.
+    \item Se confirmó que en un circuito en serie, la corriente es constante a través de cada componente, mientras que la tensión se distribuye entre los componentes en función de su resistencia.
+    \item En los circuitos en paralelo, se verificó que la tensión en cada rama es igual a la tensión de la fuente, mientras que la corriente se divide entre las ramas en función de la resistencia de cada una.
+    \item Las mediciones experimentales mostraron una buena concordancia con los valores teóricos esperados, aunque con ligeras desviaciones que pueden atribuirse a las causas de error identificadas.
+    \item El experimento destacó la importancia de la precisión en la fabricación de los componentes del circuito y la precisión en las técnicas de medición para asegurar la confiabilidad de los resultados experimentales.
+    \item Estos resultados refuerzan la comprensión de las leyes fundamentales de los circuitos eléctricos y la importancia de la configuración correcta y el uso adecuado de los instrumentos de medición en prácticas de laboratorio.
 \end{itemize}
