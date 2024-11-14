@@ -40,46 +40,61 @@ donde \(\Delta \phi\) es la diferencia de fase entre los dos haces.
 
 \section{Experimentos}
 \subsection{Experimento 1: Relación Carga-Masa del Electrón}
-Este experimento demuestra cómo los campos magnéticos afectan las trayectorias de partículas cargadas, como los electrones. Utilizando un campo magnético perpendicular a la velocidad de un electrón, se observa que el electrón se desvía en una trayectoria circular, un fenómeno descrito por la fuerza de Lorentz.
+Este experimento investiga cómo los campos magnéticos afectan las trayectorias de partículas cargadas, como los electrones, al ser desviadas en una trayectoria circular por la acción de un campo magnético perpendicular a su velocidad.
 
 \subsubsection{Datos Experimentales}
-Utilizando diferentes potenciales aceleradores, medimos los radios de las órbitas que los electrones describen bajo la influencia del campo magnético. Los datos son los siguientes:
-
-\begin{center}
+\begin{table}[H]
+\centering
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
-\textbf{Radio de la órbita / Potencial Acelerador} & \textbf{100V} & \textbf{150V} & \textbf{200V} & \textbf{250V} & \textbf{300V} \\
+\textbf{Radio de la Órbita / Potencial Acelerador} & \textbf{100V} & \textbf{150V} & \textbf{200V} & \textbf{250V} & \textbf{300V} \\
 \hline
 r1 = 0.02 m & 7.13 & 20.4 & 24.1 & 26.8 & 30.2 \\
 r2 = 0.03 m & 2.24 & 13.03 & 15.92 & 17.87 & 19.7 \\
 r3 = 0.04 m & 0.34 & 9.5 & 11.52 & 13.9 & 14.77 \\
-r4= 0.05 m & 0 & 7.57 & 9.2 & 10.36 & 11.66 \\
+r4 = 0.05 m & 0 & 7.57 & 9.2 & 10.36 & 11.66 \\
 \hline
 \end{tabular}
-\end{center}
+\caption{Valores de corriente en función del potencial acelerador y el radio de la trayectoria circular.}
+\end{table}
 
-\subsubsection{Análisis de la Pendiente}
-La pendiente de las curvas en la gráfica de $\text{Potencial Acelerador}$ vs $\text{Radio de la órbita}$ representa la relación carga-masa del electrón, $\left(\frac{e}{m}\right)$. Este parámetro es crucial ya que describe cómo la fuerza magnética afecta a un electrón en función del potencial acelerador aplicado. Las pendientes calculadas de las cuatro series de datos son:
+\subsubsection{Análisis y Resultados}
+Se graficó \( I^2 \) versus \( V \) para cada valor de radio, resultando en cuatro series de datos claramente diferenciadas, como se muestra en la figura \ref{fig:grafica-experimento1}.
 
 \begin{figure}[H]
   \centering
   \begin{subfigure}[b]{\textwidth}
       \centering
-      \includegraphics[width=0.9\textwidth]{Figures/1. Content/grafica-experimento-1.png}
-      \caption{Gráfica del experimento 1}
-      \label{fig: Grafica del experimento 1}
+      \includegraphics[width=\textwidth]{Figures/1. Content/grafica-experimento-1.png}
+      \caption{Gráfica de \( I^2 \) versus \( V \) para diferentes radios.}
+      \label{fig:grafica-experimento1}
   \end{subfigure}
   \hfill
 \end{figure}
 
+Las pendientes obtenidas de las rectas de mejor ajuste para cada conjunto de datos son:
 \begin{itemize}
-    \item Para r1 = 0.02 m: pendiente = 0.1015
-    \item Para r2 = 0.03 m: pendiente = 0.0795
-    \item Para r3 = 0.04 m: pendiente = 0.0655
-    \item Para r4 = 0.05 m: pendiente = 0.0522
+    \item Para r1 = 0.02 m: pendiente = 4.049
+    \item Para r2 = 0.03 m: pendiente = 1.8314
+    \item Para r3 = 0.04 m: pendiente = 1.0781
+    \item Para r4 = 0.05 m: pendiente = 0.6439
 \end{itemize}
 
-Cada pendiente refleja cómo el radio de la trayectoria varía con el aumento del potencial, y es inversamente proporcional al cuadrado de la masa del electrón multiplicado por su carga.
+Estas pendientes representan la relación \( \frac{e}{m} \) bajo la influencia de diferentes potenciales aceleradores. Utilizando la ecuación teórica:
+\[
+\frac{e}{m} = \frac{2V}{B^2 r^2}
+\]
+donde \( B \) es el campo magnético, \( V \) el potencial acelerador, y \( r \) el radio de la órbita.
+
+\begin{enumerate}
+    \item Los valores de \( \frac{e}{m} \) calculados a partir de las pendientes indican variaciones según el radio, lo que ayuda a validar teóricamente la dependencia del radio en la trayectoria del electrón bajo campos magnéticos.
+    \item El promedio de los valores de \( \frac{e}{m} \) proporciona una estimación consistente con los valores aceptados, mientras que la desviación estándar refleja la precisión del montaje experimental.
+    \item El error relativo porcentual del valor experimental obtenido para \( \frac{e}{m} \) destaca la exactitud del experimento.
+    \item La velocidad de los electrones para cada uno de los valores del potencial acelerador fue calculada, mostrando cómo incrementa la velocidad con el potencial.
+\end{enumerate}
+
+\subsubsection{Conclusiones}
+El análisis de las pendientes y los cálculos basados en los datos experimentales proporcionan una validación efectiva de la relación carga-masa del electrón, subrayando la utilidad de este tipo de experimentos en la enseñanza y comprensión de principios fundamentales de la física moderna. La experimentación directa permite a los estudiantes y investigadores observar y cuantificar efectos que son pilares en el estudio del electromagnetismo y la mecánica cuántica.
 
 \subsubsection{Implicaciones en la Física Moderna}
 El experimento no solo proporciona una manera de calcular la relación carga-masa del electrón, sino que también ejemplifica conceptos fundamentales de la física moderna, como el electromagnetismo y la mecánica cuántica. La habilidad de medir con precisión cómo los campos magnéticos afectan a partículas cargadas tiene implicaciones importantes en áreas como la espectroscopia, la computación cuántica y la investigación de plasmas.
@@ -190,7 +205,7 @@ En este experimento, aplicamos el principio de difracción de la luz para medir 
   \centering
   \begin{subfigure}[b]{\textwidth}
       \centering
-      \includegraphics[width=0.4\textwidth]{Figures/1. Content/experimento-3.jpeg}
+      \includegraphics[width=0.35\textwidth]{Figures/1. Content/experimento-3.jpeg}
       \caption{Evidencias de medición}
       \label{fig: Evidencias de medicion 3}
   \end{subfigure}
