@@ -141,5 +141,367 @@ Para que el método de punto fijo converja en un intervalo dado, se acostumbra v
 \textbf{Conclusión gráfica:}  
 Dado que las tres condiciones se satisfacen en \([0,2]\), existe un único punto de intersección entre la gráfica de \(y=g(x)\) y la recta \(y=x\). Dicho punto es precisamente la solución de \(x = g(x)\), lo que confirma la convergencia al valor hallado (\(x\approx 0.6327\)) y explica por qué el método de punto fijo funcionó correctamente en ese intervalo.
 
+\section{Kingping (1 pt)}
 
-Por lo que Daredevil 
+El Alcalde Kingping también se encuentra enfermo de la cabeza y decide robarse
+la estrategia de Daredevil para saber que tan enfermo está, pero usa la misma
+función $f(x)$ el valor de $A=999$, y a pesar de que el método le converge,
+siempre le dan más iteraciones que a Daredevil.
+Explique a Kingpin a que se debe esto, desde su conocimiento del método, antes
+de que los termine asesinando a Daredevil y a usted.
+
+
+\subsection{Gráfico de $f(x)$ y $g(x)$}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/0. General/3.1.1.png}
+        \caption{Gráfico de $f(x)$ y $g(x)$}
+        \label{fig: Grafico de f(x) y g(x) de Kingping}
+    \end{subfigure}
+\end{figure}
+
+\subsection{Gráfico de $f(x)$ y $g(x)$ con intervalo $[0,2]$}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/0. General/3.1.2.png}
+        \caption{Gráfico de $f(x)$ y $g(x)$ con intervalo $[0,2]$}
+        \label{fig: Grafico de f(x) y g(x) con intervalo [0,2] de Kingping}
+    \end{subfigure}
+\end{figure}
+
+\subsection{Explicación para Kingpin}
+
+En el caso de Kingpin, se vuelve a usar la ecuación 
+\[
+f(x) \;=\; \frac{A \times 10^{-2}}{8}\,\cos\bigl(x - A \times 10^{-3}\bigr) \;-\; x
+\]
+pero con \(A=999\). Entonces la función de iteración toma la forma
+\[
+g(x) \;=\;\frac{999 \times 10^{-2}}{8}\,\cos\bigl(x - 999\times 10^{-3}\bigr)
+\;=\;\frac{9.99}{8}\,\cos(x - 0.999).
+\]
+Nótese que \(\frac{9.99}{8}\approx 1.24875\). Por tanto, su derivada
+\[
+g'(x) \;=\;-\,\frac{9.99}{8}\,\sin\bigl(x - 0.999\bigr)
+\]
+tiene un valor absoluto máximo cercano a \(1.24875\). Mientras más cerca está \(\lvert g'(x)\rvert\) de \(1\), más lenta tiende a ser la convergencia del método de punto fijo (incluso puede divergir si supera \(1\) en todo el intervalo). 
+
+En este problema, aunque sigue habiendo un rango donde \(\lvert g'(x)\rvert<1\) y el método converge, la constante de contracción es \textit{menor} que la del caso de Daredevil (para \(A=510\)), lo que significa que cada iteración reduce el error más lentamente. Por eso Kingpin observa que, aunque también llega a una solución, \textbf{necesita más iteraciones} que Daredevil para alcanzar la misma tolerancia.
+
+
+
+\section{Traje de Daredevil (1 pt)}
+
+Al final, Daredevil descubre que una farmacéutica está escondiendo los
+medicamentos para la ceguera, por lo que decide si armar el mierdero, sin
+embargo no sabe qué traje ponerse. Si la probabilidad de ponerse el traje negro es 
+\(x_1\), el rojo es \(x_2\) y el amarillo es \(x_3\), indique claramente qué
+probabilidad tiene en cada traje, resolviendo el siguiente sistema de ecuaciones
+con el método de pivoteo total, y calcule el error escalar en norma infinito. 
+Se da que \(\alpha = 0\):
+
+\begin{align*}
+   \alpha x_1 + 10x_2 + 30x_3 &= 70,\\
+    -8x_1 + 6x_2 - \alpha x_3 &= 80,\\
+    9x_1 + x_2 - 12x_3 &= 90.
+\end{align*}
+
+Con \(\alpha = 0\), el sistema queda:
+
+\begin{align*}
+  0\cdot x_1 + 10x_2 + 30x_3 &= 70,\\
+   -8x_1 + 6x_2 + 0\cdot x_3 &= 80,\\
+   9x_1 + x_2 - 12x_3 &= 90.
+\end{align*}
+
+\subsection{Solución del sistema por Pivoteo Total (con \(\alpha = 0\))}
+
+Dado el sistema:
+\[
+\begin{cases}
+0\,x_1 + 10\,x_2 + 30\,x_3 = 70,\\
+-8\,x_1 + 6\,x_2 + 0\,x_3 = 80,\\
+9\,x_1 + 1\,x_2 - 12\,x_3 = 90,
+\end{cases}
+\]
+deseamos encontrar \((x_1,x_2,x_3)\) usando \textbf{pivoteo total}, y luego calcular el \textbf{error escalar en norma infinito}.
+
+\subsubsection{Formar la matriz aumentada}
+
+\[
+A =
+\begin{pmatrix}
+0 & 10 & 30\\
+-8 & 6 & 0\\
+9 & 1 & -12
+\end{pmatrix},
+\quad
+\mathbf{b}=
+\begin{pmatrix}
+70\\
+80\\
+90
+\end{pmatrix},
+\quad
+[A|\mathbf{b}]=
+\begin{pmatrix}
+0 & 10 & 30 & 70\\
+-8 & 6 & 0 & 80\\
+9 & 1 & -12 & 90
+\end{pmatrix}.
+\]
+
+Definimos el \emph{vector índice de columnas} \(\texttt{mark} = (1,2,3)\) para llevar seguimiento de los intercambios de columnas.
+
+\subsubsection{Primera búsqueda de pivote (etapa \(k=1\))}
+
+Buscamos el elemento de valor absoluto máximo en la submatriz de filas 1--3 y columnas 1--3.  
+Las magnitudes son:
+\[
+|0|=0,\;\;|10|=10,\;\;|30|=30,\quad
+|{-8}|=8,\;\;|6|=6,\;\;|0|=0,\quad
+|9|=9,\;\;|1|=1,\;\;|{-12}|=12.
+\]
+El mayor es \(30\), en la fila 1, columna 3.
+
+\begin{itemize}
+\item \textbf{Intercambio de filas}: 
+   la fila pivote es 1, y la del mayor es también 1, así que no se intercambian filas.
+
+\item \textbf{Intercambio de columnas}:
+   la columna pivote es 1, pero el valor mayor está en la col.3.
+   Intercambiamos col.1 \(\leftrightarrow\) col.3 en toda la matriz, y también en \(\texttt{mark}\).
+
+   \[
+   \texttt{mark}=(1,2,3)\;\;\longrightarrow\;\;\texttt{mark}=(3,2,1).
+   \]
+
+   Tras el intercambio, la matriz aumentada pasa a:
+   \[
+   [A|\mathbf{b}]
+   \;\longrightarrow\;
+   \begin{pmatrix}
+   30 & 10 & 0 & 70\\
+   0 & 6 & -8 & 80\\
+   -12 & 1 & 9 & 90
+   \end{pmatrix}.
+   \]
+\end{itemize}
+
+Ahora el pivote es \(a_{11}=30\).
+
+\textbf{Eliminación debajo del pivote}:
+\[
+\text{F2} \leftarrow \text{F2} - \frac{0}{30}\,\text{F1} \quad(\text{sin cambio}),
+\]
+\[
+\text{F3} \leftarrow \text{F3} - \frac{-12}{30}\,\text{F1} 
+= \text{F3} + 0.4\,\text{F1}.
+\]
+En la práctica,
+\[
+\text{F3}=(\,{-12},\,1,\,9,\,90),\quad
+0.4\,\text{F1}=(\,12,\,4,\,0,\,28).
+\]
+Sumando:
+\[
+\text{F3}\leftarrow(0,\,5,\,9,\,118).
+\]
+Se obtiene:
+\[
+[A|\mathbf{b}]\;\to\;
+\begin{pmatrix}
+30 & 10 & 0 & 70\\
+0 & 6 & -8 & 80\\
+0 & 5 & 9 & 118
+\end{pmatrix}.
+\]
+
+\subsubsection{Segunda búsqueda de pivote (etapa \(k=2\))}
+
+Tomamos la submatriz de filas 2--3 y columnas 2--3. Sus valores:
+\[
+|6|=6, \;|{-8}|=8,
+\quad
+|5|=5,\;|9|=9.
+\]
+El mayor es \(8\) (es \(\lvert -8\rvert\)) en la fila 2, col.3.
+
+\begin{itemize}
+\item \textbf{Intercambio de filas}:
+   la fila pivote es 2 y la del mayor también 2, así que no se intercambian filas.
+\item \textbf{Intercambio de columnas}:
+   la columna pivote es 2, y la del mayor es 3. Intercambiamos col.2 \(\leftrightarrow\) col.3, y se actualiza \(\texttt{mark}\):
+   \[
+   \texttt{mark}=(3,2,1)\;\;\longrightarrow\;\;\texttt{mark}=(3,1,2).
+   \]
+   La matriz aumenta pasa a:
+   \[
+   \begin{pmatrix}
+   30 & 0 & 10 & 70\\
+   0 & -8 & 6 & 80\\
+   0 & 9 & 5 & 118
+   \end{pmatrix}.
+   \]
+\end{itemize}
+
+El pivote es \(-8\). Eliminamos en la fila 3:
+\[
+\text{F3} \leftarrow \text{F3} - \frac{9}{-8}\,\text{F2}
+= \text{F3} + \frac{9}{8}\,\text{F2}.
+\]
+\(\text{F2}=(\,0,\,-8,\,6,\,80)\). Entonces
+\[
+\frac{9}{8}\,\text{F2}=(0,\,-9,\,6.75,\,90),
+\]
+y al sumar con \(\text{F3}=(0,\,9,\,5,\,118)\) obtenemos
+\[
+\text{F3}\leftarrow(0,\,0,\,11.75,\,208).
+\]
+La matriz queda:
+\[
+[A|\mathbf{b}]\;\to\;
+\begin{pmatrix}
+30 & 0 & 10 & 70\\
+0 & -8 & 6 & 80\\
+0 & 0 & 11.75 & 208
+\end{pmatrix}.
+\]
+
+\subsubsection{Tercera búsqueda (etapa \(k=3\))}
+
+La submatriz final es el único elemento \(11.75\). No se requiere intercambio.
+Se tiene la forma triangular superior terminada.
+
+\subsubsection{Resolución por sustitución regresiva}
+
+\begin{enumerate}
+\item 3\textsuperscript{a} fila:
+\[
+11.75\,x_{\text{col3}}=208 \quad\Longrightarrow\quad
+x_{\text{col3}}=\frac{208}{11.75}\approx 17.70.
+\]
+\item 2\textsuperscript{a} fila:
+\[
+-8\,x_{\text{col2}} + 6\,x_{\text{col3}}=80 \quad\Longrightarrow\quad
+-8\,x_{\text{col2}} + 6(17.70)=80.
+\]
+\[
+-8\,x_{\text{col2}} +106.2=80
+\;\Longrightarrow\;
+-8\,x_{\text{col2}}=-26.2
+\;\Longrightarrow\;
+x_{\text{col2}}=3.275.
+\]
+\item 1\textsuperscript{a} fila:
+\[
+30\,x_{\text{col1}} +10\,x_{\text{col3}}=70
+\quad\Longrightarrow\quad
+30\,x_{\text{col1}} +10(17.70)=70.
+\]
+\[
+30\,x_{\text{col1}} +177=70
+\;\Longrightarrow\;
+30\,x_{\text{col1}}=-107
+\;\Longrightarrow\;
+x_{\text{col1}}=-\frac{107}{30}\approx -3.5667.
+\]
+\end{enumerate}
+
+\[
+x_{\text{col1}}\approx-3.5667,\quad
+x_{\text{col2}}\approx3.275,\quad
+x_{\text{col3}}\approx17.70.
+\]
+
+\subsubsection{Reinterpretar variables según \(\texttt{mark}\)}
+
+Al final, \(\texttt{mark}=(3,1,2)\). Esto significa:
+\[
+\begin{aligned}
+&\texttt{mark}(1)=3 \;\;\Rightarrow\; 
+x_{\text{col1}}\;\text{es en realidad}\; x_3,\\
+&\texttt{mark}(2)=1 \;\;\Rightarrow\; 
+x_{\text{col2}}\;\text{es en realidad}\; x_1,\\
+&\texttt{mark}(3)=2 \;\;\Rightarrow\; 
+x_{\text{col3}}\;\text{es en realidad}\; x_2.
+\end{aligned}
+\]
+
+Por tanto, en orden \((x_1,x_2,x_3)\):
+\[
+x_1 = 3.275,\quad
+x_2 = 17.70,\quad
+x_3 = -3.5667.
+\]
+
+\subsubsection{Probabilidades en cada traje}
+
+Con \(x_1\) (negro), \(x_2\) (rojo), \(x_3\) (amarillo), resulta:
+\[
+\boxed{
+x_1\approx 3.275,\quad
+x_2\approx 17.70,\quad
+x_3\approx -3.5667.
+}
+\]
+Si se pretendiera que las \(x_i\) fuesen probabilidades \((0\le x_i\le1)\), veríamos que la solución no se ajusta a ese sentido estricto; el problema da valores reales sin forzar la suma a 1 ni la positividad.
+
+\subsubsection{Cálculo del error escalar en norma infinito}
+
+Usualmente, si no contamos con una solución exacta distinta, medimos el \emph{residuo}:
+\[
+\mathbf{r}=A\,\tilde{\mathbf{x}}-\mathbf{b},
+\quad
+\|\mathbf{r}\|_\infty=\max\{|r_1|,|r_2|,|r_3|\}.
+\]
+Substituyendo \(\tilde{x}_1=3.275\), \(\tilde{x}_2=17.70\), \(\tilde{x}_3=-3.5667\), en las ecuaciones:
+\[
+\begin{aligned}
+0\cdot x_1 +10\,x_2 +30\,x_3 &=\,10(17.70)+30(-3.5667)=177-107=70,\\
+-8\,x_1 +6\,x_2 +0 &=\,-8(3.275)+6(17.70)= -26.2 +106.2=80,\\
+9\,x_1 + x_2 -12\,x_3 &=\,9(3.275) + 17.70 -12(-3.5667)=29.475+17.70+42.8=89.975\approx90.
+\end{aligned}
+\]
+Las ligeras diferencias se deben a redondeo, resultando en un error del orden \(10^{-5}\) o menor. Por ende,
+\[
+\boxed{\|\mathbf{r}\|_\infty \approx 0\;\;\text{(dentro de la precisión de la aritmética)}.}
+\]
+
+\subsubsection{Resumen final}
+
+\[
+\boxed{
+x_1 \approx 3.275,\quad
+x_2 \approx 17.70,\quad
+x_3 \approx -3.57,\quad
+\|\mathbf{r}\|_\infty \approx 0.
+}
+\]
+
+\paragraph{Mensaje final sobre el traje:}
+Aunque el sistema no produce valores en el rango de probabilidad \([0,1]\),
+Daredevil, basándose en estos números, puede notar que 
+\[
+x_2 \approx 17.7
+\]
+es significativamente mayor que \(x_1\) y \(x_3\). Por lo tanto, \textbf{usará el traje rojo},
+ya que (en un sentido comparativo) la probabilidad del traje rojo es la más grande 
+(en realidad, el modelo no restringe la suma de las variables a uno ni su positividad, 
+pero el valor relativo de \(x_2\) es el más grande).
+
+\textbf{Así que Daredevil irá a armar el mierdero, usando el traje rojo.}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{\textwidth}
+      \centering
+      \includegraphics[width=0.5\textwidth]{Figures/0. General/daredevil.jpeg}
+      \caption{Daredevil usando el traje rojo}
+      \label{fig: Daredevil usando el traje rojo}
+  \end{subfigure}
+\end{figure}
