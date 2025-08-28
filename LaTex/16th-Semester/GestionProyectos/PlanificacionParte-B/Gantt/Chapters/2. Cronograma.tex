@@ -122,7 +122,7 @@ El diagrama de red (red de precedencias) incluye inicios y finales tempranos/tar
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{Figures/0. General/network_diagram.jpeg}
+  \includegraphics[width=0.9\textwidth]{Figures/0. General/network_diagram.jpeg}
   \caption{Diagrama de red con actividades, holguras y ruta crítica.}
   \label{fig:red}
 \end{figure}
@@ -151,7 +151,7 @@ A \rightarrow D \rightarrow M \rightarrow N \rightarrow P \rightarrow Q \rightar
 \]
 Comprimir actividades fuera de esta ruta no reduce la fecha final.
 
-\subsubsection*{Escenario 1: \emph{Crashing} selectivo}
+\subsubsection*{Escenario 1: \emph{Crashing}}
 
 En este escenario se busca intervenir actividades con alto impacto en la ruta crítica:
 
@@ -179,4 +179,23 @@ En este escenario se aplican ambas técnicas para lograr una reducción mayor:
 \textbf{Resultado:} duración aproximada de \textbf{25} unidades.  
 \textbf{Riesgos:} mayor complejidad en la coordinación, riesgo de inconsistencias y sobrecarga en la integración de entregables.  
 Se recomienda mitigar estos riesgos con \emph{checkpoints} semanales, controles de calidad intermedios y un plan de gestión de cambios \cite{PMBOK,Kerzner2017}.
+
+\subsection{Holguras Totales}
+
+A partir del análisis del diagrama de red (\cref{fig:red}), se identificaron las siguientes
+holguras totales en actividades no críticas. Estas holguras representan el tiempo máximo
+que puede retrasarse cada actividad sin afectar la fecha de finalización del proyecto:
+
+\begin{itemize}
+    \item \textbf{C}: 1 unidad de tiempo
+    \item \textbf{K}: 1 unidad de tiempo
+    \item \textbf{L}: 1 unidad de tiempo (por el retraso de \(+2\) desde J)
+    \item \textbf{S}: 1 unidad de tiempo (por el adelanto de \(-2\) desde Q)
+    \item \textbf{U}: 1 unidad de tiempo (por el retraso de \(+6\) desde T)
+    \item \textbf{W}: 2 unidades de tiempo
+\end{itemize}
+
+Estas holguras permiten cierta flexibilidad en la gestión del cronograma, siempre que no
+se excedan los valores calculados. Su control debe hacerse en conjunto con la ruta crítica,
+ya que un mal uso de las mismas puede convertir una actividad no crítica en crítica.
 
