@@ -36,70 +36,157 @@ Desempeño real:
 \noindent
 Calcular por período, graficar e interpretar \(\mathrm{PV, AC, EV, CV, SV, CPI, SPI, EAC, ETC, VAC, BAC, TCPI}\) conforme a PMBOK \cite{PMBOK}.
 
-\subsubsection*{Plan agregado (PV) y costos reales (AC)}
+% ---------- TABLA 1A: PLAN (PV) y AC — Meses 1-5 ----------
+\subsubsection*{Plan (PV) y costos reales (AC) — Meses 1-5}
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+ & \multicolumn{5}{c}{\textbf{Mes}} \\
+\cmidrule(lr){2-6}
+ & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+\midrule
+\textbf{Fase} & & & & & \\
+Permisos y licencias        & 1000 & 2000 &      &       &      \\
+Obras civiles y adecuaciones&      &      & 3000 & 5000  & 8000 \\
+Importación de equipos      &      &      &      & 10000 & 8000 \\
+Eléctrico e hídrico         &      &      &      &       & 2000 \\
+Tecnología                  &      &      &      &       & 5000 \\
+Conexiones e instalaciones  &      &      &      &       &      \\
+Pruebas de uso              &      &      &      &       &      \\
+Cierre                      &      &      &      &       &      \\
+\midrule
+\textbf{PV pdo}  & \$1{.}000 & \$2{.}000 & \$3{.}000 & \$15{.}000 & \$23{.}000 \\
+\textbf{PV ACUM} & \$1{.}000 & \$3{.}000 & \$6{.}000 & \$21{.}000 & \$44{.}000 \\
+\textbf{BAC}     & \$105{.}600 & \$105{.}600 & \$105{.}600 & \$105{.}600 & \$105{.}600 \\
+\midrule
+\textbf{AC pdo}  & 1100 & 2200 & 3900 & 20000 & 27000 \\
+\textbf{AC ACUM} & 1100 & 3300 & 7200 & 27200 & 54200 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ---------- TABLA 1B: PLAN (PV) y AC — Meses 6-10 ----------
+\subsubsection*{Plan (PV) y costos reales (AC) — Meses 6-10}
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+ & \multicolumn{5}{c}{\textbf{Mes}} \\
+\cmidrule(lr){2-6}
+ & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} \\
+\midrule
+\textbf{Fase} & & & & & \\
+Permisos y licencias        &      &      &      &      &      \\
+Obras civiles y adecuaciones& 4000 & 2000 & 6000 &      &      \\
+Importación de equipos      & 12000&      &      &      &      \\
+Eléctrico e hídrico         & 5000 & 4000 & 3000 &      &      \\
+Tecnología                  & 7500 & 2300 &      &      &      \\
+Conexiones e instalaciones  &      &      & 3500 & 4300 &      \\
+Pruebas de uso              &      &      &      & 5000 & 3000 \\
+Cierre                      &      &      &      &      &      \\
+\midrule
+\textbf{PV pdo}  & \$28{.}500 & \$8{.}300 & \$12{.}500 & \$9{.}300 & \$3{.}000 \\
+\textbf{PV ACUM} & \$72{.}500 & \$80{.}800 & \$93{.}300 & \$102{.}600 & \$105{.}600 \\
+\textbf{BAC}     & \$105{.}600 & \$105{.}600 & \$105{.}600 & \$105{.}600 & \$105{.}600 \\
+\midrule
+\textbf{AC pdo}  & 30000 & 5000 & 10000 & 9000 & 3200 \\
+\textbf{AC ACUM} & 84200 & 89200 & 99200 & 108200 & 111400 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ---------- TABLA 2A: AVANCES — Meses 1-5 ----------
+\subsubsection*{Avance por fase y cálculo de EV — Meses 1-5}
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+ & \multicolumn{5}{c}{\textbf{Mes}} \\
+\cmidrule(lr){2-6}
+ & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+\midrule
+Permisos y licencias         & 100\% & 100\% &      &             &                           \\
+Obras civiles y adecuaciones &       &       & 15\% mes 3 & 65\% mes 3 & 100\% mes 4; 20\% mes 3; 100\% mes 5; 10\% mes 6 \\
+Importación de equipos       &       &       &            & 90\%       & 100\% \\
+Eléctrico e hídrico          &       &       &            &            & 20\%  \\
+Tecnología                   &       &       &            &            & 70\% mes 5 \\
+Conexiones e instalaciones   &       &       &            &            &      \\
+Pruebas de uso               &       &       &            &            &      \\
+Cierre                       &       &       &            &            &      \\
+\midrule
+\textbf{EV pdo}  & 1000 & 2450 & 1950 & 14400 & 22100 \\
+\textbf{EV ACUM} & 1000 & 3450 & 5400 & 19800 & 41900 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ---------- TABLA 2B: AVANCES — Meses 6-8 ----------
+\subsubsection*{Avance por fase y cálculo de EV — Meses 6-8}
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrr}
+\toprule
+ & \multicolumn{3}{c}{\textbf{Mes}} \\
+\cmidrule(lr){2-4}
+ & \textbf{6} & \textbf{7} & \textbf{8} \\
+\midrule
+Obras civiles y adecuaciones & 70\% mes 6 & 100\% mes 7 & 100\% mes 8; 20\% mes 6 \\
+Importación de equipos       & 100\%      &             &             \\
+Eléctrico e hídrico          & 80\%       & 100\%       & 100\%       \\
+Tecnología                   & 100\% mes 6 & 30\% mes 5; 100\% mes 7 &   \\
+Conexiones e instalaciones   &            &             & 15\% mes 8  \\
+Pruebas de uso               &            &             & 35\% mes 8  \\
+\midrule
+\textbf{EV pdo}  & 27825 & 9800 & 11025 \\
+\textbf{EV ACUM} & 69725 & 79525 & 90550 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ---------- TABLA 2C: AVANCES — Meses 9-10 ----------
+\subsubsection*{Avance por fase y cálculo de EV — Meses 9-10}
+\begin{table}[H]\centering\small
+\begin{tabular}{lrr}
+\toprule
+ & \multicolumn{2}{c}{\textbf{Mes}} \\
+\cmidrule(lr){2-3}
+ & \textbf{9} & \textbf{10} \\
+\midrule
+Conexiones e instalaciones & 50\% mes 8; 100\% mes 9 &  \\
+Pruebas de uso            & 90\% mes 9               & 10\% mes 9; 100\% mes 10 \\
+\midrule
+\textbf{EV pdo}  & 10550 & 3500 \\
+\textbf{EV ACUM} & 101100 & 104600 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ---------- TABLA 3: MÉTRICAS EVM ----------
+\subsubsection*{Indicadores EVM}
 \begin{table}[H]\centering\small
 \begin{tabular}{lrrrrrrrrrr}
 \toprule
  & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} \\
 \midrule
-\textbf{PV pdo}  & 1000 & 2000 & 3000 & 15000 & 23000 & 28500 & 8300 & 12500 & 9300 & 3000 \\
-\textbf{PV ACUM} & 1000 & 3000 & 6000 & 21000 & 44000 & 72500 & 80800 & 93300 & 102600 & 105600 \\
-\textbf{BAC}     & \multicolumn{10}{c}{105600} \\
+\textbf{CV}   & -100 & 150 & -1800 & -7400 & -12300 & -14475 & -9675 & -8650 & -7100 & -6800 \\
+\textbf{SV}   & 0 & 450 & -600 & -1200 & -2100 & -2775 & -1275 & -2750 & -1500 & -1000 \\
+\textbf{CPI}  & 90.9\% & 104.5\% & 75.0\% & 72.8\% & 77.3\% & 82.8\% & 89.2\% & 91.3\% & 93.4\% & 93.9\% \\
+\textbf{SPI}  & 100.0\% & 115.0\% & 90.0\% & 94.3\% & 95.2\% & 96.2\% & 98.4\% & 97.1\% & 98.5\% & 99.1\% \\
 \midrule
-\textbf{AC pdo}  & 1100 & 2200 & 3900 & 20000 & 27000 & 30000 & 5000 & 10000 & 9000 & 3200 \\
-\textbf{AC ACUM} & 1100 & 3300 & 7200 & 27200 & 54200 & 84200 & 89200 & 99200 & 108200 & 111400 \\
+\textbf{Tipo de EAC} & Normal & Normal & Normal & Normal & Normal & T\'ipico & T\'ipico & T\'ipico & T\'ipico & T\'ipico \\
+\textbf{EAC}  & 116160 & 101009 & 140800 & 145067 & 136600 & 129247 & 118916 & 116188 & 113087 & 112475 \\
+\textbf{ETC}  & 115060 & 97709 & 133600 & 117867 & 82400 & 45047 & 29716 & 16988 & 4887 & 1075 \\
+\textbf{VAC}  & -10560 & 4591 & -35200 & -39467 & -31000 & -23647 & -13316 & -10588 & -7487 & -6875 \\
+\textbf{TCPI} & 1{,}00 & 1{,}00 & 1{,}02 & 1{,}09 & 1{,}24 & 0{,}80 & 0{,}88 & 0{,}89 & 0{,}92 & 0{,}93 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsubsection*{Valor ganado (EV)}
-\begin{table}[H]\centering\small
-\begin{tabular}{lrrrrrrrrrr}
-\toprule
- & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} \\
-\midrule
-\textbf{EV pdo}  & 1000 & 2450 & 1950 & 14400 & 22100 & 27825 & 9800 & 11025 & 10550 & 3500 \\
-\textbf{EV ACUM} & 1000 & 3450 & 5400 & 19800 & 41900 & 69725 & 79525 & 90550 & 101100 & 104600 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsubsection*{Métricas EVM}
-\begin{table}[H]\centering\small
-\begin{tabular}{lrrrrrrrrrr}
-\toprule
- & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} \\
-\midrule
-\textbf{CV}  & -100 & 150 & -1800 & -7400 & -12300 & -14475 & -9675 & -8650 & -7100 & -6800 \\
-\textbf{SV}  & 0 & 450 & -600 & -1200 & -2100 & -2775 & -1275 & -2750 & -1500 & -1000 \\
-\textbf{CPI} & 0.909 & 1.045 & 0.750 & 0.728 & 0.773 & 0.828 & 0.892 & 0.913 & 0.934 & 0.939 \\
-\textbf{SPI} & 1.000 & 1.150 & 0.900 & 0.943 & 0.952 & 0.962 & 0.984 & 0.971 & 0.985 & 0.991 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{table}[H]\centering\small
-\begin{tabular}{lrrrrrrrrrr}
-\toprule
- & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} \\
-\midrule
-\textbf{Tipo EAC} & Normal & Normal & Normal & Normal & Normal & Típico & Típico & Típico & Típico & Típico \\
-\textbf{EAC}      & 116160 & 101009 & 140800 & 145067 & 136600 & 129247 & 118916 & 116188 & 113087 & 112475 \\
-\textbf{ETC}      & 115060 & 97709  & 133600 & 117867 & 82400  & 45047  & 29716  & 16988  & 4887   & 1075 \\
-\textbf{VAC}      & -10560 & 4591   & -35200 & -39467 & -31000 & -23647 & -13316 & -10588 & -7487  & -6875 \\
-\textbf{TCPI}     & 1.00 & 1.00 & 1.02 & 1.09 & 1.24 & 0.80 & 0.88 & 0.89 & 0.92 & 0.93 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\paragraph{Lectura e interpretación.}
-\textit{Tendencia de costo.} Entre los períodos 3 y 6, \(CPI<1\) y \(CV<0\) indican sobrecostos acumulados; el peor punto se observa en el período 6 (mayor presión de costos). A partir del 7, \(CPI\) mejora, aunque cierra el proyecto con \(CPI\approx0.94\) (ligero sobrecosto).
+\paragraph{Lectura breve.}
+\textit{Costo.} Entre los meses 3 y 6 el proyecto presenta sobrecostos (CV negativos y CPI \(<1\)), con el punto m\'as cr\'itico en el mes 6. Desde el 7 mejora gradualmente, aunque cierra con CPI cercano a \(0{,}94\).
 
 \medskip
-\textit{Tendencia de plazo.} El \(SPI\) oscila alrededor de 1. Tras el empuje del período 2 (\(SPI=1.15\)), hay rezagos puntuales (períodos 3–6). La recuperación progresiva desde el 7 hace que el proyecto \emph{termine en el tiempo}, coherente con el BAC alcanzado en el plan.
+\textit{Plazo.} El SPI se mantiene en torno a 1; hay rezagos en 3-6 y recuperaci\'on posterior, consistente con haber finalizado en tiempo (BAC alcanzado seg\'un plan).
 
 \medskip
-\textit{Proyecciones.} Con enfoque \emph{normal} hasta el 5 y \emph{típico} desde el 6 (por cambio estructural: presión salarial), el \(EAC\) converge de \(129{,}247\) a \(112{,}475\). El \(VAC\) permanece negativo (sobrecosto estimado al cierre), mientras que \(TCPI<1\) desde el 6 sugiere que el rendimiento de costo requerido para cumplir el \(EAC\) es menor al histórico (es factible de lograr).
+\textit{Proyecci\'on.} Se usa EAC \emph{normal} hasta el mes 5 y \emph{t\'ipico} desde el 6 (cambio de condiciones: presi\'on salarial). El EAC converge desde 129\,247 hasta 112\,475; el VAC permanece negativo. El TCPI \(<1\) desde el 6 sugiere que el desempe\~no de costo requerido para cumplir el EAC es alcanzable.
 
 \bigskip
 \textit{Nota.} Todos los procedimientos están detallados y las fórmulas están también en el archivo Excel adjunto \textbf{``Taller Valor Ganado.xlsx''}.
