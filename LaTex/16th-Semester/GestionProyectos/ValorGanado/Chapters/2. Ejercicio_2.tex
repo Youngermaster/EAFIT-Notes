@@ -1,0 +1,105 @@
+% ========================= EJERCICIO 2 =========================
+\section{Parque de diversiones}
+
+\subsection*{Enunciado 2 (valor 4,0)}
+
+Usted se encuentra en la construcción de un parque de diversiones. Dicha construcción se ha dividido en ocho fases, luego de tener lista su viabilidad. La primera fase es la consecución de permisos y licencias faltantes. La segunda, las obras civiles y adecuaciones. La tercera, la importación de los equipos para el parque. La cuarta, todo lo relacionado con el tema eléctrico e hídrico. La quinta, todo lo relacionado con la tecnología; la sexta, las conexiones e instalaciones; la séptima, las pruebas de uso; y la octava, el cierre del proyecto.
+
+\medskip
+Plan:
+\begin{itemize}
+  \item Fase 1: \(2\) meses, \(\$1000\) y \(\$2000\) (\emph{FC}).
+  \item Fase 2: \(6\) meses con \emph{FC} entre meses; \(\$3000,~\$5000,~\$8000,~\$4000,~\$2000,~\$6000\). \emph{FC} con el último mes de la Fase 1.
+  \item Fase 3: \emph{CC+1} con el inicio de la Fase 2; \(3\) meses \(\$10000,~\$8000,~\$12000\) (\emph{FC}).
+  \item Fase 4: \emph{FC--4} con la terminación de la Fase 2; \(4\) meses \(\$2000,~\$5000,~\$4000,~\$3000\) (\emph{FC}).
+  \item Fase 5: \emph{FF+1} con la terminación de la Fase 3; \(3\) meses \(\$5000,~\$7500,~\$2300\) (\emph{FC}).
+  \item Fase 6: \emph{FC} con el último mes de la Fase 5; \(2\) meses \(\$3500,~\$4300\).
+  \item Fase 7: \emph{FC--1} con el fin de la Fase 6; \(2\) meses \(\$5000,~\$3000\).
+  \item Fase 8: hito de cierre (sin costo).
+\end{itemize}
+
+\noindent
+Desempeño real:
+\begin{itemize}
+  \item Período 1: AC \(=\$1100\), se hace lo planificado.
+  \item Período 2: AC \(=\$2200\); avance adicional \(15\%\) del mes siguiente de Obras.
+  \item Período 3: AC \(=\$3900\); se concluye lo previsto hasta \(80\%\) por problema de materia prima.
+  \item Período 4: AC \(=\$20000\); Obras según plan; Equipos \(90\%\); Hídrico \(+20\%\) del período siguiente.
+  \item Período 5: AC \(=\$27000\); Obras: pendientes + plan + \(+10\%\) del mes siguiente; Tecnología con retraso del \(30\%\); los demás pendientes siguen.
+  \item Período 6: AC \(=\$30000\); sólo queda pendiente Tecnología; Obras hasta \(80\%\) del período; Conexiones \(+15\%\); lo demás según plan; suben salarios a partir de aquí.
+  \item Período 7: AC \(=\$5000\); se pone al día Tecnología y se hace el plan del mes; Hídrico según plan; Obras del mes hechas.
+  \item Período 8: AC \(=\$10000\); se ponen al día todos los pendientes; Conexiones sólo \(50\%\); Pruebas \(30\%\).
+  \item Período 9: AC \(=\$9000\); Conexiones al día y plan del período; Pruebas al \(90\%\).
+  \item Período 10: AC \(=\$3200\); se termina todo lo pendiente.
+\end{itemize}
+
+\noindent
+Calcular por período, graficar e interpretar \(\mathrm{PV, AC, EV, CV, SV, CPI, SPI, EAC, ETC, VAC, BAC, TCPI}\) conforme a PMBOK \cite{PMBOK}.
+
+\subsubsection*{Plan agregado (PV) y costos reales (AC)}
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+ & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} \\
+\midrule
+\textbf{PV pdo}  & 1000 & 2000 & 3000 & 15000 & 23000 & 28500 & 8300 & 12500 & 9300 & 3000 \\
+\textbf{PV ACUM} & 1000 & 3000 & 6000 & 21000 & 44000 & 72500 & 80800 & 93300 & 102600 & 105600 \\
+\textbf{BAC}     & \multicolumn{10}{c}{105600} \\
+\midrule
+\textbf{AC pdo}  & 1100 & 2200 & 3900 & 20000 & 27000 & 30000 & 5000 & 10000 & 9000 & 3200 \\
+\textbf{AC ACUM} & 1100 & 3300 & 7200 & 27200 & 54200 & 84200 & 89200 & 99200 & 108200 & 111400 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{Valor ganado (EV)}
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+ & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} \\
+\midrule
+\textbf{EV pdo}  & 1000 & 2450 & 1950 & 14400 & 22100 & 27825 & 9800 & 11025 & 10550 & 3500 \\
+\textbf{EV ACUM} & 1000 & 3450 & 5400 & 19800 & 41900 & 69725 & 79525 & 90550 & 101100 & 104600 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{Métricas EVM}
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+ & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} \\
+\midrule
+\textbf{CV}  & -100 & 150 & -1800 & -7400 & -12300 & -14475 & -9675 & -8650 & -7100 & -6800 \\
+\textbf{SV}  & 0 & 450 & -600 & -1200 & -2100 & -2775 & -1275 & -2750 & -1500 & -1000 \\
+\textbf{CPI} & 0.909 & 1.045 & 0.750 & 0.728 & 0.773 & 0.828 & 0.892 & 0.913 & 0.934 & 0.939 \\
+\textbf{SPI} & 1.000 & 1.150 & 0.900 & 0.943 & 0.952 & 0.962 & 0.984 & 0.971 & 0.985 & 0.991 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+ & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} \\
+\midrule
+\textbf{Tipo EAC} & Normal & Normal & Normal & Normal & Normal & Típico & Típico & Típico & Típico & Típico \\
+\textbf{EAC}      & 116160 & 101009 & 140800 & 145067 & 136600 & 129247 & 118916 & 116188 & 113087 & 112475 \\
+\textbf{ETC}      & 115060 & 97709  & 133600 & 117867 & 82400  & 45047  & 29716  & 16988  & 4887   & 1075 \\
+\textbf{VAC}      & -10560 & 4591   & -35200 & -39467 & -31000 & -23647 & -13316 & -10588 & -7487  & -6875 \\
+\textbf{TCPI}     & 1.00 & 1.00 & 1.02 & 1.09 & 1.24 & 0.80 & 0.88 & 0.89 & 0.92 & 0.93 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Lectura e interpretación.}
+\textit{Tendencia de costo.} Entre los períodos 3 y 6, \(CPI<1\) y \(CV<0\) indican sobrecostos acumulados; el peor punto se observa en el período 6 (mayor presión de costos). A partir del 7, \(CPI\) mejora, aunque cierra el proyecto con \(CPI\approx0.94\) (ligero sobrecosto).
+
+\medskip
+\textit{Tendencia de plazo.} El \(SPI\) oscila alrededor de 1. Tras el empuje del período 2 (\(SPI=1.15\)), hay rezagos puntuales (períodos 3–6). La recuperación progresiva desde el 7 hace que el proyecto \emph{termine en el tiempo}, coherente con el BAC alcanzado en el plan.
+
+\medskip
+\textit{Proyecciones.} Con enfoque \emph{normal} hasta el 5 y \emph{típico} desde el 6 (por cambio estructural: presión salarial), el \(EAC\) converge de \(129{,}247\) a \(112{,}475\). El \(VAC\) permanece negativo (sobrecosto estimado al cierre), mientras que \(TCPI<1\) desde el 6 sugiere que el rendimiento de costo requerido para cumplir el \(EAC\) es menor al histórico (es factible de lograr).
+
+\bigskip
+\textit{Nota.} Todos los procedimientos están detallados y las fórmulas están también en el archivo Excel adjunto \textbf{``Taller Valor Ganado.xlsx''}.

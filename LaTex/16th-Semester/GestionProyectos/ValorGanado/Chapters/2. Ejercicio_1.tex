@@ -1,0 +1,137 @@
+\section{Cancha de fútbol}
+
+\subsection*{Enunciado 1 (valor 1,0)}
+Estás en un nuevo proyecto para construir una cancha de fútbol. La construcción se dividirá en 4 etapas iguales: \textbf{A}, \textbf{B}, \textbf{C} y \textbf{D}. Cada etapa se planifica para que se realice después de la otra. La construcción se demorará \textbf{4 semanas}, y cada período se espera que se cueste: \(\$1000,~\$1250,~\$1300,~\$1400\).
+
+\medskip
+Hoy es el final de la semana 3 y se tiene la siguiente información:
+\begin{itemize}
+  \item A: completada; gasto real \(\$1000\).
+  \item B: ejecutada al \(90\%\); gasto real \(\$1150\).
+  \item C: ejecutada al \(50\%\); gasto real \(\$600\).
+  \item D: ejecutada al \(15\%\); gasto real \(\$600\).
+\end{itemize}
+
+\noindent
+\textbf{Escenario alterno.} ¿Cómo serían los cálculos si se construyen \textbf{A y B} con relación \textbf{Comienzo--Comienzo (CC)} en el período 2, luego en el período 3 se ejecuta \textbf{C} y, después, \textbf{D}? El gasto al final del período 3 es \(\$2900\).
+
+\medskip
+Calcular e interpretar:
+\(\mathrm{PV,~EV,~AC,~BAC,~CV,~CPI,~SV,~SPI,~EAC,~ETC,~VAC,~TCPI}\).\footnote{Notación PMBOK \cite{PMBOK}: \(CV=EV-AC\), \(SV=EV-PV\), \(CPI=EV/AC\), \(SPI=EV/PV\), \(EAC=\frac{BAC}{CPI}\) (enfoque ``normal''), \(ETC=EAC-AC\), \(VAC= BAC - EAC\), \(TCPI=\frac{BAC-EV}{EAC-AC}\).}
+
+% ========================= 1.1 =========================
+\subsection{1.1 Escenario base (A, B, C, D en serie)}
+\label{subsec:cancha-11}
+
+\subsubsection*{Plan (PV) y costos reales (AC)}
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+ & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+\midrule
+A & 1000 & 0 & 0 & 0 & 0 \\
+B & 0 & 1250 & 0 & 0 & 0 \\
+C & 0 & 0 & 1300 & 0 & 0 \\
+D & 0 & 0 & 0 & 1400 & 0 \\
+\midrule
+\textbf{PV pdo}   & 1000 & 1250 & 1300 & 1400 & 0 \\
+\textbf{PV ACUM}  & 1000 & 2250 & 3550 & 4950 & 4950 \\
+\textbf{BAC}      & 4950 & 4950 & 4950 & 4950 & 4950 \\
+\midrule
+\textbf{AC pdo}   & 1000 & 1150 & 600 & 600 &  \\
+\textbf{AC ACUM}  & 1000 & 2150 & 2750 & 3350 &  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{Avance (EV) y métricas EVM}
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+ & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+\midrule
+A (\%) & 100\% &  &  &  \\
+B (\%) &  & 90\% &  &  \\
+C (\%) &  &  & 50\% &  \\
+D (\%) &  &  & 15\% &  \\
+\midrule
+\textbf{EV pdo}  & 1000 & 1125 & 860 & 0 \\
+\textbf{EV ACUM} & 1000 & 2125 & 2985 & 2985 \\
+\midrule
+\textbf{CV = EV--AC}   & 0 & -25 & 235 & -365 \\
+\textbf{SV = EV--PV}   & 0 & -125 & -565 & -1965 \\
+\textbf{CPI = EV/AC}   & 1.000 & 0.988 & 1.085 & 0.891 \\
+\textbf{SPI = EV/PV}   & 1.000 & 0.944 & 0.841 & 0.603 \\
+\midrule
+\textbf{EAC (BAC/CPI)} & 4950 & 5008 & 4560 & 5555 \\
+\textbf{ETC = EAC--AC} & 3950 & 2858 & 1810 & 2205 \\
+\textbf{VAC = BAC--EAC}& 0 & -58 & 390 & -605 \\
+\textbf{TCPI}          & 1.00 & 1.01 & 0.89 & 1.23 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Interpretación.}
+Hasta la semana 3 el índice de costo \(\mathrm{CPI}=1.085>1\) indica desempeño ligeramente por debajo del presupuesto (ahorro), mientras que \(\mathrm{SPI}=0.841<1\) confirma retraso frente al plan.
+
+\medskip
+Bajo el enfoque ``normal'' de proyección \(\mathrm{EAC}=\frac{BAC}{CPI}\), el costo final estimado al cierre de la semana 3 es \(\$4560\) (\(\mathrm{VAC}=+390\)). En la semana 4, el retraso se profundiza (\(\mathrm{SPI}=0.603\)) y el costo proyectado sube a \(\$5555\) (\(\mathrm{VAC}=-605\)).
+
+% ========================= 1.2 =========================
+\subsection{1.2 Escenario alterno (CC de A y B en período 2; C en 3; D después). Gasto al final del período 3 = 2900}
+\label{subsec:cancha-12}
+
+\subsubsection*{Plan (PV) y costos reales (AC)}
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+ & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+\midrule
+A & 0 & 1000 & 0 & 0 & 0 \\
+B & 0 & 1250 & 0 & 0 & 0 \\
+C & 0 & 0 & 1300 & 0 & 0 \\
+D & 0 & 0 & 0 & 1400 & 0 \\
+\midrule
+\textbf{PV pdo}   & 0 & 2250 & 1300 & 1400 & 0 \\
+\textbf{PV ACUM}  & 0 & 2250 & 3550 & 4950 & 4950 \\
+\textbf{BAC}      & 4950 & 4950 & 4950 & 4950 & 4950 \\
+\midrule
+\textbf{AC pdo}   & 1000 & 1150 & 600 & 600 &  \\
+\textbf{AC ACUM}  & 1000 & 2150 & 2900 & 3500 &  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{Avance (EV) y métricas EVM}
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+ & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+\midrule
+A (\%) &  & 100\% &  &  \\
+B (\%) &  & 90\%  &  &  \\
+C (\%) &  &  & 50\% &  \\
+D (\%) &  &  & 15\% &  \\
+\midrule
+\textbf{EV pdo}  & 0 & 2025 & 860 & 0 \\
+\textbf{EV ACUM} & 0 & 2025 & 2885 & 2885 \\
+\midrule
+\textbf{CV = EV--AC}   & -1000 & -125 & -15 & -615 \\
+\textbf{SV = EV--PV}   & 0 & -225 & -665 & -2065 \\
+\textbf{CPI = EV/AC}   & 0.000 & 0.942 & 0.995 & 0.824 \\
+\textbf{SPI = EV/PV}   & 0.000 & 0.900 & 0.813 & 0.583 \\
+\midrule
+\textbf{EAC (BAC/CPI)} & 0 & 5256 & 4976 & 6005 \\
+\textbf{ETC = EAC--AC} & 0 & 3106 & 2076 & 2505 \\
+\textbf{VAC = BAC--EAC}& 0 & -306 & -26 & -1055 \\
+\textbf{TCPI}          & 0.00 & 1.04 & 1.01 & 1.42 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Interpretación.}
+Al superponer A y B (\emph{Comienzo--Comienzo}) el valor ganado temprano cae. Al final de la semana 3 se observa \(\mathrm{SPI}=0.813<1\) (atraso) y \(\mathrm{CPI}\approx0.995\) (virtualmente en costo). El \(\mathrm{EAC}\) normal asciende a \(\$4976\) y el \(\mathrm{TCPI}\approx1.01\) sugiere que, para cumplir dicho EAC, el rendimiento de costo requerido debe ser apenas superior al actual.
+
+\bigskip
+\hrule
+\bigskip
