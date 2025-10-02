@@ -1,0 +1,193 @@
+% ==========================================
+% Chapters/4. Estudio_Tecnico.tex
+% ==========================================
+\section{Estudio Técnico}
+
+\subsection{Ingeniería del proyecto}
+
+\subsubsection{Análisis de capacidad de producción (servicio)}
+El proyecto presta un \textbf{servicio digital-presencial} basado en un kit domiciliario/ clínico (wearable IMU + app) y en sesiones de \emph{exergames} y monitoreo. La “producción” se mide como:
+\begin{itemize}
+    \item \textbf{Usuarios activos/mes (UA)} atendidos con infraestructura instalada.
+    \item \textbf{Sesiones/mes} realizadas por los usuarios (meta: 12 sesiones/mes por usuario; 3 por semana).
+\end{itemize}
+
+\paragraph{Supuestos operativos iniciales.}
+\begin{itemize}
+    \item \textbf{Mix de acceso:} B2B2C (EPS/IPS) 65\% y B2C 35\%.
+    \item En B2C hay 1 kit por hogar. En B2B2C, la clínica rota 1 kit por 3 usuarios (acompañamiento supervisado).
+    \item Jornada efectiva de uso en clínica: 6 h/día, con ciclos de 30 min (12 turnos/día/kit). En el hogar se ejecutan 12 sesiones/mes por usuario.
+\end{itemize}
+
+\paragraph{Capacidad vs.\ demanda (resumen).}
+Conforme al estudio de mercado (escenario base), la meta es \textbf{8.500 UA en año 2}. Esto implica unas $\sim$102.000 sesiones/mes (8.500 $\times$ 12). Con el mix planteado, el parque de kits necesarios es $\sim$3.270 (regla: 1 kit por 2,6 usuarios promedio entre B2B2C y B2C). Para el año 1 se arranca con 800--1.200 UA (pilotos + primeras ventas), aumentando la flota de kits de forma proporcional. El detalle numérico se consolida en el Excel de soporte del estudio técnico.
+
+\subsubsection{Proceso de producción (servicio)}
+
+\paragraph{Descripción general.}
+El proceso va desde la ingeniería de producto hasta la operación y mantenimiento del servicio:
+
+\begin{enumerate}
+    \item \textbf{I+D y prototipado.} Diseño del wearable (IMU BLE), firmware y app (RN). Validación de métricas (sway, tiempo de reacción).
+    \item \textbf{Abastecimiento.} Compra de componentes (MCU BLE, IMU, batería, PCB, carcasa, cargador), empaques y manuales.
+    \item \textbf{Ensamble y QA.} Ensamble del kit; pruebas funcionales 100\%; flashing de firmware y \emph{pairing} con app.
+    \item \textbf{Configuración en nube.} Registro del dispositivo, creación de usuario/cuidador y habilitación de planes.
+    \item \textbf{Entrega y \emph{onboarding}.} Instalación en hogar o clínica; capacitación (presencial o remota) y prueba guiada.
+    \item \textbf{Operación del servicio.} Sesiones de ejercicio, monitoreo continuo, generación de reportes y alertas.
+    \item \textbf{Soporte y mantenimiento.} Mesa de ayuda, reemplazos, actualizaciones OTA, limpieza y calibración programada.
+    \item \textbf{Cierre/recuperación.} Al final del contrato, saneamiento, diagnóstico y reincorporación del kit al inventario.
+\end{enumerate}
+
+\paragraph{Flujograma (paso a paso).}
+\begin{enumerate}[label=\arabic*.]
+\item Diseño $\rightarrow$ Prototipo $\rightarrow$ Pruebas de laboratorio.
+\item Compra de partes $\rightarrow$ Ensamble $\rightarrow$ QA al 100\%.
+\item Registro del kit en plataforma $\rightarrow$ Preparación de cuenta de usuario.
+\item Entrega del kit $\rightarrow$ \emph{Onboarding} (15--30 min).
+\item Uso recurrente (app) $\rightarrow$ Carga de datos a nube $\rightarrow$ Panel clínico.
+\item Soporte correctivo/preventivo $\rightarrow$ Actualizaciones OTA.
+\item Devolución o renovación del contrato.
+\end{enumerate}
+
+\subsubsection{Análisis de la tecnología}
+\begin{itemize}
+    \item \textbf{Hardware.} IMU 6/9 ejes (p.ej., ICM-20948/BMI160), MCU BLE (nRF52/ESP32), batería LiPo con protección, vibración/LED, carcasa hipoalergénica. Firmware actualizable OTA. 
+    \item \textbf{Software.} App en React\,Native (Android/iOS); backend con APIs REST; base de datos en nube; almacenamiento de series de tiempo y reportes (PDF/CSV). 
+    \item \textbf{Analítica.} Cálculo de sway RMS, latencia de reacción y adherencia; progresión de ejercicios guiada; reglas y ML ligero para adaptar dificultad.
+    \item \textbf{Cumplimiento.} Invima clase I (y ruta a II si aplica), protección de datos (Ley 1581), prácticas de seguridad en nube (DPA, cifrado en tránsito y reposo).
+\end{itemize}
+
+\subsubsection{Descripción de la planta o espacios}
+Operación central en oficina de $\sim$90--120 m\textsuperscript{2}:
+\begin{itemize}
+    \item \textbf{Área técnica (I+D y QA):} mesas de ensamble ligero, gabinetes ESD, estantería de repuestos, banco de pruebas.
+    \item \textbf{Operación y soporte:} 4--6 puestos con pantallas de monitoreo y telefonía/WhatsApp.
+    \item \textbf{Comercial y administración:} 4--5 puestos, sala de reuniones (6--8 pax).
+    \item \textbf{Bodega liviana:} kits, empaques, insumos (control por lote y \emph{QR}).
+\end{itemize}
+
+\subsubsection{Distribución de la planta}
+Secuencia lineal: \emph{Recepción de partes} $\rightarrow$ \emph{Ensamble/QA} (zona técnica) $\rightarrow$ \emph{Alistamiento de pedidos} (bodega) $\rightarrow$ \emph{Despacho/recepción} $\rightarrow$ \emph{Soporte} (área de pantallas) $\rightarrow$ \emph{Administración/Comercial}. La circulación separa materiales (bodega--taller) del flujo de personal (oficinas), reduciendo interferencias.
+
+% ---------------------------------------------------------
+\subsection{Maquinaria y equipos - Estructura de costos de inversión}
+
+\subsubsection{Descripción y valores (Año 0)}
+La inversión base (valores 2025) se resume con la lista siguiente; el detalle por ítem, cantidades y totales corresponde al Excel de soporte:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{p{8.2cm} r r r}
+\toprule
+\textbf{Activo / Recurso} & \textbf{Cant.} & \textbf{Precio Unit.} & \textbf{Valor total}\\
+\midrule
+Desarrollo inicial de app & 1 & \$12.000.000 & \$12.000.000\\
+Servidor cloud / hosting (12 m) & 1 & \$5.000.000 & \$5.000.000\\
+Software (CRM, contab., diseño) & 1 & \$3.000.000 & \$3.000.000\\
+Pasarela de pagos (integración) & 1 & \$500.000 & \$500.000\\
+Diseño UI/UX (branding) & 1 & \$2.000.000 & \$2.000.000\\
+Mantenimiento y soporte (año 1) & 1 & \$2.500.000 & \$2.500.000\\
+Marketing digital inicial & 1 & \$3.000.000 & \$3.000.000\\
+Dispositivos de prueba (cel/tablets) & 2 & \$1.200.000 & \$2.400.000\\
+Computadores de desarrollo & 3 & \$3.000.000 & \$9.000.000\\
+Laptops admin/comercial & 2 & \$2.000.000 & \$4.000.000\\
+Escritorios operativos & 5 & \$900.000 & \$4.500.000\\
+Sillas ergonómicas & 5 & \$500.000 & \$2.500.000\\
+Router y red local & 1 & \$1.200.000 & \$1.200.000\\
+Pantallas monitoreo & 2 & \$1.500.000 & \$3.000.000\\
+Tablets para validación (EPS/usuarios) & 10 & \$800.000 & \$8.000.000\\
+\midrule
+\textbf{Total activos} & & & \textbf{\$62.600.000}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Vida útil y depreciación contable.}
+Se adoptan tasas usuales (referencia DIAN) para los activos aplicables:
+\begin{itemize}
+    \item \textbf{Equipos de cómputo y comunicación, redes y datos:} 20\% anual (vida útil 5 años).
+    \item \textbf{Muebles y enseres:} 10\% anual (vida útil 10 años).
+    \item \textbf{Equipo médico/científico (si aplica a futuro):} 12{,}5\% anual (vida útil 8 años).
+\end{itemize}
+Con estas tasas, la \textbf{depreciación anual} consolidada del paquete de inversión asciende a \textbf{\$11.820.000} (ver hoja ``C.~inversiones y costos contables'' en el Excel), y la depreciación acumulada a cinco años a \$59.100.000 aprox. (dependiendo de la composición exacta por categoría).
+
+\subsubsection{Precios y condiciones de pago}
+\begin{itemize}
+    \item Proveedores de \textbf{hardware} y periféricos: pago 30/60 días a partir del tercer pedido; cláusulas de reposición por obsolescencia.
+    \item \textbf{Servicios cloud} (AWS/GCP/Azure): modalidad pago mensual (OPEX) y cupos \emph{credits} para etapa semilla.
+    \item \textbf{Licencias} (CRM/contabilidad/diseño): mensual o anual con descuento por prepago.
+\end{itemize}
+
+\subsubsection{Costos de nacionalización}
+En la fase inicial los insumos principales se adquieren en mercado local. Si se importan lotes de IMU/MCU a escala, considerar aranceles (10--19\% según subpartida), IVA, manejo en puerto y \emph{freight}; este frente se deja parametrizado para fase industrial (no impacta el piloto).
+
+\subsubsection{Requerimientos de instalación y montaje}
+Electricidad monofásica estable, conectividad a Internet simétrica $\geq$ 60~Mbps, cobertura WiFi para QA y \emph{onboarding}; protocolos ESD en ensamble liviano; ventilación y control de temperatura en bodega (15--25ºC).
+
+\subsubsection{Edificios e instalaciones / Obras}
+No se requieren obras civiles mayores. Adecuaciones menores: puntos eléctricos, tomas de red, señalización de seguridad, estanterías, escritorio técnico y tapete ESD.
+
+\subsubsection{Comprar, construir o \emph{leasing}}
+\begin{itemize}
+    \item \textbf{Cloud vs.\ on-premise:} se mantiene \emph{cloud} (OPEX) por elasticidad y menor CAPEX.
+    \item \textbf{Equipos de cómputo:} viable \emph{leasing} tecnológico a 24--36 meses para preservar caja.
+    \item \textbf{Kits para clínicas:} modalidad \emph{leasing} o renting (incluye mantenimiento y recambio), alineado con el modelo Device-as-a-Service.
+\end{itemize}
+
+% ---------------------------------------------------------
+\subsection{Estructura de costos de operación}
+
+\subsubsection{Mano de obra directa (producción/soporte)}
+Resumen anual 2025 (ver ``Plantilla Nómina''):
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{p{6.6cm} r}
+\toprule
+\textbf{Cargo (producción)} & \textbf{Costo anual 2025}\\
+\midrule
+Jefe de tecnología (CTO) & \$72.450.560\\
+Desarrollador Full-Stack (2) & \$126.788.480\\
+Diseñador UX/UI & \$46.272.336\\
+Soporte técnico & \$34.499.120\\
+\midrule
+\textbf{Total MO directa} & \textbf{\$216.616.256}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Gastos laborales administrativos}
+Gerente general, marketing, community, contador y servicios generales suman \textbf{\$223.551.535/año} (ver Excel).
+
+\subsubsection{Materia prima e insumos (variables)}
+Según ``Identificación de costos'', los costos variables directos (MVP, integración, base de datos, etc.) totalizan un \textbf{CVU} base de \textbf{\$4.641.200} por unidad de servicio, más indirectos variables (\$990.000). El detalle está parametrizado en el Excel.
+
+\subsubsection{Gastos fijos de operación}
+Arriendo, servicios públicos, hosting, mantenimiento, publicidad, software administrativo y seguros: \textbf{\$65.800.000/año}.
+
+\subsubsection{Costo estimado del servicio y precio de venta}
+\begin{itemize}
+    \item \textbf{Costo unitario (Año 1):} CVU + CIF + componente de MOD asignado. En la hoja de cálculo se obtiene \textbf{\$5.631.359} por unidad.
+    \item \textbf{Política de precio:} margen operativo objetivo del 10\% sobre costo total unitario \textrightarrow{} \textbf{PVP Año 1: \$6.257.119} por unidad de servicio, coherente con la estructura planteada.
+\end{itemize}
+Notas: las cifras exactas y su prorrateo (por suscripción, por kit o por paquete institucional) se documentan en el Excel. Para B2C la referencia comercial es una suscripción mensual (COP \$20k--\$35k) y para B2B una tarifa por paciente/mes en el portal clínico (USD \$10--\$15), como se justificó en el estudio de mercado.
+
+\subsubsection{Punto de equilibrio}
+Se usa:
+\[
+Q^{*} = \frac{\text{CF} + \text{Depreciación}}{P - CVU}
+\]
+Con CF=\$65{,}8\,\text{M}, Depreciación=\$11{,}82\,\text{M}, $P=\$6{,}257{,}119$ y $CVU=\$5{,}631{,}359$, el Excel arroja \textbf{$Q^{*}=124$ unidades} en año 1. La proyección de demanda (\$1{,}360{,}800\$ unidades equivalentes) está por encima del equilibrio; el detalle de unidades equivalentes y su conversión (sesiones/planes) se deja desarrollado en la hoja ``Punto de equilibrio''.
+
+% ---------------------------------------------------------
+\subsection{Apéndice contable: depreciación y vida útil}
+\begin{itemize}
+    \item \textbf{Cómputo, comunicación, redes y datos:} 20\% anual (5 años).
+    \item \textbf{Muebles y enseres:} 10\% anual (10 años).
+    \item \textbf{Equipo médico/científico (si aplica):} 12{,}5\% anual (8 años).
+\end{itemize}
+La \textbf{depreciación anual consolidada} para el paquete de inversión es de \textbf{\$11.820.000}; la conciliación por activo (valor de compra, depreciación por año, acumulada y valor en libros) se encuentra en la hoja ``C.~inversiones y costos contables'' del Excel, que sirve como respaldo para la modelación financiera.
+
+\medskip
+\textbf{Conclusión técnica.} La solución puede operar con una planta liviana y escalable. La capacidad instalada crece al ritmo del parque de kits y de las alianzas B2B2C. La estructura de costos está dominada por OPEX (nube, personal y soporte), lo que es consistente con una estrategia \emph{Device-as-a-Service}. Con la evidencia de pilotos y la disciplina de QA, el modelo alcanza equilibrio con volúmenes moderados y ofrece margen para optimizar costos por economías de escala (compras de componentes, automatización de reportes y \emph{onboarding}).

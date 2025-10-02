@@ -1,0 +1,190 @@
+% ==========================================
+% Chapters/3. Estudio_de_Mercado.tex
+% ==========================================
+\section{Estudio de mercado}
+
+\subsection{Clientes - Demanda}
+
+\subsubsection{Cuantificación (Medellín) y supuestos}
+Población objetivo inicial: personas de 60+ y sus cuidadores en Medellín (aprox.\ 315\,000 mayores). Con base en la evidencia sectorial usada en el perfil, se asume: 
+\begin{itemize}
+    \item $\sim$35\% reporta al menos una caída/año $\Rightarrow$ $\sim$110\,250 con antecedente reciente.
+    \item De ellos, $\sim$25\% presenta alto riesgo o dependencia creciente $\Rightarrow$ \textbf{$\sim$27\,500} con \emph{prioridad alta}.
+\end{itemize}
+La estrategia de entrada combina B2B2C (EPS/IPS) y B2C directo. Para dimensionar \textbf{servicio por unidad de tiempo} se plantean tres escenarios y un \emph{ramp-up} realista considerando pilotos, certificación y marketing.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{p{3.3cm} p{2.3cm} p{2.3cm} p{2.3cm} p{2.8cm}}
+\toprule
+\textbf{Escenario} & \textbf{Año 1} & \textbf{Año 2} & \textbf{Año 3} & \textbf{Mix (B2B2C/B2C)}\\
+\midrule
+Conservador & 1\,200 usuarios activos & 4\,000 & 8\,000 & 70\% / 30\% \\
+Base & 2\,500 & 8\,500 & 15\,000 & 65\% / 35\% \\
+Optimista & 3\,500 & 12\,000 & 20\,000 & 60\% / 40\% \\
+\bottomrule
+\end{tabular}
+\caption{Usuarios activos esperados (servicio mensual). Meta de 10\,000 en 24 meses se ubica entre base/optimista.}
+\end{table}
+
+\paragraph{Unidades y sesiones por mes.} Cada usuario realiza en promedio 12 sesiones/mes (3 por semana). Por lo tanto, en escenario base:
+\[
+\text{Sesiones/mes (Año 2)} = 8\,500 \times 12 \approx 102\,000
+\]
+Para hardware, se estima 1 kit por hogar/beneficiario en B2C, y 1 kit por 3--4 pacientes en clínicas (rotación supervisada). Con 65\% de los usuarios en B2B2C, la razón kits:usuarios $\approx$ 1:2,6. En el escenario base de Año 2: $\sim$3\,270 kits operando.
+
+\subsubsection{Estrategias para penetrar el mercado}
+\begin{enumerate}
+    \item \textbf{Pilotos con EPS/IPS} (2--3 meses, 100--200 pacientes) con indicadores clínicos y de uso como evidencia de ROI (caídas $\downarrow$, adherencia $\uparrow$).
+    \item \textbf{Embudo B2C} con prueba de 14 días, plan de arriendo del kit y \emph{onboarding} asistido (visita o videollamada).
+    \item \textbf{Segmentación} por riesgo: historial de caídas, movilidad limitada, vive solo, deterioro cognitivo leve.
+    \item \textbf{Alianzas} con cajas de compensación, alcaldías (programas de envejecimiento activo), residencias geriátricas.
+\end{enumerate}
+
+\subsection{Competidores - Oferta}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{p{2.8cm} p{2.5cm} p{2.5cm} p{2.8cm} p{3.5cm}}
+\toprule
+\textbf{Competidor} & \textbf{Descripción} & \textbf{Precio referencial} & \textbf{Ventajas} & \textbf{Limitaciones}\\
+\midrule
+Smartwatch genérico / Apple Watch & Detección de caídas, SOS, signos vitales & Alto CAPEX (watch + teléfono) & Confiabilidad, ecosistema maduro & No está diseñado para mayores; sin \emph{exergames} ni reportes clínicos específicos \\
+Life Alert / botones SOS & Botón de emergencia con llamada automática & Inst./mensualidad & Respuesta a emergencias & Sin prevención ni ejercicios; disponibilidad local limitada \\
+Colgantes GPS locales & SOS + geolocalización básica & Bajo CAPEX & Económicos, fáciles de usar & Sin ejercicios ni analítica; poco integrables \\
+Plataformas clínicas premium (Biodex, Bertec) & Equipos de balance de uso clínico & $>\$5.000$ USD & Métrica clínica robusta & No son domiciliarios; alto costo \\
+Apps de EPS & Agendamiento, historiales, consejería & Gratuitas & Integradas al ecosistema EPS & Sin \emph{wearables} ni prevención activa \\
+\bottomrule
+\end{tabular}
+\caption{Mapa competitivo resumido (Colombia e internacional).}
+\end{table}
+
+\paragraph{Posicionamiento de Equilibrado.} Solución \textbf{integral y domiciliaria}: \emph{wearable + app + portal clínico} con \textbf{prevención activa} (ejercicios gamificados y seguimiento de equilibrio/reflejos) y \textbf{seguridad reactiva} (alertas). Costo total de propiedad inferior a plataformas clínicas y mayor evidencia que apps solo-software.
+
+\subsection{Producto / Servicio}
+
+\subsubsection{Identificación y atributos técnicos}
+\textbf{Componentes:} (i) \emph{Wearable} (colgante o banda) con IMU 6/9 ejes, BLE, vibración/LED; (ii) app móvil (Android/iOS) con \emph{exergames}, rutinas y alertas; (iii) portal clínico con dashboards e historiales.
+
+\begin{itemize}
+    \item \textbf{Especificaciones HW (referencia):} MCU BLE (p.ej., nRF52/ESP32), IMU (p.ej., ICM-20948/BMI160), batería LiPo 300--500\,mAh, carga USB-C, firmware actualizable OTA, resistencia al sudor, correa/colgante hipoalergénico.
+    \item \textbf{Especificaciones SW:} App en React~Native; \emph{backend} con APIs REST; cómputo en nube (logs, series de tiempo); motor de rutinas personalizadas (ML simple por umbrales/adaptativo).
+    \item \textbf{Métricas clave:} sway RMS, latencia de reacción, adherencia (sesiones/semana), cumplimiento de metas.
+\end{itemize}
+
+\subsubsection{Características orientadas al mercado}
+Usos: prevención de caídas, rehabilitación ligera, estimulación cognitiva (reflejos/atención).\\
+Presentación: kit domiciliario (wearable + cargador + instrucciones) y acceso a la app/portal.\\
+Composición: HW modular; SW con perfiles usuario/cuidador/fisio; subproductos: reportes PDF/CSV para EPS.
+
+\subsubsection{Tipo y ciclo de vida}
+Producto de \emph{salud digital}; fase introducción $\rightarrow$ crecimiento (36 meses) con iteraciones trimestrales de firmware/app. Reemplazo de módulo IMU cada 18--24 meses por obsolescencia/uso.
+
+\subsubsection{Normas, licencias y patentes}
+Invima (clase I) para comercialización; BPF/ISO 13485 (light) en fabricación/ensamble; protección de datos (Ley 1581); propiedad intelectual de software y diseño industrial del wearable. En nube: acuerdos de procesamiento de datos (DPA) con proveedores.
+
+\subsubsection{Sustitutos y productos similares}
+Sustitutos parciales: \emph{smartwatches}, botones SOS, fisioterapia presencial sin tecnología, clases de gimnasia para mayores. Ventaja de Equilibrado: combina prevención, métricas objetivas y conexión con el sistema de salud.
+
+\subsection{Precio}
+
+\subsubsection{Componentes del precio}
+\begin{itemize}
+    \item \textbf{Hardware:} BOM (IMU, MCU BLE, batería, PCB, carcasa, cargador), ensamble, QA, logística e impuestos.
+    \item \textbf{Servicio:} nube (almacenamiento, bases de datos, mensajería), soporte, \emph{customer success}, licencias de terceros.
+    \item \textbf{Comercial:} CAC (ads, ferias, demostradores), comisiones de canal y garantías.
+\end{itemize}
+
+\subsubsection{Política y métodos}
+\textbf{Métodos:} costo + margen en HW (objetivo $\sim$40\%); precios por valor en suscripciones (ahorro por caída evitada); discriminación por segmento (B2B2C vs.\ B2C).\\
+\textbf{Referencias de niveles:} 
+\begin{itemize}
+    \item B2C: suscripción mensual objetivo COP \$20\,000--\$35\,000 (o $\sim\$4$--\$8 USD) según plan.
+    \item B2B (clínicas/EPS): tarifa por paciente/mes para portal clínico y reportes (referencia \$10--\$15 USD/paciente/mes).
+    \item Arriendo del kit: cuota mensual que cubre HW, mantenimiento y reemplazo preventivo.
+\end{itemize}
+
+\subsection{Promoción y publicidad}
+\begin{itemize}
+    \item \textbf{Intro:} pilotos con evidencia, testimonios de familias y fisios; contenido educativo sobre prevención de caídas.
+    \item \textbf{Masificación:} anuncios segmentados a hijos/cuidadores (35--55), convenios con alcaldías y cajas de compensación, demostradores en ferias de salud.
+    \item \textbf{Mantenimiento:} retos comunitarios y rankings, programa \emph{Embajadores Senior}, referidos con incentivos.
+\end{itemize}
+
+\subsection{Proveedores}
+
+\subsubsection{Estudio de insumos y calidad}
+\textbf{Componentes electrónicos:} IMU y MCUs BLE (proveedores típicos: Mouser, Digi-Key, Seeed, Adafruit, Waveshare); PCBs locales o \emph{fab} internacional; baterías LiPo con certificaciones UN38.3; empaques reciclables.\\
+\textbf{Nube y software:} AWS/GCP/Azure (almacenamiento, cómputo, notificaciones), servicios de mensajería (FCM, SMS).\\
+\textbf{Calidad:} pruebas funcionales al 100\%, control de firmware, trazabilidad por lote, QA en usabilidad.
+
+\subsubsection{Estacionalidad, transporte y almacenamiento}
+Ciclos de plazos por eventos como \emph{Chinese New Year}; se recomienda inventario de seguridad (8--12 semanas). Transporte con restricciones para LiPo; almacenamiento en ambiente seco, 15--25\,$^\circ$C.
+
+\subsubsection{Normas y controles}
+RAEE (posconsumo), seguridad eléctrica, rotulado, manuales accesibles (tipografía grande y lenguaje claro). Contratos de SLA con nube y con \emph{fulfillment}.
+
+\subsubsection{Créditos y condiciones con proveedores}
+Negociación de 30/60 días a partir de volúmenes; \emph{price locks} trimestrales; cláusulas de continuidad (para obsolescencia).
+
+\subsection{Comercialización}
+
+\subsubsection{Canales de distribución}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{p{4.2cm} p{10.2cm}}
+\toprule
+\textbf{Canal} & \textbf{Descripción}\\
+\midrule
+EPS/IPS (B2B2C) & Integración a programas de prevención y atención domiciliaria; facturación por paciente/mes; acompañamiento clínico.\\
+Clínicas y residencias & Implementaciones grupales (kits por sala) y seguimiento con portal; entrenamiento a fisioterapeutas.\\
+E-commerce propio & Venta/arriendo de kits y suscripción; \emph{onboarding} remoto y soporte por WhatsApp/llamada.\\
+Retail especializado & Ortopedias/farmacias; exhibición y prueba guiada; material POP.\\
+\bottomrule
+\end{tabular}
+\caption{Selección de canales de distribución.}
+\end{table}
+
+\subsubsection{Márgenes, condiciones y crédito}
+Márgenes sugeridos: 15--25\% retail; comisiones 10--15\% en convenios institucionales por volumen. Condiciones de venta: prueba 14 días, garantía 12 meses, opciones de arriendo. Sistemas de crédito: pago recurrente con débito automático; para B2B, facturación mensual y niveles por cumplimiento de KPIs.
+
+\subsubsection{Sistema de promoción (síntesis)}
+\begin{itemize}
+    \item \textbf{Contenido}: guías de “hogar seguro”, microvideos de ejercicios, casos de éxito.
+    \item \textbf{Eventos}: ferias de salud, talleres con alcaldías, jornadas en centros de día.
+    \item \textbf{Digital}: campañas de performance (familiares 35--55) y \emph{retargeting}; CRM con nutrición de leads.
+\end{itemize}
+
+\subsection{Modelo freemium y planes}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{p{4.0cm} p{5.6cm} p{5.6cm}}
+\toprule
+\textbf{Función} & \textbf{Gratuita} & \textbf{Premium (suscripción)}\\
+\midrule
+App y rutinas & Acceso a rutinas básicas, recordatorios & Rutinas personalizadas con IA, progresión y metas \\
+Monitoreo & Registro básico y alertas locales & Monitoreo en tiempo real, alertas a cuidadores \\
+Reportes & Vista básica en app & Reportes clínicos, exportables (PDF/CSV) \\
+Soporte & Base (FAQ/WhatsApp) & Prioritario, \emph{onboarding} asistido \\
+Integración clínica & -- & Portal profesional y dashboards \\
+Hardware & Compra opcional & Arriendo/compra con mantenimiento \\
+\bottomrule
+\end{tabular}
+\caption{Propuesta de \emph{freemium} y beneficios por plan.}
+\end{table}
+
+\subsection{Resumen de precio de referencia}
+\begin{itemize}
+    \item \textbf{HW (kit):} precio objetivo con margen $\sim$40\% sobre costo total.
+    \item \textbf{Suscripción B2C:} COP \$20\,000--\$35\,000/mes.
+    \item \textbf{Licencia clínica (B2B):} \$10--\$15 USD/paciente/mes según volumen y funcionalidades.
+    \item \textbf{Arriendo del kit:} tarifa mensual que incluye mantenimiento y reemplazo preventivo.
+\end{itemize}
+
+\medskip
+Con este enfoque, la demanda se puede construir desde convenios (EPS/IPS y residencias) y, en paralelo, por venta directa. La propuesta de valor (prevención medible + experiencia sencilla) permite competir frente a dispositivos genéricos y equipos hospitalarios, manteniendo precios accesibles y márgenes adecuados para escalar.

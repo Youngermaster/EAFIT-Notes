@@ -1,0 +1,195 @@
+% ==========================================
+% Chapters/2. Estudio_Sectorial_Estrategico.tex
+% ==========================================
+\section{Estudio Sectorial / Estratégico}
+
+% --- Recomendación: en el preámbulo asegurarse de cargar:
+% \usepackage{longtable,booktabs,array}
+% (booktabs ya se usa aquí)
+
+\subsection{Marco del entorno (PESTEL, macro)}
+A continuación se resume el análisis PESTEL con énfasis en variables que afectan a \textbf{Equilibrado}. Se incorporan fuentes actuales y locales cuando corresponde.
+
+\setlength{\LTcapwidth}{\textwidth}
+\begin{longtable}{p{2.6cm} p{8.6cm} c c c}
+\caption{PESTEL (macroentorno) con horizonte temporal (x: incidencia esperada).}\label{tab:pestel-macro}\\
+\toprule
+\textbf{Factor} & \textbf{Detalle} & \textbf{Corto} & \textbf{Mediano} & \textbf{Largo}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Factor} & \textbf{Detalle} & \textbf{Corto} & \textbf{Mediano} & \textbf{Largo}\\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\emph{Continúa en la página siguiente}}\\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+
+\textbf{Político} &
+Falta de continuidad en políticas públicas de envejecimiento activo; cambios de gobierno pueden mover presupuestos preventivos. &
+x & x &  \\
+& Cambios en prioridades de salud (p.ej., choques epidemiológicos) que desvíen recursos de prevención a atención aguda. &
+x & x &  \\
+& Interés de gobiernos locales en reducir costos por caídas y dependencia; abre puerta a convenios y pilotos públicos. &
+  & x & x \\
+& Posibilidad de paquetes con EPS alineados a atención primaria y prevención. &
+  &   & x \\
+\midrule
+\textbf{Económico} &
+Inflación: presiona costos de HW y reduce pago directo B2C; el B2B2C con EPS amortigua el riesgo. &
+  & x & x \\
+& Baja capacidad de pago directo de algunos mayores/familias si no hay subsidio o cofinanciación. &
+x &   &   \\
+& Dependencia de financiación externa en fase temprana (I+D y certificación). &
+x &   &   \\
+& Modelo de financiación con EPS para tecnologías costo-eficientes de prevención. &
+  & x & x \\
+& Gasto público en salud con interés en prevención de eventos costosos (caídas). &
+  &   & x \\
+& Crecimiento del grupo 60+ en Colombia (14{,}5\% en 2023) y tendencia al alza hacia 2040 \cite{MinsaludMayores2024,DANEProyecciones2042}. &
+  &   & x \\
+\midrule
+\textbf{Social} &
+Resistencia inicial al uso de tecnología en parte de los adultos mayores; requiere acompañamiento. &
+x &   &   \\
+& Brecha en acceso y habilidades digitales en zonas y estratos específicos. &
+x & x &   \\
+& Nivel de alfabetización digital de cuidadores/familia influye en adopción. &
+x &   &   \\
+& Mayor interés de familias en soluciones domiciliarias y prácticas. &
+  & x & x \\
+& Adopción digital creciente (penetración de smartphones y conectividad móvil en LatAm) \cite{GSMA2024MobileLatAm}. &
+  & x & x \\
+& Alto valor cultural de la autonomía y prevención en la vejez. &
+x &   &   \\
+\midrule
+\textbf{Tecnológico} &
+Obsolescencia rápida; conviene diseño modular y actualizable (firmware/app). &
+  & x & x \\
+& Machine Learning para adaptar niveles de exigencia y personalizar sesiones. &
+x &   &   \\
+& Telemedicina y analítica clínica: aceptación de seguimiento remoto y reportes. &
+x &   &   \\
+& Integración con smartphones (BLE) baja la barrera de entrada. &
+x &   &   \\
+& Avances en sensores inerciales de bajo costo y mayor precisión. &
+x &   &   \\
+\midrule
+\textbf{Ambiental} &
+Gestión de RAEE: obligaciones de recolección selectiva y posconsumo para AEE; implica logística inversa y acuerdos con gestores autorizados \cite{Ley1672RAEE,Resolucion1512RAEE}. &
+  & x & x \\
+& Exigencias crecientes de empaques sostenibles y trazabilidad de materiales. &
+  & x &   \\
+& Huella de carbono asociada a nube y transporte; oportunidad de mitigar con energía renovable/offset y consolidación logística. &
+  &   & x \\
+& Riesgos climáticos en la cadena de suministro (importación de componentes). &
+  &   & x \\
+\midrule
+\textbf{Legal} &
+Clasificación y registro sanitario (Invima) para dispositivo de clase I (riesgo bajo) y posibles subclases; cumplimiento de BPF \cite{InvimaDispositivos,Decreto4725}. &
+x &   &   \\
+& Protección de datos personales (Ley 1581 de 2012) y estándares internacionales si hay expansión \cite{Ley1581Datos}. &
+x &   &   \\
+& Propiedad intelectual: software y diseños de HW como barrera de entrada. &
+x &   &   \\
+& Reglas de contratación pública/alianzas con EPS para programas preventivos. &
+  & x &   \\
+\end{longtable}
+
+\paragraph{Lecturas de contexto.}
+La OMS estima 37{,}3 millones de caídas que requieren atención médica por año, con mayor mortalidad en 60+ \cite{WHO2021Falls}. La literatura clínica reporta prevalencias cercanas al 30\% de caídas anuales en 65+ que viven en comunidad \cite{Santamaria2014Falls}. En LatAm, el mercado de telerehabilitación se estimó en USD~340{,}3M (2024) con CAGR 12{,}7\% (2025--2030) \cite{GrandViewTelerehab}.
+
+\subsection{Sector}
+\textbf{Sector salud digital / tecnologías para rehabilitación y prevención}. Tendencias relevantes:
+\begin{itemize}
+    \item \textbf{Demografía y demanda}: 7{,}61 millones de personas 60+ en Colombia (14{,}5\% en 2023) y crecimiento proyectado hacia 2040 \cite{MinsaludMayores2024,DANEProyecciones2042}.
+    \item \textbf{Digitalización}: uso de smartphones y conectividad móvil continua al alza en la región \cite{GSMA2024MobileLatAm}.
+    \item \textbf{Tele-rehabilitación y monitoreo remoto}: crecimiento regional (CAGR $\sim$12{,}7\% 2025--2030) \cite{GrandViewTelerehab}.
+\end{itemize}
+
+\noindent
+\textbf{Comportamiento y cifras:} servicios digitales que combinan \emph{hardware + software + datos} capturan valor por suscripción; pagadores (EPS) y clínicas priorizan prevención costo-efectiva para reducir siniestralidad (caídas) y estancias. Postpandemia se consolidó la aceptación de seguimiento remoto y la evidencia de \emph{exergames} para equilibrio y cognición. Para Equilibrado, el \emph{go-to-market} natural es \emph{B2B2C} (EPS/IPS $\rightarrow$ hogar) con comercial B2C en paralelo.
+
+\subsection{Subsector}
+\textbf{Prevención de caídas y envejecimiento activo en el hogar.} 
+\begin{itemize}
+    \item \textbf{Tamaño y drivers:} prevalencias de caídas $\sim$30\%/año en 65+ \cite{Santamaria2014Falls} y costos indirectos altos (fracturas, dependencia). 
+    \item \textbf{Oferta actual:} apps sólo software (sin métricas físicas), plataformas clínicas premium ($>\$5.000$ y uso en hospital), wearables genéricos (no miden \emph{sway} ni proveen sesiones guiadas). 
+    \item \textbf{Tendencias:} IMU de bajo costo, videojuegos activos adaptativos, reportes clínicos estandarizados y modelos DaaS.
+\end{itemize}
+
+\subsection{Núcleo: CIIU y caracterización}
+Por el carácter \emph{hardware + software + servicio} el proyecto opera con CIIU combinados (principal y secundarios), según CIIU Rev.\;4 A.C.\ (DANE):
+\begin{itemize}
+    \item \textbf{CIIU 3250} — \emph{Fabricación de instrumentos, aparatos y materiales médicos y odontológicos (incluido mobiliario)} \cite{DANE_CIIU}. 
+    \item \textbf{CIIU 6201} — \emph{Actividades de desarrollo de sistemas informáticos} (app, portal, analítica) \cite{DIAN_CIIU6201}. 
+    \item (Opcional) \textbf{CIIU 8699} — \emph{Otras actividades de atención de la salud humana n.c.p.}, para el componente de servicios no clínicos de bienestar/seguimiento (cuando aplique vía convenios).
+\end{itemize}
+\textbf{Implicaciones}: 3250 activa requisitos de Invima/BPM; 6201 concentra propiedad intelectual de software y cumplimiento de datos (Ley 1581).
+
+\subsection{Microentorno - Ámbitos (PESTEL “micro”)}
+
+\paragraph{Clientes (EPS/IPS, clínicas, familias).}
+\emph{Político/Legal}: convenios con EPS requieren evidencia y cumplimiento de datos (Ley 1581) \cite{Ley1581Datos}.
+\emph{Económico}: EPS priorizan intervenciones con ROI (menos caídas/reingresos).
+\emph{Social}: cuidadores valoran alertas y reportes claros; la experiencia debe ser “senior-friendly”.
+\emph{Tecnológico}: interoperabilidad (APIs) y \emph{dashboards} para equipos clínicos.
+\emph{Ambiental}: preferencia por logística inversa (arriendo) y reciclaje de RAEE \cite{Ley1672RAEE,Resolucion1512RAEE}. 
+
+\paragraph{Proveedores (componentes, cloud, logística).}
+\emph{Político}: riesgo país de orígenes de componentes.
+\emph{Económico}: sensibilidad a tasa de cambio (importados).
+\emph{Tecnológico}: obsolescencia/fin de vida de sensores; contratos de continuidad.
+\emph{Legal/Ambiental}: obligaciones RAEE y empaques sostenibles \cite{Ley1672RAEE,Resolucion1512RAEE}.
+
+\paragraph{Competencia.}
+Plataformas clínicas premium (alto CAPEX) vs.\ apps sin sensores (baja evidencia física). Diferenciación de Equilibrado: datos objetivos (\emph{sway}, tiempos de reacción), gamificación y costo accesible.
+
+\paragraph{Canales.}
+B2B2C con EPS/IPS (capitación/preventivo) + B2C (e-commerce, retail de ortopedia). Necesario \emph{onboarding} asistido y \emph{customer success} para adherencia.
+
+\subsubsection*{Oportunidades y amenazas derivadas del micro-PESTEL}
+\textbf{Oportunidades:} (i) contratos con EPS por reducción de siniestralidad, (ii) adopción de tele-rehab y datos clínicos, (iii) envejecimiento y mayor conectividad móvil, (iv) alianzas con municipios, (v) posicionamiento \emph{green} mediante RAEE/logística inversa.\\
+\textbf{Amenazas:} (i) cambios regulatorios (Invima/datos), (ii) inflación y tipo de cambio en componentes, (iii) baja adopción digital en segmentos, (iv) obsolescencia de HW, (v) competencia con bundles de grandes marcas.
+
+\subsection{Estrategia}
+
+\subsubsection{FODA (alineado con PESTEL)}
+\begin{itemize}
+    \item \textbf{Fortalezas (F)}: hardware modular low-cost; métricas objetivas (sway y reacción); experiencia lúdica; portal clínico con KPIs; modelo DaaS.
+    \item \textbf{Oportunidades (O)}: envejecimiento y mercado 60+ en aumento \cite{MinsaludMayores2024,DANEProyecciones2042}; telerehab en crecimiento \cite{GrandViewTelerehab}; convenios con EPS; gobiernos locales buscan bajar costos por caídas; adopción de smartphones \cite{GSMA2024MobileLatAm}.
+    \item \textbf{Debilidades (D)}: dependencia de certificación sanitaria; necesidad de evidencia local; barreras digitales en parte de los usuarios; riesgo de importación de componentes.
+    \item \textbf{Amenazas (A)}: cambios normativos (Invima/datos) \cite{InvimaDispositivos,Decreto4725,Ley1581Datos}; inflación/tipo de cambio; productos premium consolidados; obsolescencia tecnológica; exigencias RAEE \cite{Ley1672RAEE,Resolucion1512RAEE}.
+\end{itemize}
+
+\subsubsection{Modelo CAME (coherente con FODA)}
+\textbf{Corregir (D)} 
+\begin{enumerate}
+    \item Estudios pre--post locales (clínicas aliadas) y publicaciones breves para sustentar efectividad.
+    \item \emph{Onboarding} asistido, tutoriales y “Embajadores Senior” para cerrar brecha digital.
+    \item Estrategia de aprovisionamiento dual y lista de equivalentes para mitigar riesgo de importación.
+\end{enumerate}
+
+\textbf{Afrontar (A)}
+\begin{enumerate}
+    \item Plan regulatorio desde el mes 1 (consultor Invima) y \emph{privacy by design} (Ley 1581).
+    \item Coberturas de tipo de cambio, negociación de \emph{pricing} con proveedores y \emph{hedging} básico.
+    \item Roadmap de producto con actualizaciones de firmware y reemplazo de módulos (anticipo a obsolescencia); plan RAEE con gestor autorizado.
+\end{enumerate}
+
+\textbf{Mantener (F)}
+\begin{enumerate}
+    \item Enfoque en costo--valor: kits accesibles + datos clínicos accionables.
+    \item Gamificación y comunidad para sostener adherencia y diferenciar frente a apps sin sensores.
+    \item Portal clínico con indicadores estándar (adherencia, sway, tiempo de reacción).
+\end{enumerate}
+
+\textbf{Explotar (O)}
+\begin{enumerate}
+    \item \emph{Go-to-market} B2B2C con EPS (pilotos por cápitas/prevención de caídas).
+    \item Programas municipales de envejecimiento activo (alianzas y cofinanciación).
+    \item Integraciones con telemedicina e historia clínica electrónica para potenciar uso de datos.
+\end{enumerate}
