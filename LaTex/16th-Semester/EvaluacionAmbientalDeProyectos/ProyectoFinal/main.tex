@@ -1,26 +1,41 @@
 \documentclass[a4paper, table]{article}
 \input{General/Preamble} % Loads in the preamble 
 \input{General/Settings} % Loads in user defined settings
-\usepackage{hyperref}
+
+% Paquetes para controlar la posición de tablas/figuras
+\usepackage{placeins}   % \FloatBarrier
+
 \begin{document}
 
-% Inserts the front page
+% Portada
 \input{Chapters/0. Frontpage}\pagenumbering{arabic}
 \newpage
 
-% Generates a ToC without page number
-{\hypersetup{linkcolor=black} % Keeps the ToC black even with non-black linkcolor
+% Tabla de contenido
+{\hypersetup{linkcolor=black}
 \tableofcontents\thispagestyle{empty}}
 \newpage
 
 \input{Chapters/1.Resumen}
+\FloatBarrier
+
 \input{Chapters/2.Numeral_1}
+\FloatBarrier
+
 \input{Chapters/3.Numeral_2}
+\FloatBarrier
+
 \input{Chapters/4.Numeral_3}
+\FloatBarrier
+
 \input{Chapters/5.Numeral_4}
+\FloatBarrier
+
 \input{Chapters/6.Numeral_5}
+\FloatBarrier
+
 \newpage
-\bibliographystyle{plainurl} % estilo básico con URLs clickeables
+\bibliographystyle{plainurl}
 \bibliography{General/References}
 
 \end{document}
