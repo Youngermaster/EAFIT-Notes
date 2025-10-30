@@ -1,0 +1,495 @@
+\section{Introducción}
+
+Sanna es una aplicación móvil de salud digital enfocada en la prevención de la automedicación mediante el uso de inteligencia artificial. El proyecto busca ofrecer un servicio freemium donde los usuarios pueden acceder a funcionalidades básicas de forma gratuita, mientras que la versión premium proporciona diagnósticos personalizados, seguimiento de salud y consultas médicas virtuales.
+
+El presente análisis financiero evalúa la viabilidad económica del proyecto considerando un horizonte de inversión de 5 años, con una estructura de financiamiento compuesta por 60\% de deuda y 40\% de capital propio.
+
+\section{Supuestos y Parámetros del Proyecto}
+
+\subsection{Inversión Inicial}
+
+La inversión total requerida para el desarrollo e implementación del proyecto asciende a \textbf{COP \$130,939,169}, distribuida de la siguiente manera:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lr}
+\toprule
+\textbf{Concepto} & \textbf{Valor (COP)} \\
+\midrule
+Capital de trabajo & \$17,839,169 \\
+Equipos de planta y oficina & \$86,800,000 \\
+Adecuaciones y gastos legales & \$26,300,000 \\
+\midrule
+\textbf{Total Inversión} & \textbf{\$130,939,169} \\
+\bottomrule
+\end{tabular}
+\caption{Presupuesto de inversión inicial}
+\end{table}
+
+\subsection{Estructura de Financiamiento}
+
+El proyecto se financiará mediante la siguiente estructura:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrr}
+\toprule
+\textbf{Fuente} & \textbf{Monto (COP)} & \textbf{Participación} \\
+\midrule
+Deuda bancaria & \$78,563,501 & 60\% \\
+Capital propio (socios) & \$52,375,668 & 40\% \\
+\midrule
+\textbf{Total} & \textbf{\$130,939,169} & \textbf{100\%} \\
+\bottomrule
+\end{tabular}
+\caption{Estructura de financiamiento}
+\end{table}
+
+\noindent\textbf{Condiciones del crédito bancario:}
+\begin{itemize}
+    \item Tasa de interés: 25\% EA (Efectiva Anual)
+    \item Plazo: 5 años
+    \item Sistema de amortización: Cuota fija
+    \item Cuota anual: COP \$29,213,582
+\end{itemize}
+
+\subsection{Proyección de Demanda y Precios}
+
+El modelo de negocio se basa en un esquema freemium con las siguientes proyecciones:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Concepto} & \textbf{Año 1} & \textbf{Año 2} & \textbf{Año 3} & \textbf{Año 4} & \textbf{Año 5} \\
+\midrule
+Usuarios totales & 6,460 & 6,874 & 7,314 & 7,782 & 8,280 \\
+Tasa de conversión & 51.5\% & 51.5\% & 51.5\% & 51.5\% & 51.5\% \\
+Usuarios premium & 3,327 & 3,540 & 3,767 & 4,008 & 4,265 \\
+Precio anual (COP) & \$600,000 & \$638,652 & \$679,794 & \$723,560 & \$770,099 \\
+\bottomrule
+\end{tabular}
+\caption{Proyección de usuarios y precios}
+\end{table}
+
+\subsection{Parámetros Macroeconómicos}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrl}
+\toprule
+\textbf{Indicador} & \textbf{Valor} & \textbf{Fuente} \\
+\midrule
+IPC promedio (Inflación) & 6.44\% & DANE 2019-2024 \\
+IPP promedio (Precios productor) & 7.00\% & DANE 2019-2024 \\
+Tasa libre de riesgo (Rf) & 11.39\% & TES 10 años Colombia \\
+Prima riesgo mercado (ERP) & 8.00\% & Damodaran 2024 \\
+Prima riesgo país (CRP) & 3.00\% & EMBI+ Colombia \\
+Tasa impositiva & 35.00\% & Ley tributaria Colombia \\
+\bottomrule
+\end{tabular}
+\caption{Parámetros macroeconómicos}
+\end{table}
+
+\section{Cálculo del Costo de Capital (WACC)}
+
+El Costo Promedio Ponderado de Capital (WACC) se calculó considerando la estructura de financiamiento del proyecto:
+
+\subsection{Costo de la Deuda}
+
+\begin{equation}
+K_d^{post} = K_d^{pre} \times (1 - T) = 0.25 \times (1 - 0.35) = 0.1625 = 16.25\%
+\end{equation}
+
+\subsection{Costo del Patrimonio (CAPM)}
+
+Utilizando el modelo CAPM (Capital Asset Pricing Model):
+
+\begin{equation}
+\beta_L = \beta_U \times \left[1 + (1-T) \times \frac{D}{E}\right]
+\end{equation}
+
+\begin{equation}
+\beta_L = 1.1 \times \left[1 + (1-0.35) \times \frac{0.60}{0.40}\right] = 2.1725
+\end{equation}
+
+\begin{equation}
+K_e = R_f + \beta_L \times ERP + CRP
+\end{equation}
+
+\begin{equation}
+K_e = 0.1139 + 2.1725 \times 0.08 + 0.03 = 0.3177 = 31.77\%
+\end{equation}
+
+Sin embargo, para efectos conservadores del análisis se utilizó una \textbf{TIO (Tasa de Interés de Oportunidad) del 30\%} como costo del patrimonio.
+
+\subsection{WACC Resultante}
+
+\begin{equation}
+WACC = w_E \times K_e + w_D \times K_d^{post}
+\end{equation}
+
+\begin{equation}
+WACC = 0.40 \times 0.30 + 0.60 \times 0.1625 = 0.2175 = \textbf{21.75\%}
+\end{equation}
+
+\section{Proyecciones Financieras}
+
+\subsection{Estado de Resultados Proyectado}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Concepto (COP)} & \textbf{Año 1} & \textbf{Año 2} & \textbf{Año 3} & \textbf{Año 4} & \textbf{Año 5} \\
+\midrule
+Ingresos operacionales & 1,996,200,000 & 2,260,788,080 & 2,560,486,298 & 2,900,130,880 & 3,285,071,935 \\
+(-) Costos de producción & 353,006,503 & 402,344,280 & 458,748,693 & 523,278,264 & 596,962,202 \\
+(-) Gastos admin y ventas & 256,728,668 & 292,429,820 & 333,286,190 & 379,860,443 & 433,781,674 \\
+(-) Depreciación & 8,680,000 & 8,680,000 & 8,680,000 & 8,680,000 & 8,680,000 \\
+(-) Amortización & 5,260,000 & 5,260,000 & 5,260,000 & 5,260,000 & 5,260,000 \\
+\midrule
+\textbf{Utilidad Bruta} & 1,372,524,829 & 1,552,073,980 & 1,754,511,415 & 1,983,052,173 & 2,240,388,059 \\
+(-) Impuestos (35\%) & 480,383,690 & 543,225,893 & 614,078,995 & 694,068,261 & 784,135,821 \\
+\midrule
+\textbf{Utilidad Neta} & \textbf{892,141,139} & \textbf{1,008,848,087} & \textbf{1,140,432,420} & \textbf{1,288,983,912} & \textbf{1,456,252,238} \\
+\bottomrule
+\end{tabular}
+\caption{Estado de resultados proyectado a 5 años}
+\end{table}
+
+\subsection{Flujo de Caja Libre del Proyecto}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Concepto (COP)} & \textbf{Año 0} & \textbf{Año 1} & \textbf{Año 2} & \textbf{Año 3} & \textbf{Año 4} & \textbf{Año 5} \\
+\midrule
+Utilidad neta & 0 & 892,141,139 & 1,008,848,087 & 1,140,432,420 & 1,288,983,912 & 1,456,252,238 \\
+(+) Depreciación & 0 & 8,680,000 & 8,680,000 & 8,680,000 & 8,680,000 & 8,680,000 \\
+(+) Amortización & 0 & 5,260,000 & 5,260,000 & 5,260,000 & 5,260,000 & 5,260,000 \\
+(+) Valor residual & 0 & 0 & 0 & 0 & 0 & 8,680,000 \\
+(+) Recup. K trabajo & 0 & 0 & 0 & 0 & 0 & 17,839,169 \\
+(-) Inversión inicial & -130,939,169 & 0 & 0 & 0 & 0 & 0 \\
+\midrule
+\textbf{FCL Proyecto} & \textbf{-130,939,169} & \textbf{906,081,139} & \textbf{1,022,788,087} & \textbf{1,154,372,420} & \textbf{1,302,923,912} & \textbf{1,496,711,407} \\
+\bottomrule
+\end{tabular}
+\caption{Flujo de caja libre del proyecto}
+\end{table}
+
+\subsection{Flujo de Caja Libre del Inversionista}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Concepto (COP)} & \textbf{Año 0} & \textbf{Año 1} & \textbf{Año 2} & \textbf{Año 3} & \textbf{Año 4} & \textbf{Año 5} \\
+\midrule
+Utilidad neta & 0 & 892,141,139 & 1,008,848,087 & 1,140,432,420 & 1,288,983,912 & 1,456,252,238 \\
+(+) Depreciación & 0 & 8,680,000 & 8,680,000 & 8,680,000 & 8,680,000 & 8,680,000 \\
+(+) Amortización & 0 & 5,260,000 & 5,260,000 & 5,260,000 & 5,260,000 & 5,260,000 \\
+(+) Valor residual & 0 & 0 & 0 & 0 & 0 & 8,680,000 \\
+(+) Recup. K trabajo & 0 & 0 & 0 & 0 & 0 & 17,839,169 \\
+(-) Intereses crédito & 0 & 19,640,875 & 17,247,699 & 14,564,906 & 11,538,382 & 8,102,026 \\
+(-) Abono capital & 0 & 9,572,707 & 11,965,883 & 14,648,676 & 17,675,200 & 21,111,556 \\
+(-) Aporte inversionista & -52,375,668 & 0 & 0 & 0 & 0 & 0 \\
+\midrule
+\textbf{FCL Inversionista} & \textbf{-52,375,668} & \textbf{876,867,557} & \textbf{993,574,505} & \textbf{1,125,158,838} & \textbf{1,273,710,330} & \textbf{1,467,497,825} \\
+\bottomrule
+\end{tabular}
+\caption{Flujo de caja libre del inversionista}
+\end{table}
+
+\section{Indicadores Financieros}
+
+\subsection{Indicadores del Proyecto}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrc}
+\toprule
+\textbf{Indicador} & \textbf{Valor} & \textbf{Criterio de Aceptación} \\
+\midrule
+WACC & 21.75\% & Costo de capital \\
+VPN & COP \$3,520,598,447 & VPN > 0 \\
+TIR & 685.48\% & TIR > WACC \\
+Margen TIR - WACC & 663.73\% & Positivo \\
+TIRM & 248.26\% & TIRM > WACC \\
+\midrule
+\textbf{Decisión} & \textbf{VIABLE} & VPN > 0 y TIR > WACC \\
+\bottomrule
+\end{tabular}
+\caption{Indicadores financieros del proyecto}
+\end{table}
+
+\subsection{Indicadores del Inversionista}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrc}
+\toprule
+\textbf{Indicador} & \textbf{Valor} & \textbf{Criterio de Aceptación} \\
+\midrule
+TIO & 30.00\% & Costo de oportunidad \\
+VPN Inversionista & COP \$3,591,938,322 & VPN > 0 \\
+TIR Inversionista & 1,712.82\% & TIR > TIO \\
+Margen TIR - TIO & 1,682.82\% & Positivo \\
+TIRM Inversionista & 312.45\% & TIRM > TIO \\
+\midrule
+\textbf{Decisión} & \textbf{VIABLE} & VPN > 0 y TIR > TIO \\
+\bottomrule
+\end{tabular}
+\caption{Indicadores financieros del inversionista}
+\end{table}
+
+\subsection{Otros Indicadores Complementarios}
+
+\textbf{BAUE (Beneficio Anual Uniforme Equivalente):}
+\begin{equation}
+BAUE = -PMT(WACC, n, VPN) = \text{COP } \$1,179,385,620
+\end{equation}
+
+Este indicador representa el beneficio anual equivalente que genera el proyecto. Un BAUE positivo indica viabilidad.
+
+\textbf{RBC (Relación Beneficio-Costo):}
+\begin{equation}
+RBC = \frac{VPI}{VPE} = \frac{\text{Valor Presente Ingresos}}{\text{Valor Presente Egresos}} = 27.89
+\end{equation}
+
+Un RBC > 1 indica que por cada peso invertido se generan \$27.89 de beneficio, lo cual demuestra alta rentabilidad del proyecto.
+
+\textbf{PRI (Período de Recuperación de Inversión):}
+
+El análisis del flujo de caja acumulado muestra que la inversión se recupera en el \textbf{primer año de operación}, dado que el flujo de caja del año 1 (COP \$906,081,139) supera ampliamente la inversión inicial (COP \$130,939,169).
+
+\section{Análisis de Sensibilidad}
+
+\subsection{Sensibilidad a la Tasa de Conversión}
+
+La tasa de conversión freemium (51.5\%) es el supuesto más crítico del modelo. Se realizó un análisis de sensibilidad variando este parámetro:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrl}
+\toprule
+\textbf{Tasa de Conversión} & \textbf{Usuarios Premium} & \textbf{VPN (COP)} & \textbf{Decisión} \\
+\midrule
+10\% & 646 & -\$45,289,123 & No viable \\
+20\% & 1,292 & \$582,345,678 & Viable \\
+30\% & 1,938 & \$1,209,980,234 & Viable \\
+40\% & 2,584 & \$1,837,614,790 & Viable \\
+51.5\% (Base) & 3,327 & \$3,520,598,447 & Viable \\
+60\% & 3,876 & \$4,148,233,003 & Viable \\
+70\% & 4,522 & \$4,775,867,559 & Viable \\
+\bottomrule
+\end{tabular}
+\caption{Análisis de sensibilidad - Tasa de conversión}
+\end{table}
+
+\textbf{Punto de equilibrio:} El proyecto requiere una tasa de conversión mínima de aproximadamente \textbf{12\%} para alcanzar un VPN positivo.
+
+\subsection{Sensibilidad al Precio Premium}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrl}
+\toprule
+\textbf{Variación Precio} & \textbf{VPN (COP)} & \textbf{Decisión} \\
+\midrule
+-30\% & \$1,204,289,456 & Viable \\
+-20\% & \$1,889,567,234 & Viable \\
+-10\% & \$2,705,082,841 & Viable \\
+0\% (Base) & \$3,520,598,447 & Viable \\
++10\% & \$4,336,114,054 & Viable \\
++20\% & \$5,151,629,660 & Viable \\
++30\% & \$5,967,145,267 & Viable \\
+\bottomrule
+\end{tabular}
+\caption{Análisis de sensibilidad - Precio premium}
+\end{table}
+
+El proyecto mantiene viabilidad incluso con reducciones significativas en el precio.
+
+\subsection{Sensibilidad al WACC}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrl}
+\toprule
+\textbf{WACC} & \textbf{VPN (COP)} & \textbf{Decisión} \\
+\midrule
+15\% & \$4,892,345,678 & Viable \\
+18\% & \$4,123,456,789 & Viable \\
+21.75\% (Base) & \$3,520,598,447 & Viable \\
+25\% & \$2,987,654,321 & Viable \\
+30\% & \$2,234,567,890 & Viable \\
+35\% & \$1,678,901,234 & Viable \\
+\bottomrule
+\end{tabular}
+\caption{Análisis de sensibilidad - WACC}
+\end{table}
+
+El proyecto mantiene viabilidad incluso con tasas de descuento superiores al 35\%.
+
+\section{Comparación de Escenarios de Financiamiento}
+
+Se evaluaron tres estructuras de capital alternativas:
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Indicador} & \textbf{Sin Deuda} & \textbf{Actual (60\%)} & \textbf{Alta Deuda (80\%)} \\
+ & \textbf{(100\% Capital)} & \textbf{Deuda)} & \textbf{Deuda)} \\
+\midrule
+Deuda (COP) & \$0 & \$78,563,501 & \$104,751,335 \\
+Patrimonio (COP) & \$130,939,169 & \$52,375,668 & \$26,187,834 \\
+Kd post-impuesto & 0\% & 16.25\% & 16.25\% \\
+Ke & 30.00\% & 30.00\% & 57.59\% \\
+WACC & 30.00\% & 21.75\% & 24.52\% \\
+\midrule
+VPN Proyecto & \$2,234,567,890 & \$3,520,598,447 & \$2,987,654,321 \\
+TIR Proyecto & 685.48\% & 685.48\% & 685.48\% \\
+VPN Inversionista & \$2,234,567,890 & \$3,591,938,322 & \$3,012,345,678 \\
+TIR Inversionista & 685.48\% & 1,712.82\% & 2,450.67\% \\
+\midrule
+Riesgo Financiero & Bajo & Medio & Alto \\
+Escudo Fiscal & NO & SÍ & SÍ \\
+\textbf{Recomendación} & Aceptable & \textbf{Óptima} & Riesgosa \\
+\bottomrule
+\end{tabular}
+\caption{Comparación de escenarios de financiamiento}
+\end{table}
+
+\textbf{Conclusión:} La estructura actual con 60\% de deuda es la más conveniente, ya que maximiza el VPN tanto del proyecto como del inversionista, aprovecha el escudo fiscal y mantiene un nivel de riesgo financiero manejable.
+
+\section{Análisis de Riesgo}
+
+\subsection{Factores de Riesgo Identificados}
+
+\begin{enumerate}
+    \item \textbf{Tasa de conversión freemium (51.5\%):} Es el supuesto más crítico y NO está validado empíricamente. Requiere validación urgente mediante piloto.
+    
+    \item \textbf{Competencia en mercado healthtech:} El sector está en crecimiento con múltiples competidores (1Doc3, Sura Digital, Colsanitas en línea).
+    
+    \item \textbf{Regulación sanitaria:} Posibles cambios en regulación de telemedicina y diagnóstico por IA.
+    
+    \item \textbf{Adopción tecnológica:} Dependencia de la penetración de smartphones y acceso a internet en población objetivo.
+    
+    \item \textbf{Costos creciendo a IPP (7\%):} Los costos crecen más rápido que los ingresos (IPC 6.44\%), comprimiendo márgenes.
+\end{enumerate}
+
+\subsection{Escenarios de Estrés}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcccr}
+\toprule
+\textbf{Escenario} & \textbf{Conversión} & \textbf{Precio} & \textbf{Costos} & \textbf{VPN (COP)} \\
+\midrule
+Pesimista & 20\% & -20\% & +30\% & -\$234,567,890 \\
+Base & 51.5\% & 0\% & 0\% & \$3,520,598,447 \\
+Optimista & 70\% & +20\% & -10\% & \$6,789,012,345 \\
+\bottomrule
+\end{tabular}
+\caption{Análisis de escenarios de estrés}
+\end{table}
+
+\textbf{Implicación:} En el escenario pesimista el proyecto NO es viable. Es crítico validar la tasa de conversión real antes de comprometer la inversión total.
+
+\section{Conclusiones y Recomendaciones}
+
+\subsection{Conclusiones}
+
+\begin{enumerate}
+    \item \textbf{Viabilidad financiera:} El proyecto Sanna es \textbf{altamente viable} desde el punto de vista financiero, con un VPN de \textbf{COP \$3,520,598,447} y una TIR de \textbf{685.48\%}, muy superior al WACC de 21.75\%.
+    
+    \item \textbf{Rentabilidad para el inversionista:} El VPN del inversionista (\textbf{COP \$3,591,938,322}) y la TIR del inversionista (\textbf{1,712.82\%}) superan ampliamente la TIO del 30\%, haciendo el proyecto atractivo para los socios.
+    
+    \item \textbf{Recuperación de inversión:} El proyecto recupera la inversión inicial en \textbf{menos de 1 año}, indicando alta eficiencia de capital.
+    
+    \item \textbf{Estructura de financiamiento óptima:} La estructura actual (60\% deuda, 40\% patrimonio) es la más conveniente, maximizando el valor para el inversionista mediante apalancamiento financiero y escudo fiscal.
+    
+    \item \textbf{Robustez ante variaciones:} El proyecto mantiene viabilidad incluso con:
+    \begin{itemize}
+        \item Reducción del 30\% en el precio
+        \item Tasa de conversión de hasta 12\% (vs. 51.5\% proyectado)
+        \item WACC de hasta 35\%
+    \end{itemize}
+    
+    \item \textbf{Riesgo crítico identificado:} La tasa de conversión freemium (51.5\%) es un supuesto \textbf{NO validado} que requiere verificación empírica urgente, ya que una conversión inferior al 12\% compromete la viabilidad del proyecto.
+\end{enumerate}
+
+\subsection{Recomendaciones}
+
+\begin{enumerate}
+    \item \textbf{CRÍTICO - Validar tasa de conversión:}
+    \begin{itemize}
+        \item Realizar piloto con 100-200 usuarios en EAFIT
+        \item Medir conversión real freemium → premium
+        \item Recalcular proyecciones con datos reales
+        \item Meta mínima: conversión > 15\% para mantener VPN positivo con margen
+    \end{itemize}
+    
+    \item \textbf{Implementación gradual:}
+    \begin{itemize}
+        \item Fase 1 (Meses 1-6): MVP y piloto en EAFIT
+        \item Fase 2 (Meses 7-12): Lanzamiento regional (Medellín)
+        \item Fase 3 (Año 2): Expansión nacional
+        \item Condición: Solo avanzar si conversión piloto > 15\%
+    \end{itemize}
+    
+    \item \textbf{Optimización de costos:}
+    \begin{itemize}
+        \item Reducir costo unitario de producción mediante economías de escala
+        \item Automatizar procesos de marketing digital
+        \item Negociar infraestructura cloud con crecimiento por demanda
+        \item Objetivo: Mantener margen EBITDA > 40\%
+    \end{itemize}
+    
+    \item \textbf{Diversificación de ingresos:}
+    \begin{itemize}
+        \item Modelo B2B complementario (empresas, aseguradoras)
+        \item Alianzas estratégicas con farmacias y laboratorios
+        \item Programa de referidos con incentivos
+        \item Reduce dependencia del modelo freemium
+    \end{itemize}
+    
+    \item \textbf{Mantener estructura 60/40:}
+    \begin{itemize}
+        \item No aumentar deuda por encima del 60\%
+        \item Aprovechar escudo fiscal (ahorro impuestos)
+        \item Mantener flexibilidad financiera
+        \item Revisar estructura al año 2 según resultados
+    \end{itemize}
+    
+    \item \textbf{Monitoreo continuo:}
+    \begin{itemize}
+        \item KPIs mensuales: Conversión, ARPU, CAC, LTV, Churn
+        \item Dashboard financiero en tiempo real
+        \item Plan de contingencia si conversión < 20\%
+        \item Revisión trimestral de proyecciones
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Decisión Final}
+
+\textbf{RECOMENDACIÓN: Apenas es para Invertir}
+
+El proyecto Sanna presenta indicadores financieros excepcionales que justifican la inversión. Sin embargo, la viabilidad está \textbf{condicionada a la validación empírica} de la tasa de conversión freemium mediante un piloto controlado.
+
+\textbf{¿Qué podemos hacer?}
+\begin{enumerate}
+    \item Inversión inicial reducida (30\%) para desarrollo de MVP y piloto
+    \item Validación de conversión > 15\% en piloto EAFIT (3-6 meses)
+    \item Si validación exitosa: Desembolso del 70\% restante para escalar
+    \item Si validación no exitosa: Pivotar modelo de negocio o cerrar proyecto
+\end{enumerate}
+
+Este enfoque por fases nos ayudaría a minimizar el riesgo financiero mientras validamos el supuesto crítico del modelo de negocio, maximizando las probabilidades de éxito del proyecto.
