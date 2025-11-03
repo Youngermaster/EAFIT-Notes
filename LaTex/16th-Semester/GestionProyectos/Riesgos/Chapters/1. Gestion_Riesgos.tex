@@ -1,4 +1,4 @@
-% Chapters/3. Gestion_Riesgos.tex
+% Chapters/1. Gestion_Riesgos.tex
 % =========================================================
 % PLAN DE GESTIÓN DE RIESGOS - PROYECTO METRO DE LA 80
 % =========================================================
@@ -7,108 +7,93 @@
 
 \subsection{Contexto del proyecto}
 
-El ``Metro de la 80'' (también llamado corredor de la 80 o metro ligero de la 80) es un sistema ferroviario de mediana capacidad que se construye en el occidente de Medellín como parte del Plan Maestro de Expansión del Metro de Medellín. 
-El trazado proyectado recorre el eje de la Avenida 80 con múltiples estaciones (del orden de 14 a 17) y busca conectar desde el norte (cercanías de Caribe) hasta el sur (sector de Aguacatala) en aproximadamente media hora, integrándose tarifaria y operativamente con el sistema Metro y los buses alimentadores existentes. % :contentReference[oaicite:0]{index=0}
+El ``Metro de la 80'' (también llamado corredor de la 80 o metro ligero de la 80) es un sistema férreo de mediana capacidad que se construye sobre el eje de la Avenida 80 en Medellín. El trazado conecta el norte y el sur del occidente de la ciudad en aprox.\ 30 minutos, con ~15--17 estaciones proyectadas, y se integra tarifaria y operativamente con el sistema Metro existente y buses alimentadores. El objetivo estratégico es descongestionar la movilidad oriente--occidente, ofrecer transporte masivo con menor huella ambiental y detonar renovación urbana en el occidente de Medellín.
 
-El esquema financiero es de cofinanciación entre el Gobierno Nacional y el Municipio/Metro de Medellín. 
-Históricamente se ha planteado que la Nación aporte la mayor parte (del orden de la mitad o más del CAPEX) y el Municipio el resto mediante vigencias futuras locales, además de recursos de valorización y captura de plusvalía asociada al desarrollo urbano alrededor de las estaciones. % :contentReference[oaicite:1]{index=1}
-En 2024 el Gobierno Nacional hizo giros importantes (cerca de \$0{,}48 billones COP) para asegurar flujo de caja del proyecto, reforzando el compromiso de financiación central. % :contentReference[oaicite:2]{index=2}
+El esquema financiero es de cofinanciación Nación--Municipio/Metro de Medellín. La Nación se comprometió a aportar una fracción sustancial del CAPEX (cercana a la mitad), mientras que Medellín compromete vigencias futuras, valorización y plusvalía urbana alrededor de estaciones. En 2024 el Gobierno Nacional hizo un giro inicial de recursos (del orden de cientos de miles de millones de COP) para garantizar flujo de caja y dar señal de compromiso de financiación nacional.
 
-El corredor atraviesa una zona altamente urbanizada, con redes de servicios públicos de Empresas Públicas de Medellín (EPM), comercios formales e informales, y tráfico vehicular intenso. La construcción implica compra y reasentamiento de predios, afectaciones viales temporales, desvíos de tránsito y manejo de percepción ciudadana. % :contentReference[oaicite:3]{index=3}
-Al mismo tiempo, el proyecto se percibe como una oportunidad de transformación social, mejora de movilidad sostenible y renovación urbana en el occidente de Medellín. % :contentReference[oaicite:4]{index=4}
+El corredor atraviesa zonas densamente urbanizadas: redes de servicios públicos (EPM), comercio formal e informal, tráfico vehicular pesado, vivienda consolidada. Eso implica compra y reasentamiento de predios, desvíos de tránsito prolongados y gestión de percepción ciudadana. Al mismo tiempo, el proyecto se percibe como una oportunidad de integración modal, equidad en acceso al transporte, plusvalía urbana y fortalecimiento tecnológico ferroviario local.
 
-Con base en las buenas prácticas del \textit{PMBOK Guide} del PMI \cite{PMBOK} y la literatura clásica de gestión de proyectos \cite{Kerzner2017}, a continuación se formula el Plan de Gestión de Riesgos solicitado.
+Este documento se estructura siguiendo buenas prácticas del PMI y del \textit{PMBOK Guide} \cite{PMBOK} y literatura clásica de gestión de proyectos de infraestructura \cite{Kerzner2017}: identificación, categorización y dueños de riesgo; análisis cualitativo (probabilidad e impacto); y plan de respuesta con medidas, contingencias y riesgos secundarios.
 
 \newpage
+
 % =========================================================
 % 1. IDENTIFICACIÓN DE RIESGOS
 % =========================================================
 
 \subsection{1. Identificación de los 10 riesgos principales}
 
-Se identifican amenazas (riesgos negativos) y oportunidades (riesgos positivos). Cada riesgo está descrito de manera específica para el Metro de la 80 y hace referencia a costo, plazo, alcance, calidad, aceptación social o sostenibilidad.
+Se listan amenazas (riesgos negativos) y oportunidades (riesgos positivos).  
+El formato replica la lógica típica del registro de riesgos (risk register) usado en obra civil:
+\[ \textit{Debido a} \, (causa) \rightarrow \textit{ocurre} \, (evento) \rightarrow \textit{provocando} \, (efecto) \]
 
-\begin{table}[H]\centering\small
-\begin{tabular}{p{1.2cm}p{3cm}p{8cm}p{2cm}}
+También se dejan detonadores/disparadores (triggers) observables para activar la respuesta temprana, y se asigna un dueño responsable de monitoreo, como recomienda el PMI \cite{PMBOK}.
+
+\begin{table}[H]\centering\scriptsize
+\begin{tabular}{p{0.4cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{2cm}p{2cm}p{1.8cm}}
 \toprule
-\textbf{ID} & \textbf{Nombre corto} & \textbf{Descripción} & \textbf{Tipo} \\
+\textbf{ID} & \textbf{Riesgo (nombre corto)} & \textbf{Categoría RBS} & \textbf{Debido a (causa)} & \textbf{Ocurre este evento} & \textbf{Provocando este efecto} & \textbf{Detonadores / Triggers} & \textbf{Dueño} \\
 \midrule
-R1  & Flujo de cofinanciación & Retrasos o reducción en el giro oportuno de recursos de la Nación / Municipio que limiten caja para obra física y adquisiciones mayores. Afecta cronograma y puede forzar créditos puente costosos. & Amenaza \\
-R2  & Escalada de costos de obra & Aumento de precios de materiales críticos (acero, concreto, sistemas ferroviarios) por inflación e indexación contractual, lo que ya ha presionado el presupuesto del proyecto frente a estimaciones iniciales. % :contentReference[oaicite:5]{index=5}
-& Amenaza \\
-R3  & Gestión predial y reasentamientos & Retrasos o conflictos sociales en la compra de predios, traslado de comercios y reubicación de residentes del corredor de la Av.~80; riesgo de tutelas o acciones legales por compensación percibida como insuficiente. % :contentReference[oaicite:6]{index=6}
-& Amenaza \\
-R4  & Interferencia con redes de servicios públicos & Ductos de acueducto, alcantarillado, energía y telecom de EPM y terceros que cruzan el corredor. Rediseños, reprocesos o paradas de obra para relocalizar redes pueden generar costos indirectos y atrasos. & Amenaza \\
-R5  & Movilidad y aceptación ciudadana durante obra & Cierres parciales de calzadas en la Av.~80 y desvíos de tránsito prolongados pueden generar congestión, quejas ciudadanas y presión política para frenar o limitar frentes de obra (situación común en proyectos de metro urbano en Colombia). % :contentReference[oaicite:7]{index=7}
-& Amenaza \\
-R6  & Permisos y licencias ambientales & Exigencias adicionales por ruido, vibración y calidad del aire por parte de autoridades ambientales metropolitanas o nacionales; riesgo de condicionamientos que obliguen a rediseñar soluciones constructivas o a limitar horarios. & Amenaza \\
-R7  & Cambios políticos y de gobernanza & Cambio de administración local o nacional que altere prioridades, modifique el alcance técnico u operativo, o reabra discusiones de trazado / fases, generando incertidumbre y demoras en decisiones. & Amenaza \\
-R8  & Integración multimodal efectiva & Oportunidad de integración tarifaria y operativa con la red Metro/Metroplús para capturar demanda y asegurar altos niveles de ocupación desde el día 1, mejorando el flujo de caja operativo futuro. % :contentReference[oaicite:8]{index=8}
-& Oportunidad \\
-R9  & Renovación urbana / captura de plusvalía & Potencial de valorización del suelo y densificación alrededor de estaciones (desarrollo orientado al transporte, TOD). Esto puede habilitar fuentes complementarias de financiación municipal mediante plusvalía / APPs inmobiliarias. & Oportunidad \\
-R10 & Transferencia tecnológica local & Formación de capacidades locales en diseño, construcción y operación ferroviaria ligera (material rodante, señalización, mantenimiento). Disminuye dependencia externa en futuros proyectos y genera empleo calificado en Medellín. & Oportunidad \\
+R1 & Flujo de cofinanciación & A1 Externo--Financiero & Dependencia de giros Nación / Municipio y trámites de vigencias futuras & Retraso o reducción en los desembolsos comprometidos & Freno de frentes de obra, necesidad de créditos puente caros y riesgo de alargue del cronograma crítico & Retraso $>$30 días en giro nacional; alertas de tesorería sobre caja $<3$ meses de obra prioritaria & Dirección Financiera del Proyecto / Alcaldía \\
+\midrule
+R2 & Escalada de costos de obra & B1 Técnico--Costos de obra & Inflación en insumos (acero, concreto, sistemas ferroviarios), alzas TRM y cláusulas de reajuste & Los precios reales exceden las estimaciones iniciales y las reservas aprobadas & Sobrecosto global del CAPEX y posible recorte de alcance o solicitud de adición presupuestal & Cotizaciones de materiales suben $>10\%$ en 2 meses; interventoría reporta agotamiento de contingencia de costos & Gerencia de Costos y Contratación / Interventoría \\
+\midrule
+R3 & Gestión predial y reasentamientos & C1 Socioeconómico--Predial & Compra de predios y traslado de residentes/comerciantes sobre el corredor de la 80 & Retrasos por disputas en valoraciones, tutelas, oposición social al desalojo & Atrasos en inicio de obra civil por tramo, reputación negativa y posibles medidas cautelares & Quejas formales / acciones legales por avalúos; imposibilidad de posesión de predios clave según cronograma & Unidad de Gestión Predial y Social del Proyecto \\
+\midrule
+R4 & Interferencia con redes de servicios públicos & B1 Técnico--Redes & Existencia de ductos EPM (agua, energía, telecom), alcantarillado y redes de terceros en la vía & La obra debe detenerse para rediseñar, reubicar o proteger redes críticas & Paradas de construcción, reprocesos y sobrecostos indirectos (personal ocioso, equipos parados) & Plan de traslado de redes sin ventana técnica aprobada; EPM notifica incompatibilidad de diseño & Mesa Técnica de Redes (Proyecto + EPM Infraestructura) \\
+\midrule
+R5 & Movilidad y aceptación ciudadana durante obra & B2 Técnico--Movilidad urbana & Cierres de calzada y desvíos de tránsito prolongados en la Av.\ 80 & Congestión severa y molestia ciudadana que escala a presión política / mediática & Limitación política de frentes de obra activos $\rightarrow$ obra más lenta y más cara & Incremento sostenido de quejas ciudadanas / quejas formales en Personería; cobertura negativa en prensa local & Secretaría de Movilidad + Equipo de Comunicaciones del Proyecto \\
+\midrule
+R6 & Permisos y licencias ambientales & A2 Externo--Ambiental & Requerimientos de autoridad ambiental (ruido, vibración, calidad de aire) y normativa urbana & Imposición de restricciones horarias o rediseños constructivos no previstos & Extensión del plazo de obra y posibles costos adicionales de mitigación ambiental & Observaciones formales de la autoridad ambiental que exijan rediseño o limiten horario nocturno & Equipo Ambiental del Proyecto / Autoridad Ambiental Metropolitana \\
+\midrule
+R7 & Cambios políticos y de gobernanza & A3 Externo--Gobernanza & Cambio de administración municipal/nacional, nuevas prioridades o discursos anti-proyecto & Revisión de alcance, desaceleración de decisiones clave o renegociación de contratos & Incertidumbre institucional, decisiones diferidas y riesgo de pausa parcial del proyecto & Cambio de alcalde/gobierno central con declaraciones públicas de replantear el trazado o fases & Gerencia General Metro de Medellín / Junta del Proyecto \\
+\midrule
+R8 & Integración multimodal efectiva & B3 Técnico--Integración operativa & Diseño de integración tarifaria y operativa con Metro/buses desde el día 1 & Se logra una interoperabilidad plena: mismo sistema de recaudo, frecuencias coordinadas, transbordos fáciles & Mayor aceptación ciudadana, legitimidad social temprana y flujo de caja operativo robusto desde la entrada en servicio (oportunidad positiva) & Convenios de integración tarifaria firmados antes de la fase de pruebas; pruebas piloto de recaudo unificado & Gerencia de Operaciones Metro de Medellín \\
+\midrule
+R9 & Renovación urbana / captura de plusvalía & C3 Socioeconómico--Renovación urbana & Posible densificación / proyectos TOD (Transit Oriented Development) en torno a estaciones & Se estructuran proyectos inmobiliarios y plusvalía que ayudan a financiar el CAPEX y el mantenimiento urbano & Ingresos complementarios municipales, revitalización urbana y mejora del entorno social (oportunidad positiva) & Inclusión de lineamientos TOD en POT; negociaciones avanzadas con privados / APP; fondo social de mitigación & Secretaría de Planeación + Agencia APP Municipales \\
+\midrule
+R10 & Transferencia tecnológica local & D2 Largo plazo--Capacidades & Alta dependencia de proveedores externos ferroviarios para material rodante, señalización, operación y mantenimiento & Se fijan cláusulas de transferencia tecnológica y formación de talento local & Capacidad técnica local fortalecida, menos dependencia futura y empleo calificado en Medellín (oportunidad positiva) & Contratos con obligaciones explícitas de capacitación; convenios con universidades firmados antes de operación & Gerencia de Tecnología del Metro + Universidades locales \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Nota:} Estos riesgos se derivan de factores técnicos (interferencia de redes), financieros (cofinanciación Nación--Municipio), socioambientales (reasentamientos, licencias), político-institucionales (gobernanza), y estratégicos (integración multimodal, captura de valor urbano).
-
+Comentario: R1--R7 son \textbf{amenazas} (riesgos negativos). R8--R10 son \textbf{oportunidades} (riesgos positivos). Esta distinción es clave en gestión de riesgos según PMI: las amenazas se mitigan/evitan/transferen y las oportunidades se explotan/mejoran/comparten \cite{PMBOK}.
 
 % =========================================================
 % 2. CLASIFICACIÓN RBS Y ASIGNACIÓN DE DUEÑOS
 % =========================================================
 
-\subsection{2. Clasificación en la RBS y asignación de dueño}
+\subsection{2. Estructura de Desglose de Riesgos (RBS) y responsables}
 
-Para este taller se usa una \textbf{RBS (Risk Breakdown Structure)} de 2 niveles inspirada en \cite{PMBOK}:
+Tomamos una RBS de 2 niveles (\cite{PMBOK}):
 
 \begin{itemize}
   \item \textbf{A. Externo / Político--Legal}
     \begin{itemize}
-      \item A1. Financiero / Contractual con la Nación
+      \item A1. Financiero / Contractual Nación--Municipio (flujo de cofinanciación)
       \item A2. Regulatorio / Licenciamiento / Ambiental
-      \item A3. Gobernanza y voluntades políticas
+      \item A3. Gobernanza y voluntad política
     \end{itemize}
   \item \textbf{B. Técnico / Constructivo}
     \begin{itemize}
-      \item B1. Ingeniería civil / redes de servicios públicos
+      \item B1. Ingeniería civil / redes / costos de obra
       \item B2. Interferencia con movilidad y operación urbana existente
-      \item B3. Tecnología ferroviaria / integración sistémica
+      \item B3. Integración técnica con el sistema Metro (operación y recaudo)
     \end{itemize}
   \item \textbf{C. Socioeconómico / Predial / Urbano}
     \begin{itemize}
       \item C1. Gestión predial y reasentamientos
       \item C2. Aceptación ciudadana / reputación
-      \item C3. Oportunidad de renovación urbana y plusvalía
+      \item C3. Renovación urbana y captura de plusvalía
     \end{itemize}
   \item \textbf{D. Operación y Largo Plazo}
     \begin{itemize}
-      \item D1. Sostenibilidad financiera operativa
-      \item D2. Desarrollo de capacidades locales
+      \item D2. Desarrollo de capacidades locales / transferencia tecnológica
     \end{itemize}
 \end{itemize}
 
-El responsable (\textit{risk owner}) es la instancia que debe monitorear ese riesgo, preparar respuesta y reportar al Comité de Riesgos del proyecto.
-
-\begin{table}[H]\centering\small
-\begin{tabular}{p{1cm}p{4cm}p{4cm}p{5cm}}
-\toprule
-\textbf{ID} & \textbf{Categoría RBS} & \textbf{Dueño primario} & \textbf{Rol del dueño} \\
-\midrule
-R1 & A1 Externo--Financiero & Dirección Financiera del Proyecto / Alcaldía de Medellín & Garantizar flujo de cofinanciación Nación--Municipio; gestionar vigencias futuras y créditos puente. \\
-R2 & B1 Técnico--Costos de obra & Gerencia de Costos \& Contratación / Interventoría & Control de costos, negociación de ajustes de precios y compras anticipadas de insumos críticos. \\
-R3 & C1 Socioeconómico--Predial & Unidad de Gestión Predial y Social del Proyecto & Compra de predios, reasentamientos, compensaciones y manejo de conflictos comunitarios. \\
-R4 & B1 Técnico--Redes de servicios & Mesa Técnica de Redes (Proyecto + EPM Infraestructura) & Coordinación de traslados de redes, cronograma por tramos, ventanas de intervención. \\
-R5 & B2 Técnico--Movilidad urbana & Secretaría de Movilidad de Medellín + Comunicaciones del Proyecto & Plan de Manejo de Tráfico (PMT), comunicación ciudadana y mitigación de inconformidad pública. \\
-R6 & A2 Externo--Ambiental & Equipo Ambiental del Proyecto / Autoridad Ambiental Metropolitana & Trámite de licencias y permisos, control de ruido/vibración, planes de manejo ambiental. \\
-R7 & A3 Externo--Gobernanza & Gerencia General Metro de Medellín / Junta del Proyecto & Asegurar continuidad institucional, acuerdos interadministrativos y decisiones técnicas estables. \\
-R8 & B3 Técnico--Integración operativa & Operación Metro de Medellín (Gerencia de Operaciones) & Asegurar integración tarifaria, interoperabilidad de recaudo y frecuencia de servicio desde el día 1. \\
-R9 & C3 Socioeconómico--Renovación urbana & Secretaría de Planeación / Agencia de APP Municipales & Estructurar captura de plusvalía / proyectos TOD alrededor de estaciones sin desplazar población vulnerable. \\
-R10& D2 Largo plazo--Capacidades & Gerencia de Tecnología del Metro + Universidades locales & Diseñar convenios de transferencia tecnológica y formación técnica especializada. \\
-\bottomrule
-\end{tabular}
-\end{table}
-
+Cada riesgo R1--R10 en la tabla anterior ya fue mapeado a la categoría RBS y tiene \textbf{dueño primario} (risk owner) responsable de monitoreo, escalamiento y ejecución de la respuesta. Esta trazabilidad es la base de la gobernanza del riesgo en proyectos complejos \cite{PMBOK}:
+\[ (riesgo \rightarrow categoría \rightarrow dueño) \]
 
 % =========================================================
 % 3. ANÁLISIS CUALITATIVO DE RIESGOS
@@ -116,161 +101,187 @@ R10& D2 Largo plazo--Capacidades & Gerencia de Tecnología del Metro + Universid
 
 \subsection{3. Análisis cualitativo de riesgos}
 
-El análisis cualitativo se hace siguiendo las recomendaciones del PMI: definir escalas de probabilidad e impacto comunes, estimar ambos por cada riesgo, y calcular una prioridad (score) multiplicando Probabilidad $\times$ Impacto (P$\times$I). \cite{PMBOK}
+El análisis cualitativo sigue las buenas prácticas del PMI \cite{PMBOK}:
+\begin{enumerate}
+  \item Definir escalas estándar para probabilidad e impacto.
+  \item Asignar valores a cada riesgo.
+  \item Calcular una prioridad o ``score'' para poder comparar.
+\end{enumerate}
 
-\subsubsection*{3.1 Escalas de probabilidad (P)}
+Aquí se usa una práctica común en infraestructura pública de gran escala:
+\[
+\textbf{Score} \;=\; P \times (A + T + C)
+\]
+donde:
+\begin{itemize}
+  \item $P$ = Probabilidad (1 a 5)
+  \item $A$ = Impacto en Alcance (1 a 5)
+  \item $T$ = Impacto en Tiempo (1 a 5)
+  \item $C$ = Impacto en Costo (1 a 5)
+\end{itemize}
 
-Se adopta una escala ordinal de 1 a 5 (aplica tanto a amenazas como a oportunidades):
+Para amenazas reportamos el Score como \textbf{negativo} (impacto perjudicial).  
+Para oportunidades reportamos el Score como \textbf{positivo} (impacto benéfico).  
+Esto prioriza tanto lo que puede hacer más daño como lo que más valor genera.
+
+\subsubsection*{3.1 Escala de Probabilidad (P)}
 
 \begin{itemize}
-  \item 1 = Muy baja ($<10\%$ de que ocurra)
-  \item 2 = Baja (10--30\%)
-  \item 3 = Media (31--60\%)
-  \item 4 = Alta (61--80\%)
+  \item 1 = Muy baja ($<10\%$ de ocurrencia)
+  \item 2 = Baja ($10$--$30\%$)
+  \item 3 = Media ($31$--$60\%$)
+  \item 4 = Alta ($61$--$80\%$)
   \item 5 = Muy alta ($>80\%$)
 \end{itemize}
 
-\subsubsection*{3.2 Escalas de impacto (I)}
+\subsubsection*{3.2 Escala de Impacto (A, T, C)}
 
-También se usa una escala 1 a 5. Para \textbf{amenazas} medimos impacto negativo (costo extra, retraso, reputación). Para \textbf{oportunidades} medimos impacto positivo (ahorro, aceleración, aceptación social, ingresos futuros). El criterio se inspira en prácticas de control de valor ganado y control de cambios de alcance \cite{PMBOK}:
+Para cada una de Alcance (A), Tiempo (T) y Costo (C):
 
 \begin{itemize}
-  \item 1 = Menor: efecto $<2\%$ del presupuesto o $<1$ mes de atraso/aceleración local
-  \item 2 = Moderado: 2--5\% del presupuesto o 1--2 meses
-  \item 3 = Significativo: 5--10\% del presupuesto o 2--4 meses
-  \item 4 = Mayor: 10--20\% del presupuesto o 4--6 meses
-  \item 5 = Crítico: $>20\%$ del presupuesto o $>6$ meses / riesgo de frenar obra
+  \item 1 = Menor: impacto marginal (\(<2\%\) del presupuesto, $<1$ mes de atraso / aceleración local, o cambio puntual de alcance)
+  \item 2 = Moderado: 2--5\% presupuesto, 1--2 meses
+  \item 3 = Significativo: 5--10\% presupuesto, 2--4 meses
+  \item 4 = Mayor: 10--20\% presupuesto, 4--6 meses, cambios relevantes de alcance
+  \item 5 = Crítico: $>20\%$ presupuesto, $>6$ meses, o riesgo de frenar/reconfigurar el proyecto
 \end{itemize}
 
-\subsubsection*{3.3 Matriz cualitativa P$\times$I}
+\subsubsection*{3.3 Matriz P, A, T, C y Score}
 
-Para \textbf{amenazas} se reporta el score como negativo (porque es daño); para \textbf{oportunidades} se reporta positivo (beneficio). Así priorizamos tanto lo que debemos \emph{mitigar/evitar} como lo que debemos \emph{potenciar/explotar}.
-
-\begin{table}[H]\centering\small
-\begin{tabular}{p{0.8cm}p{3cm}p{1.3cm}p{1.3cm}p{1.5cm}p{6cm}}
+\begin{table}[H]\centering\scriptsize
+\begin{tabular}{p{0.6cm}p{2.8cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{1.2cm}p{4.5cm}}
 \toprule
-\textbf{ID} & \textbf{Riesgo} & \textbf{P (1-5)} & \textbf{I (1-5)} & \textbf{Score P$\times$I} & \textbf{Notas cualitativas} \\
+\textbf{ID} & \textbf{Riesgo} & \textbf{P} & \textbf{A} & \textbf{T} & \textbf{C} & \textbf{Score} & \textbf{Interpretación cualitativa} \\
 \midrule
-R1 & Flujo de cofinanciación & 3 & 5 & $-15$ & Sin flujo oportuno de Nación/Municipio se frena frente de obra crítico; obliga a créditos puente caros. \\
-R2 & Escalada de costos & 4 & 4 & $-16$ & Inflación en insumos de infraestructura de transporte ha presionado el CAPEX inicial, ya cercana a medio billón COP extra frente a estimaciones tempranas. \\
-R3 & Gestión predial / reasentamientos & 3 & 4 & $-12$ & Riesgo social/jurídico si hay desacuerdo en avalúos o reasentamientos en Av.~80. \\
-R4 & Redes de servicios públicos & 4 & 3 & $-12$ & Reubicación de redes EPM puede detener obra civil si no hay ventana técnica. \\
-R5 & Movilidad / aceptación ciudadana & 4 & 3 & $-12$ & Cierres viales prolongados en corredores troncales han generado rechazo ciudadano en otros proyectos de metro urbano en Colombia; podría pasar en Av.~80. \\
-R6 & Licencias ambientales & 2 & 3 & $-6$ & Condicionamientos ambientales (ruido, vibración nocturna) pueden limitar horarios y alargar plazo. \\
-R7 & Cambios políticos & 3 & 4 & $-12$ & Cambio de administración podría ralentizar decisiones, renegociar alcance o ritmos de obra. \\
-R8 & Integración multimodal & 4 & 3 & $+12$ & Si el sistema nace integrado al Metro y buses alimentadores, se garantiza alta demanda, legitimidad social y caja operativa temprana. \\
-R9 & Renovación urbana / plusvalía & 3 & 4 & $+12$ & Densificación alrededor de estaciones puede generar nuevas rentas urbanas que ayuden a cerrar la brecha de financiación municipal. \\
-R10& Transferencia tecnológica local & 3 & 3 & $+9$  & Fortalecer know-how ferroviario local reduce dependencia de proveedores externos y mejora sostenibilidad a largo plazo. \\
+R1 & Flujo de cofinanciación & 3 & 2 & 5 & 5 & $-36$ & Si la Nación/Municipio no giran a tiempo se paran frentes críticos: alta presión en plazo y costo, riesgo político y financiero. \\
+R2 & Escalada de costos de obra & 4 & 2 & 3 & 5 & $-40$ & Inflación en acero / sistemas férreos puede forzar adiciones presupuestales o recortes de alcance; riesgo severo al CAPEX. \\
+R3 & Gestión predial / reasentamientos & 3 & 3 & 4 & 4 & $-33$ & Oposición social o tutelas retrasan la disponibilidad de predios clave y encarecen compensaciones. \\
+R4 & Interferencia con redes de servicios públicos & 4 & 2 & 4 & 3 & $-36$ & Redes EPM mal coordinadas frenan obra, generan reproceso y horas-hombre perdidas. \\
+R5 & Movilidad / aceptación ciudadana & 4 & 2 & 3 & 3 & $-32$ & Congestión y quejas públicas pueden obligar a limitar frentes de obra activos y alargar la duración total. \\
+R6 & Permisos y licencias ambientales & 2 & 2 & 3 & 2 & $-14$ & Restricciones horarias o rediseños ambientales extienden plazo de obra y requieren medidas de mitigación costo/ruido. \\
+R7 & Cambios políticos / gobernanza & 3 & 4 & 4 & 3 & $-33$ & Cambio de gobierno puede redefinir alcance, pausar decisiones y afectar desembolsos. \\
+R8 & Integración multimodal efectiva & 4 & 4 & 2 & 3 & $+36$ & Entrada en operación ya integrada con el Metro/buses mejora aceptación social y flujo de caja operativo desde el día 1. \\
+R9 & Renovación urbana / plusvalía & 3 & 4 & 2 & 4 & $+30$ & Proyectos TOD / plusvalía alrededor de estaciones ayudan a fondear CAPEX y revitalizan el entorno urbano. \\
+R10 & Transferencia tecnológica local & 3 & 3 & 2 & 3 & $+24$ & Desarrollar talento local ferroviario reduce dependencia externa y fortalece capacidades para operación y mantenimiento. \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\paragraph{Priorización.}
+\paragraph{Priorización para el plan de respuesta.}
+
 \begin{itemize}
-  \item \textbf{Amenazas más críticas (por magnitud absoluta del score)}:
-  R2 ($-16$), R1 ($-15$), R3 ($-12$). 
-  \item \textbf{Oportunidades más relevantes}:
-  R8 ($+12$), R9 ($+12$), R10 ($+9$).
+  \item \textbf{Amenazas más críticas (scores negativos más altos en magnitud):}  
+  R2 (\(-40\)), R1 (\(-36\)), R4 (\(-36\)).  
+  Estas son las amenazas que más presionan costo total del proyecto, riesgo de atraso crítico y reputación político-institucional.
+  \item \textbf{Oportunidades de mayor impacto (scores positivos más altos):}  
+  R8 (\(+36\)), R9 (\(+30\)), R10 (\(+24\)).  
+  Estas son las palancas estratégicas que mejoran aceptación ciudadana, sostenibilidad financiera urbana y capacidad operativa futura.
 \end{itemize}
 
-Siguiendo la instrucción del enunciado, estos seis riesgos priorizados alimentan el punto 4 (plan de respuesta).
-
+Estas seis alimentan el plan de respuesta detallado.
 
 % =========================================================
-% 4. PLANIFICACIÓN DE LA RESPUESTA A LOS RIESGOS
+% 4. PLANIFICACIÓN DE RESPUESTA A LOS RIESGOS
 % =========================================================
 
-\subsection{4. Plan de respuesta a los riesgos priorizados}
+\subsection{4. Plan de respuesta a los riesgos}
 
-De acuerdo con el PMI \cite{PMBOK}, las tácticas típicas son:
+El \textit{PMBOK} \cite{PMBOK} define estrategias típicas:
 \begin{itemize}
   \item Para \textbf{amenazas}: \textit{evitar}, \textit{mitigar}, \textit{transferir}, \textit{aceptar}.
   \item Para \textbf{oportunidades}: \textit{explotar}, \textit{mejorar}, \textit{compartir}, \textit{aceptar}.
 \end{itemize}
 
-Cada riesgo incluye:
-(i) Estrategia propuesta,
-(ii) Acción concreta,
-(iii) Contingencia (costo y/o tiempo),
-(iv) Riesgos secundarios potenciales.
+Cada riesgo debe tener:
+\begin{enumerate}
+  \item Estrategia escogida.
+  \item Acción concreta.
+  \item Contingencia en costo/tiempo (reserva o ajuste propuesto).
+  \item Riesgo(s) secundario(s) que esa acción podría generar.  
+\end{enumerate}
 
-\subsubsection*{4.1 Amenazas críticas}
+\subsubsection*{4.1 Amenazas priorizadas (R2, R1, R4)}
 
-\begin{table}[H]\centering\small
-\begin{tabular}{p{1cm}p{2cm}p{1.5cm}p{3.5cm}p{3cm}p{3.5cm}}
+\begin{table}[H]\centering\scriptsize
+\begin{tabular}{p{0.6cm}p{2cm}p{1.6cm}p{3.5cm}p{3cm}p{4cm}}
 \toprule
-\textbf{ID} & \textbf{Riesgo} & \textbf{Estrategia (PMI)} & \textbf{Acción / Plan de respuesta} & \textbf{Contingencia} & \textbf{Riesgos secundarios} \\
+\textbf{ID} & \textbf{Riesgo} & \textbf{Estrategia (PMI)} & \textbf{Acción / Plan de respuesta} & \textbf{Contingencia (costo/tiempo)} & \textbf{Riesgos secundarios} \\
 \midrule
-R2 & Escalada de costos de obra & Mitigar & 
-Negociar cláusulas de ajuste de precios claras y techos máximos en contratos críticos; compras anticipadas de acero/banquetes de vía; uso de coberturas frente a TRM si hay importados. 
-&
-Reserva de contingencia de costos del orden del 10\% de insumos críticos (acero, sistemas ferroviarios). Ajustar cronograma de pagos para suavizar picos de caja. 
-&
-Sobrestock y costos de almacenamiento; riesgo financiero por comprar antes de necesitar. \\
+R2 & Escalada de costos de obra & Mitigar & Negociar topes de reajuste y compras anticipadas de insumos críticos (acero, vía férrea); usar coberturas cambiarias si hay componentes importados & Reserva de gestión de \(\sim10\%\) sobre insumos críticos y programación financiera que absorba picos sin parar la obra & Sobrestock, costos de almacenamiento, presión de caja temprana \\
 \midrule
-R1 & Flujo de cofinanciación & Transferir / Mitigar & 
-Firmar convenios Nación--Municipio de vigencias futuras \emph{irrevocables}, crear una fiducia o cuenta maestra donde la Nación gire automáticamente y desde la cual se pagan hitos de obra. Estructurar línea de crédito puente con condiciones preferenciales en caso de atraso nacional.
-&
-Contingencia de caja: línea de liquidez equivalente a $\sim$3 meses de obra prioritaria (p.ej. 5\% del CAPEX anual), para no parar frente crítico. 
-&
-Costo financiero adicional (intereses); riesgo político si se percibe endeudamiento “innecesario”. \\
+R1 & Flujo de cofinanciación & Transferir / Mitigar & Crear fiducia/cuenta maestra con giros automáticos Nación--Municipio; pactar vigencias futuras ``amarradas''; línea de liquidez puente con bancos públicos o multilaterales & Reserva de liquidez equivalente a \(\sim\)3 meses de obra prioritaria; posible alargue de \(\sim\)1--2 meses en hitos no críticos mientras se activa la línea puente & Costo financiero adicional (intereses), percepción política de sobreendeudamiento \\
 \midrule
-R3 & Gestión predial / reasentamientos & Mitigar / Evitar & 
-Implementar \textbf{Plan de Gestión Predial y Social} temprano: avalúos independientes, compensación justa y reasentamiento digno; mesas de concertación por tramo; acompañamiento jurídico y psicosocial a comerciantes/residentes. Comunicación transparente de cronogramas y beneficios locales (mejor acceso futuro). 
-&
-Presupuesto socio-predial adicional $\sim$2--3\% del CAPEX civil del tramo para compensaciones y apoyo al traslado. Incluir holgura de $\sim$2 meses por tramo en el cronograma de traslado predial antes de iniciar excavaciones pesadas. 
-&
-Riesgo de “efecto llamada”: aparición de ocupaciones informales buscando compensación; presión mediática sobre montos pagados. \\
+R4 & Interferencia con redes de servicios públicos & Mitigar / Evitar paradas no planificadas & Mesa técnica permanente Proyecto+EPM para coordinar ventanas de traslado de redes; secuenciar frentes de obra sólo cuando haya permiso técnico de intervención & Holgura explícita de \(\sim\)1--2 meses por tramo para traslado de redes; presupuesto adicional (2--3\% del costo civil de tramo) para obras de protección temporal & Retrasos en tramos posteriores si se prioriza un tramo ``libre de redes'' primero; riesgo reputacional si la ciudad percibe obra ``lenta'' en algunos sectores \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsubsection*{4.2 Oportunidades relevantes}
+\subsubsection*{4.2 Oportunidades priorizadas (R8, R9, R10)}
 
-\begin{table}[H]\centering\small
-\begin{tabular}{p{1cm}p{2cm}p{1.5cm}p{3.5cm}p{3cm}p{3.5cm}}
+\begin{table}[H]\centering\scriptsize
+\begin{tabular}{p{0.6cm}p{2cm}p{1.6cm}p{3.5cm}p{3cm}p{4cm}}
 \toprule
-\textbf{ID} & \textbf{Riesgo (oportunidad)} & \textbf{Estrategia (PMI)} & \textbf{Acción / Plan de respuesta} & \textbf{Contingencia / Inversión} & \textbf{Riesgos secundarios} \\
+\textbf{ID} & \textbf{Oportunidad} & \textbf{Estrategia (PMI)} & \textbf{Acción / Plan de respuesta} & \textbf{Inversión / Contingencia} & \textbf{Riesgos secundarios} \\
 \midrule
-R8 & Integración multimodal efectiva & Explotar & 
-Diseñar, desde ahora, interoperabilidad tarifaria y física: estaciones de intercambio directo con Metro y buses, un único sistema de recaudo, frecuencias coordinadas, imagen de marca unificada. 
-&
-Inversión temprana en sistemas de recaudo integrados y señalización común (CAPEX TI y señalización $\sim$0{,}5--1\% adicional). 
-&
-Dependencia tecnológica de un único sistema de recaudo; riesgo de indisponibilidad si falla la plataforma común el día 1. \\
+R8 & Integración multimodal efectiva & Explotar & Diseñar interoperabilidad tarifaria y de recaudo desde ya; coordinar frecuencias y señalización única; marketing unificado ``un solo sistema'' para legitimar socialmente el corredor de la 80 en su arranque & CAPEX adicional temprano en TI, recaudo y señalización (\(\sim0{,}5{-}1\%\) extra) y coordinación operativa previa a la entrada en servicio & Dependencia alta de una sola plataforma de recaudo / recaudo común; si falla esa plataforma, impacto reputacional es inmediato \\
 \midrule
-R9 & Renovación urbana / captura de plusvalía & Compartir / Mejorar & 
-Estructurar \textbf{proyectos TOD (Transit Oriented Development)} con privados alrededor de estaciones: usos mixtos, comercio formal, vivienda densa. Asociar instrumentos de plusvalía y valorización para financiar parte del CAPEX y del mantenimiento urbano del corredor. 
-&
-Requiere ajustar POT y expedir lineamientos urbanísticos estación-por-estación. Contingencia: fondo de mitigación social para evitar desplazamiento de población vulnerable (1--2\% adicional del presupuesto urbano local). 
-&
-Riesgo de gentrificación y presión sobre arriendos; conflicto social si se percibe expulsión de residentes históricos. \\
+R9 & Renovación urbana / plusvalía & Compartir / Mejorar & Estructurar proyectos TOD: usos mixtos, comercio formal, vivienda densa; indexar plusvalía / valorización para fondear parte del CAPEX y del mantenimiento urbano & Ajustes normativos (POT), acuerdos con privados y un fondo social de mitigación (\(\sim1{-}2\%\) del presupuesto urbano local) para evitar desplazamiento de población vulnerable & Riesgo de gentrificación / aumento de arriendos; rechazo social si se percibe expulsión de residentes históricos \\
 \midrule
-R10 & Transferencia tecnológica local & Mejorar & 
-Incluir en los contratos de suministro ferroviario cláusulas obligatorias de transferencia tecnológica, formación de personal local y alianzas con universidades de Medellín para operación y mantenimiento especializado. 
-&
-Asignar $\sim$0{,}5\% del CAPEX del sistema de vía/material rodante a programas de formación técnica y compra de herramientas/softwares. 
-&
-Riesgo de fuga de talento: personal formado puede migrar a otros proyectos ferroviarios nacionales/internacionales. \\
+R10 & Transferencia tecnológica local & Mejorar & Incluir cláusulas obligatorias de transferencia tecnológica y formación técnica local en contratos de suministro ferroviario; convenios universidad--Metro para operación y mantenimiento & Asignar \(\sim0{,}5\%\) del CAPEX ferroviario a capacitación, herramientas y laboratorios de mantenimiento & Fuga de talento: personal formado puede migrar luego a otros proyectos ferroviarios nacionales/internacionales \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsubsection*{4.3 Riesgos aceptados activamente}
 
-Algunos riesgos se deciden \textbf{aceptar activamente} con reservas de contingencia explícitas:
-\begin{itemize}
-  \item \textbf{R2 (escalada de costos):} Aunque se mitiga con compras anticipadas y topes contractuales, se asume que siempre habrá presión inflacionaria en infraestructura masiva. Se deja una \emph{reserva de gestión} de al menos el 10\% de los insumos críticos para absorber picos de precios sin frenar obra.
-  \item \textbf{R8 (integración multimodal):} Se asume como objetivo estratégico (oportunidad). Se “acepta” que invertir más hoy en integración tarifaria/operativa es costo hundido inicial, pero el beneficio social y reputacional del sistema entrando en operación ya integrado justifica esa inversión.
-\end{itemize}
-
-\subsubsection*{4.4 Síntesis ejecutiva}
+Algunos riesgos se \textbf{aceptan activamente} con reserva explícita:
 
 \begin{itemize}
-  \item Las \textbf{tres amenazas más severas} (R2, R1, R3) están ligadas a sobrecosto, flujo financiero y conflicto social. Las respuestas priorizan: asegurar caja estable (fiducia y crédito puente), blindar al proyecto frente a inflación de insumos, y gestionar el componente predial/social con compensaciones claras y cronogramas realistas.
-  \item Las \textbf{tres oportunidades más fuertes} (R8, R9, R10) están alineadas con la sostenibilidad a largo plazo: legitimidad ciudadana desde la puesta en marcha (integración multimodal), captura de valor urbano para fondear el proyecto, y creación de capacidades ferroviarias locales.
-  \item Se dejan \textbf{contingencias cuantificadas} (porcentaje del CAPEX, meses de holgura por tramo, fondos sociales específicos) y se identifican \textbf{riesgos secundarios} como costo financiero adicional, percepción de endeudamiento, gentrificación o dependencia tecnológica.
+  \item \textbf{R2 (Escalada de costos).} Aun con mitigación, se asume que la presión inflacionaria en megaproyectos de infraestructura no se puede eliminar del todo. Se mantiene una \textit{reserva de gestión} para absorber sobreprecios sin frenar obra.
+  \item \textbf{R8 (Integración multimodal).} Se asume como apuesta estratégica de reputación y sostenibilidad social: se acepta invertir más antes de la inauguración para que el sistema nazca ya integrado y legitimado ante la ciudadanía.
 \end{itemize}
 
-\textbf{Conclusión.}  
-Este plan cumple con los lineamientos del \emph{PMBOK} \cite{PMBOK}: se identifican riesgos positivos y negativos, se clasifican en una RBS con dueños asignados, se realiza un análisis cualitativo con escalas de probabilidad e impacto para priorizar mediante P$\times$I, y se definen respuestas concretas (acción, contingencia y riesgos secundarios) para las amenazas y oportunidades más críticas del proyecto.
+\subsubsection*{4.4 Tabla-resumen de respuesta para \underline{todos} los riesgos R1--R10}
+
+En la práctica de gestión de riesgos de proyectos de infraestructura, no sólo se documentan las amenazas y oportunidades más críticas. Se mantiene un plan de manejo para todos los riesgos activos del registro, de modo que exista trazabilidad clara entre riesgo identificado, acción propuesta, reservas de contingencia y posibles efectos colaterales.
+
+\begin{table}[H]\centering\scriptsize
+\begin{tabular}{p{0.6cm}p{2.2cm}p{1.4cm}p{4.0cm}p{3.0cm}p{3.6cm}}
+\toprule
+\textbf{ID} & \textbf{Riesgo / Oportunidad} & \textbf{Estrategia} & \textbf{Acción principal} & \textbf{Contingencia (costo / tiempo)} & \textbf{Riesgo secundario} \\
+\midrule
+R1 & Flujo cofinanciación & Transferir / Mitigar & Fiducia y línea de liquidez puente & Reserva de caja $\sim$3 meses de obra; posible deslizar hitos no críticos 1--2 meses & Costo financiero / percepción política \\
+R2 & Escalada costos & Mitigar & Topes de reajuste, compras anticipadas, coberturas TRM & Reserva de gestión $\sim$10\% insumos críticos & Sobreinventario / presión temprana de caja \\
+R3 & Predial / reasentamientos & Mitigar / Evitar & Plan de Gestión Predial y Social (avalúo justo, reasentamiento digno, concertación tramo a tramo) & Fondo socio-predial $\sim$2{-}3\% CAPEX tramo; holgura $\sim$2 meses antes de excavación pesada & ``Efecto llamada'' (ocupaciones buscando compensación), debate mediático \\
+R4 & Redes servicios públicos & Mitigar / Evitar paradas & Mesa técnica con EPM; sólo abrir frente con ventana técnica aprobada & Holgura 1{-}2 meses por tramo; 2{-}3\% costo civil extra para protección/redes temporales & Retrasar otros tramos; que la ciudadanía perciba obra ``lenta'' \\
+R5 & Movilidad / aceptación ciudadana & Mitigar & Plan de Manejo de Tráfico (PMT), comunicación pública activa, gestión de quejas & Costear campañas de comunicación y desvíos; holguras menores en hitos por gestión social & Riesgo reputacional si aun así la congestión es percibida como ``insoportable'' \\
+R6 & Licencias ambientales & Mitigar & Gestión temprana con autoridad ambiental; medición de ruido/vibración; rediseño constructivo si es necesario & Holgura horaria y nocturna; costos de mitigación acústica / polvo & Restricción horaria puede alargar plazo global \\
+R7 & Cambios políticos / gobernanza & Mitigar / Aceptar parcialmente & Blindar acuerdos interadministrativos, firmar vigencias futuras, socializar beneficios socioeconómicos del proyecto con nueva administración & Reservar margen político/tiempo (1--2 meses) para revalidar alcance al cambiar gobierno & Posible reconfiguración de alcance que afecte cronograma maestro \\
+R8 & Integración multimodal & Explotar & Integrar recaudo / operación desde el día 1 & CAPEX TI/señalización $\sim$0{,}5{-}1\% adicional & Dependencia crítica de una sola plataforma de recaudo \\
+R9 & Plusvalía / renovación urbana & Compartir / Mejorar & Proyectos TOD + captura de plusvalía para fondeo & Ajustes POT y fondo social (1{-}2\% presupuesto urbano) para mitigar desplazamiento & Riesgo de gentrificación / tensión social en barrios aledaños \\
+R10 & Transferencia tecnológica local & Mejorar & Cláusulas de transferencia tecnológica y convenios universidad--Metro & Inversión \(\sim0{,}5\%\) CAPEX ferroviario en formación y herramientas & Fuga de talento formado hacia otros sistemas ferroviarios \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Conclusión}
+
+Desde la perspectiva de gestión de riesgos del PMI \cite{PMBOK} se observan tres focos críticos:
+
+\begin{itemize}
+  \item \textbf{Presión financiera y de costos.}  
+  R2 (escalada de costos de obra) es el riesgo con mayor severidad cuantitativa (\(-40\)). Está directamente ligado al CAPEX y puede forzar recortes de alcance o adiciones presupuestales. R1 (flujo de cofinanciación) agrega riesgo de liquidez: si la Nación o el Municipio no giran oportunamente, las obras se frenan y se requieren créditos puente costosos. Estos dos riesgos son estructurales porque combinan impacto en costo y cronograma con impacto político.
+  \item \textbf{Ejecución constructiva y coordinación urbana.}  
+  R4 (interferencia con redes de servicios públicos) y R3 (gestión predial / reasentamientos) concentran la dificultad física y social de intervenir la Avenida 80: redes EPM, compra de predios, reasentamientos y concertación con la comunidad. Estos riesgos pueden frenar literalmente la obra en campo aun cuando exista presupuesto.
+  \item \textbf{Legitimidad social y sostenibilidad a largo plazo.}  
+  Entre las oportunidades, R8 (integración multimodal efectiva) tiene un efecto positivo alto (\(+36\)): si el sistema nace plenamente integrado con el Metro y buses, hay aceptación ciudadana inmediata, alta demanda inicial y reputación favorable del proyecto. R9 (renovación urbana / plusvalía) y R10 (transferencia tecnológica local) impactan la sostenibilidad financiera y técnica en el largo plazo: ayudan a capturar valor urbano y a formar capacidad ferroviaria propia en Medellín.
+\end{itemize}
+
+En síntesis:
+\begin{enumerate}
+  \item El mayor riesgo para el costo total es la \textbf{escalada de precios en obra} (R2).
+  \item El mayor riesgo para el cronograma constructivo temprano es la \textbf{coordinación predial y de redes} (R3 y R4).
+  \item La mayor palanca estratégica de aceptación y viabilidad operativa futura es la \textbf{integración multimodal} (R8), apoyada por la captura de plusvalía urbana (R9) y la construcción de capacidades técnicas locales (R10).
+\end{enumerate}
+
+Esto deja una línea clara de gestión: blindar caja y costos, asegurar condiciones físicas y sociales para ejecutar obra en la Avenida 80 sin bloqueos críticos, y al mismo tiempo preparar la operación para que el sistema entre en servicio ya legitimado ante la ciudadanía y financieramente sostenible.
