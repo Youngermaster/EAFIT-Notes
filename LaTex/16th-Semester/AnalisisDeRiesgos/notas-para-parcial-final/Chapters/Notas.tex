@@ -1,0 +1,322 @@
+\section{Series de tiempo — ¿cuándo usar cada método?}
+\subsection{Reglas de selección}
+\begin{itemize}
+  \item \textbf{Suavización exponencial simple / promedio móvil}: sin tendencia ni estacionalidad.
+  \item \textbf{Holt (doble suavización)}: hay \emph{tendencia}, sin estacionalidad.
+  \item \textbf{Winters (Holt-Winters)}: hay \emph{tendencia + estacionalidad} (patrones cíclicos). Usar versión multiplicativa si las variaciones estacionales crecen con el nivel.
+  \item \textbf{Cómo elegir}: comparar MAE, RMSE y MAPE; inspección visual de residuos (sin patrón, homocedásticos).
+\end{itemize}
+
+\subsection{Buenas prácticas}
+\begin{itemize}
+  \item Desestacionalizar (si aplica) \(\rightarrow\) modelar \(\rightarrow\) reestacionalizar.
+  \item Validar con \textit{backtesting} y partición entrenamiento/validación.
+\end{itemize}
+
+\section{Bondad de ajuste (PBA) — qué prueba usar y cómo leerla}
+\subsection{Objetivo e hipótesis}
+\begin{itemize}
+  \item \(\mathrm{H_0}\): los datos provienen de la distribución candidata.
+  \item Criterio: si \emph{estadístico < crítico} \textbf{o} \emph{p-valor \(>\alpha\)} \(\Rightarrow\) \textbf{no} se rechaza \(\mathrm{H_0}\).
+\end{itemize}
+
+\subsection{Elección de la prueba}
+\begin{itemize}
+  \item \textbf{Kolmogorov-Smirnov (K-S)}: datos \emph{continuos}. Sensible al centro.
+  \item \textbf{Anderson-Darling (A-D)}: \emph{continuos}, mayor peso a colas (útil con asimetrías tipo lognormal/exponencial).
+  \item \textbf{Chi-cuadrado (\(\chi^2\))}: datos discretizados en clases (frecuencias observadas vs. esperadas); válido para discretas y continuas agrupadas.
+\end{itemize}
+
+\subsection{Notas clave (tipo examen)}
+\begin{itemize}
+  \item Muestras pequeñas (\(<30\)): indicar versiones modificadas o cautela con tablas estándar.
+  \item El propósito de una PBA \textbf{no} es ``maximizar distancias'', sino \emph{medir discrepancia} y \emph{contrastar} \(\mathrm{H_0}\).
+  \item Si colas importan \(\Rightarrow\) A-D; si el centro importa \(\Rightarrow\) K-S; si hay \emph{binning} \(\Rightarrow\) \(\chi^2\).
+\end{itemize}
+
+\section{Distribuciones — clasificación y selección práctica}
+\subsection{Por naturaleza}
+\begin{itemize}
+  \item \textbf{Discretas}: Binomial, Poisson, Geométrica, Discreta general.
+  \item \textbf{Continuas}: Normal, Lognormal, Exponencial, Uniforme, Triangular, PERT, Beta.
+\end{itemize}
+
+\subsection{Por soporte}
+\begin{itemize}
+  \item \textbf{No limitadas}: \((-\infty,+\infty)\) (Normal, Logística).
+  \item \textbf{Limitadas}: \([a,b]\) (Uniforme, Triangular, Beta, PERT).
+  \item \textbf{Parcialmente limitadas}: \([0,+\infty)\) (Exponencial, Lognormal, Poisson en \(\mathbb{N}_0\)).
+\end{itemize}
+
+\subsection{Heurísticos (atajos) de uso}
+\begin{itemize}
+  \item \textbf{Triangular} \((\text{min},\text{moda},\text{max})\): opinión de expertos con pocos datos.
+  \item \textbf{PERT} \((\text{min},\text{moda},\text{max})\): como la Triangular, pero suaviza colas (menos volatilidad).
+  \item \textbf{Uniforme} \([a,b]\): sólo se conoce rango.
+  \item \textbf{Normal} \((\mu,\sigma)\): simétrica, sin cota natural (cuidado si la variable es intrínsecamente positiva).
+  \item \textbf{Lognormal} \((\mu,\sigma\,\text{en log})\): positiva y sesgada a la derecha (costos/tiempos con multiplicatividad).
+\end{itemize}
+
+\section{@Risk en Excel — funciones y patrones típicos}
+\subsection{Entradas discretas definidas por tabla}
+\begin{verbatim}
+=RiskDiscrete({900,1000,1100},{0.15,0.70,0.15})
+=RiskDiscrete({600, 680, 740},{0.15,0.70,0.15})
+\end{verbatim}
+\subsection{Entradas continuas comunes}
+\begin{verbatim}
+=RiskTriang(min, moda, max)
+=RiskPERT(min, moda, max)
+=RiskUniform(a, b)
+=RiskNormal(media, desviacion)
+\end{verbatim}
+\subsection{Probabilidades objetivo}
+\begin{verbatim}
+=RiskTarget(VPN, 0, ">=")   % P(VPN >= 0)
+=RiskTarget(TIR, WACC, ">") % P(TIR > WACC)
+\end{verbatim}
+
+\section{Lectura de resultados de simulación (Monte Carlo)}
+\subsection{Estadísticos clave}
+\begin{itemize}
+  \item \textbf{Media (valor esperado)}: desempeño central del indicador (p.ej., VPN).
+  \item \textbf{Desviación estándar}: dispersión/volatilidad (riesgo).
+  \item \textbf{Pérdida}: \(P(\text{VPN}<0)\).
+  \item \textbf{IC 95\%}: percentiles 2.5\% y 97.5\% del resultado.
+\end{itemize}
+
+\subsection{Sensibilidades}
+\begin{itemize}
+  \item Gráfico Tornado/Araña: variables con mayor impacto en el resultado (en nuestros ejercicios: \textit{Demanda de Conos} y \textit{Demanda de Waffle}).
+\end{itemize}
+
+\section{Criterios de decisión financieros (proyecto e inversionista)}
+\subsection{Indicadores}
+\begin{itemize}
+  \item \textbf{VPN}: aceptar si \(VPN>0\).
+  \item \textbf{TIR}: aceptar si \(TIR>\) tasa mínima aceptable (WACC para proyecto; \(K_e\) o tasa del inversionista para equity).
+  \item \textbf{RB/C}: aceptar si \(>1\).
+  \item \textbf{PRID}: comparar con umbral de recuperación (cut-off) interno.
+  \item \textbf{Prob. de pérdida}: si el umbral del inversionista es 15\%, requerir \(P(VPN<0)\leq 15\%\).
+\end{itemize}
+
+\subsection{Formulaciones útiles}
+\begin{align*}
+VPN &= \sum_{t=1}^{T} \frac{FC_t}{(1+r)^t} - I_0, \qquad
+WACC = \frac{E}{V}K_e + \frac{D}{V}K_d(1-T) \\
+K_e~(\text{CAPM}) &= R_f + \beta_L (R_m - R_f) + CRP
+\end{align*}
+
+\section{Preguntas frecuentes (derivadas de prácticas y quices)}
+\begin{itemize}
+  \item \textbf{Winters}: usar cuando exista \emph{tendencia + estacionalidad}. Holt sólo con tendencia.
+  \item \textbf{PBA correcta} ante datos continuos: K-S; si importan colas, A-D; con datos agrupados, \(\chi^2\).
+  \item \textbf{Verdadero/Falso típico}: ``si \(p<\alpha\) no hay evidencia para rechazar \(\mathrm{H_0}\)'' es \textbf{Falso}; con \(p<\alpha\) se \emph{rechaza} \(\mathrm{H_0}\).
+  \item \textbf{KS ``maximiza'' distancia}: \textbf{Falso}. La prueba \emph{mide} la máxima discrepancia para contrastar \(\mathrm{H_0}\).
+  \item \textbf{Cuándo Chi-cuadrado}: frecuencias en clases/categorías; también referido como ``homogéneas o cuadradas'' en diapositivas.
+  \item \textbf{Distribuciones discretas vs continuas}: Poisson/Binomial/Geométrica \(\rightarrow\) discretas; Normal \(\rightarrow\) continua.
+  \item \textbf{PERT vs Triangular}: PERT genera menor volatilidad (suaviza colas); Triangular puede ser más ``picosa''.
+  \item \textbf{Interpretación de histograma @Risk}: media (barra azul/valor), mín-máx simulados, prob. de pérdida (área a la izq.\ de 0), percentiles para IC.
+  \item \textbf{Decisión con umbral 15\%}: viable si \(P(VPN<0)\leq 0.15\). Úsese \texttt{RiskTarget} para evidenciarlo.
+\end{itemize}
+
+\section{Modelo de Bass (difusión de innovaciones)}
+\subsection{Parámetros e intuición}
+\begin{itemize}
+  \item \(N\): mercado potencial; \(p\): innovación (adopción espontánea); \(q\): imitación (boca a boca).
+  \item \(p\) alto \(\rightarrow\) adopción temprana; \(q\) alto \(\rightarrow\) crecimiento por contagio social.
+\end{itemize}
+\subsection{Ecuación base}
+\[
+S(t+1)=pN+(q-p)Q(t)-\frac{q}{N}Q(t)^2
+\]
+donde \(Q(t)\) es el acumulado de adoptantes en \(t\).
+
+\section{Checklist de examen (resumen operativo)}
+\begin{enumerate}
+  \item Identifica patrón de la serie: sin patrón / tendencia / tendencia+estacionalidad \(\Rightarrow\) Simple / Holt / Winters.
+  \item Clasifica la variable de entrada: discreta/continua, limitada/no \(\Rightarrow\) elige candidatas (Triangular/PERT/Normal/Lognormal/\dots).
+  \item Aplica PBA adecuada: K-S (continuas), A-D (colas), \(\chi^2\) (agrupadas).
+  \item Reporta: estadístico, valor crítico o \(p\), y conclusión (\emph{rechaza} o \emph{no rechaza} \(\mathrm{H_0}\)).
+  \item Monta simulación: media, \(\sigma\), \(P(VPN<0)\), IC 95\%, y sensibilidades.
+  \item Decide: VPN \(>\) 0, TIR \(>\) tasa, RB/C \(>\) 1, PRID \(\leq\) umbral, y \(P(\text{pérdida})\) \(\leq\) tolerancia.
+\end{enumerate}
+
+% ======== CHEATSHEET DE RIESGOS — SECCIONES PARA PEGAR ========
+
+\section{Series de tiempo — reglas prácticas}
+\subsection{Cuándo usar cada método}
+\begin{itemize}
+  \item \textbf{Suavización exponencial simple / promedio móvil}: datos sin tendencia ni estacionalidad (baseline rápido).
+  \item \textbf{Holt (doble suavización)}: hay \emph{tendencia} pero \emph{no} estacionalidad.
+  \item \textbf{Winters (Holt-Winters)}: \emph{tendencia + estacionalidad} (aditivo o multiplicativo si la amplitud crece con el nivel).
+  \item \textbf{Elección}: comparar MAE, RMSE, MAPE y revisar residuos (sin patrón).
+\end{itemize}
+
+\subsection{Tips operativos}
+\begin{itemize}
+  \item Si hay estacionalidad marcada: desestacionalizar $\rightarrow$ modelar $\rightarrow$ reestacionalizar.
+  \item Separar \emph{train/valid} (\emph{backtesting}) y documentar supuestos.
+\end{itemize}
+
+\section{Pruebas de bondad de ajuste (PBA) — qué usar y cómo leer}
+\subsection{Objetivo e hipótesis}
+\begin{itemize}
+  \item $H_0$: los datos provienen de la distribución candidata. Criterio: \emph{estadístico $<$ crítico} \textbf{o} \emph{$p>\alpha$} $\Rightarrow$ no se rechaza $H_0$.
+\end{itemize}
+
+\subsection{Selección por tipo de dato}
+\begin{itemize}
+  \item \textbf{K-S (Kolmogorov-Smirnov)}: datos \emph{continuos}, peso mayor en la zona central.
+  \item \textbf{A-D (Anderson-Darling)}: \emph{continuos}, más sensible en las \emph{colas} (lognormal, exponencial, colas pesadas).
+  \item \textbf{$\chi^2$ (Chi-cuadrado)}: datos \emph{agrupados} en clases (discretas o continuas binned).
+\end{itemize}
+
+\subsection{Notas tipo examen}
+\begin{itemize}
+  \item Muestras pequeñas ($<30$): usar versiones modificadas o declarar limitaciones.
+  \item El propósito de una PBA es \emph{medir discrepancia} y contrastar $H_0$ (no “maximizar distancias”).
+  \item Si importan colas $\Rightarrow$ A-D; si el centro $\Rightarrow$ K-S; si hay binning $\Rightarrow$ $\chi^2$.
+\end{itemize}
+
+\section{Distribuciones — elegir rápido y bien}
+\subsection{Clasificación exprés}
+\begin{itemize}
+  \item \textbf{Discretas}: Binomial, Poisson, Geométrica, Discreta general.
+  \item \textbf{Continuas}: Normal, Lognormal, Exponencial, Uniforme, Triangular, PERT, Beta.
+\end{itemize}
+
+\subsection{Soporte}
+\begin{itemize}
+  \item \textbf{No limitadas}: $(-\infty,+\infty)$ (p.ej., Normal).
+  \item \textbf{Limitadas}: $[a,b]$ (Uniforme, Triangular, Beta, PERT).
+  \item \textbf{Parcialmente limitadas}: $[0,+\infty)$ (Exponencial, Lognormal); en discretas: $\mathbb{N}_0$ (Poisson).
+\end{itemize}
+
+\subsection{Heurísticos de selección}
+\begin{itemize}
+  \item \textbf{Triangular} $(\min,\text{moda},\max)$: opinión de expertos con pocos datos.
+  \item \textbf{PERT} $(\min,\text{moda},\max)$: como Triangular pero con colas suavizadas (menor volatilidad).
+  \item \textbf{Uniforme} $[a,b]$: sólo se conoce el rango.
+  \item \textbf{Normal} $(\mu,\sigma)$: simétrica, sin cotas naturales (evitar si la variable no puede ser negativa).
+  \item \textbf{Lognormal}: positiva, sesgo a la derecha (costos/tiempos multiplicativos).
+\end{itemize}
+
+\section{@Risk en Excel — funciones que vas a usar}
+\subsection{Entradas discretas por tabla}
+\begin{verbatim}
+=RiskDiscrete({900,1000,1100},{0.15,0.70,0.15})
+=RiskDiscrete({600,680,740},{0.15,0.70,0.15})
+\end{verbatim}
+
+\subsection{Entradas continuas comunes}
+\begin{verbatim}
+=RiskTriang(min, moda, max)
+=RiskPERT(min, moda, max)
+=RiskUniform(a, b)
+=RiskNormal(media, desviacion)
+\end{verbatim}
+
+\subsection{KPIs y estadística descriptiva (Proyecto/Inversionista)}
+\begin{verbatim}
+VPN Proyecto:   =VNA(WACC; FC1:FCn) + FC0
+TIR:            =TIR(FC0:FCn)
+RB/C:           =ABS( VP_proyecto / FC0 )
+PRID:           =ABS( FCacum_prev_pos / FC_VA_del_periodo_pos )
+\end{verbatim}
+\begin{verbatim}
+Perdida máx:        =RiskMin( celda_VPN )
+Ganancia máx:       =RiskMax( celda_VPN )
+Valor esperado:     =RiskMean( celda_VPN )
+Desviación:         =RiskStdDev( celda_VPN )
+Prob. de pérdida:   =RiskTarget( celda_VPN ; 0 )
+\end{verbatim}
+\emph{Notas de clase y “paso a paso” con fórmulas:} :contentReference[oaicite:0]{index=0}
+
+\subsection{Probabilidades objetivo}
+\begin{verbatim}
+=RiskTarget( VPN ; 0 ; ">=" )   % P(VPN >= 0)
+=RiskTarget( TIR ; WACC ; ">" ) % P(TIR > WACC)
+\end{verbatim}
+
+\section{Criterios de decisión (proyecto y equity)}
+\begin{itemize}
+  \item \textbf{VPN}: aceptar si $VPN>0$.
+  \item \textbf{TIR}: aceptar si $TIR>$ tasa exigida (WACC para proyecto; $K_e$ o tasa objetivo para inversionista).
+  \item \textbf{RB/C}: aceptar si $>1$.
+  \item \textbf{PRID}: $\leq$ umbral interno.
+  \item \textbf{Riesgo}: umbral típico de probabilidad de pérdida (ej., $15\%$). Viable si $P(VPN<0)\leq 0.15$.
+\end{itemize}
+\[
+VPN=\sum_{t=1}^{T}\frac{FC_t}{(1+r)^t}-I_0,\qquad
+WACC=\frac{E}{V}K_e+\frac{D}{V}K_d(1-T),\qquad
+K_e=R_f+\beta_L(R_m-R_f)+CRP
+\]
+
+\section{Riesgo país, PESTEL y factibilidad (macro a micro)}
+\begin{itemize}
+  \item \textbf{Objetivo del curso}: cuantificar probabilidad de pérdida convirtiendo variables del proyecto en aleatorias (simulación). :contentReference[oaicite:1]{index=1}
+  \item \textbf{PESTEL} y entorno (político, económico, social, tecnológico, ecológico, legal) $\Rightarrow$ insumos de riesgo. :contentReference[oaicite:2]{index=2}
+  \item \textbf{Ciclo ONUDI/Factibilidad}: entorno/sector, mercado, técnico, organizacional, legal, financiero, riesgos; si \emph{algo falla} en factibilidad, no se emprende. :contentReference[oaicite:3]{index=3}
+  \item \textbf{Riesgo país} (sobretasas; 100 pb = 1\%): entra en $CRP$ del CAPM y en WACC. :contentReference[oaicite:4]{index=4}
+\end{itemize}
+
+\section{Riesgos financieros y operativos (mapa rápido)}
+\subsection{Financieros}
+\begin{itemize}
+  \item Mercado (divisas, tasas, derivados, propiedad), Liquidez, Crédito, Negocio/estratégico. Requieren \emph{capital regulatorio} y buffers. :contentReference[oaicite:5]{index=5}
+\end{itemize}
+
+\subsection{Operativos}
+\begin{itemize}
+  \item Personas, procesos, tecnología, infraestructura, causas externas; consecuencias: legales, reputacionales, económicas. \emph{Actualizar matrices} de riesgo de forma continua. :contentReference[oaicite:6]{index=6}
+\end{itemize}
+
+\section{Modelación de Riesgo Operativo (LDA) y \emph{layering} en FC}
+\subsection{Enfoque LDA (Loss Distribution Approach)}
+\begin{itemize}
+  \item \textbf{Frecuencia} $\sim$ \textit{discreta}: Binomial $(n,p)$ o Poisson $(\lambda)$.
+  \item \textbf{Severidad} $\sim$ \textit{continua}: p.ej., Triangular/PERT/Lognormal.
+  \item \textbf{Convolución estadística} (frecuencia $\star$ severidad): por compound/sumas agregadas $\Rightarrow$ \emph{pérdidas agregadas} (ROP). :contentReference[oaicite:7]{index=7}
+\end{itemize}
+
+\subsection{Implementación en hoja}
+\begin{enumerate}
+  \item Matriz de \textbf{frecuencias}: \verb|=RiskPoisson(...)| o \verb|=RiskBinomial(...)|.
+  \item Matriz de \textbf{impactos} (severidad): \verb|=RiskTriang(min,moda,max)| o \verb|=RiskPERT(...)|.
+  \item \textbf{Compound}: \verb|=RiskCompound(freq; severity)| para pérdidas agregadas por evento/celda. :contentReference[oaicite:8]{index=8}
+  \item \textbf{FC\_2}: añadir “Pérdida por Riesgo Operativo” al final del FC de operación (resta).
+  \item \textbf{Seguro (gestión)}: fila nueva bajo ROP; crece con inflación anual; aplicar luego de simular ROP. :contentReference[oaicite:9]{index=9}
+\end{enumerate}
+
+\subsection{Lectura de impacto}
+\begin{itemize}
+  \item Comparar \textbf{$P(VPN<0)$} \emph{sin} ROP, \emph{con} ROP, y \emph{con} ROP+gestión (seguro) para evidenciar mitigación. :contentReference[oaicite:10]{index=10}
+\end{itemize}
+
+\section{Plantilla de resultados que suelen pedir (y cómo responder)}
+\begin{itemize}
+  \item \textbf{¿Es viable financieramente (sólo FC)}? Reportar $P(\text{pérdida})$, VPN, TIR, RB/C, PRID con simulación (ejemplos de clase: pérdidas del orden de 1-5\% en escenarios base). :contentReference[oaicite:11]{index=11}
+  \item \textbf{Impacto de riesgos operativos}: cuantificar incremento de $P(\text{pérdida})$ al incluir ROP (en ejemplos: subir a $\sim$12\% sin gestión). :contentReference[oaicite:12]{index=12}
+  \item \textbf{Variables más influyentes en el VPN}: precio, demanda, CMV (y para el equity: drivers que afecten dividendos/FC al inversionista). :contentReference[oaicite:13]{index=13}
+  \item \textbf{Con ROP, nuevas variables relevantes}: lanzamiento, accidentes, paradas de planta, etc.\ pasan a ser \emph{financieramente} materiales. :contentReference[oaicite:14]{index=14}
+  \item \textbf{Gestión (seguro)}: seguro que cubre $\sim90\%$ del ROP con prima anual indexada a inflación; volver a simular y mostrar caída de $P(\text{pérdida})$. :contentReference[oaicite:15]{index=15}
+\end{itemize}
+
+\section{Checklist de examen (operativo)}
+\begin{enumerate}
+  \item Detecta patrón de la serie: sin patrón / tendencia / tendencia+estacionalidad $\Rightarrow$ Simple / Holt / Winters.
+  \item Clasifica la variable: discreta/continua; limitada/no; propon \emph{2-3} distribuciones candidatas (Triangular/PERT/Normal/Lognormal/\dots).
+  \item Aplica PBA: K-S (continuas), A-D (colas), $\chi^2$ (agrupadas).
+  \item Documenta: estadístico, valor crítico o $p$ y conclusión ($H_0$ se rechaza / no se rechaza).
+  \item Simula: media, $\sigma$, $P(VPN<0)$, IC 95\%, sensibilidades (Tornado).
+  \item Decide: VPN$>$0, TIR$>$tasa, RB/C$>$1, PRID$\leq$umbral, $P(\text{pérdida})\leq$ tolerancia (p.ej.\ 15\%).
+\end{enumerate}
+
+\section{Apoyos y recordatorios de clase (macroresumen)}
+\begin{itemize}
+  \item Objetivo: cuantificar probabilidad de pérdida con variables aleatorias y @Risk; \emph{garbage-in, garbage-out} (calidad de supuestos). :contentReference[oaicite:16]{index=16}
+  \item Preparación del proyecto: perfil $\rightarrow$ pre-factibilidad $\rightarrow$ factibilidad (insumos para el modelo financiero/estocástico). :contentReference[oaicite:17]{index=17}
+  \item Riesgos globales $\rightarrow$ riesgos país $\rightarrow$ riesgos de la organización (encadenar lectura macro a micro). :contentReference[oaicite:18]{index=18}
+  \item En hoja: \emph{Winters} para series con tendencia/estacionalidad (ventas, costos); \emph{Triang} para 3 puntos; \emph{Uniform} para 2 puntos. :contentReference[oaicite:19]{index=19}
+\end{itemize}
