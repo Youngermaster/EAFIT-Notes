@@ -1,0 +1,344 @@
+% ==========================================
+% Chapters/14. Estudio_Financiero.tex
+% ==========================================
+\section{Estudio financiero del proyecto}
+
+En este capítulo se evalúa la viabilidad financiera de \emph{Equilibrado} a partir de los
+supuestos de crecimiento de usuarios, estructura de costos e inversiones descritos en
+los estudios previos. El detalle numérico se presenta en el archivo de Excel adjunto,
+mientras que aquí se resumen los principales resultados e interpretaciones.
+
+\subsection{Supuestos del modelo financiero}
+
+\subsubsection*{Crecimiento de servicios y comportamiento de precios}
+
+El modelo considera los siguientes supuestos base:
+
+\begin{itemize}
+    \item \textbf{Crecimiento de servicios (usuarios/suscripciones):} incremento de la demanda de
+    $6\%$ en el año 2, $7\%$ en el año 3, \(8\%\) en el año 4 y \(9\%\) en el año 5.
+    \item \textbf{Inflación y costos:} los costos operativos crecen a una tasa de
+    \(\text{inflación} + 3\) puntos porcentuales. En el modelo se parametriza con
+    incrementos anuales que oscilan entre \(5{,}5\%\) y \(6{,}4\%\).
+    \item \textbf{Precio del servicio:} el precio de la suscripción sólo se ajusta con la
+    inflación, sin recargos adicionales por margen en los primeros años, dado que el
+    objetivo es consolidar la base de usuarios.
+    \item \textbf{Precio base de la suscripción:} de acuerdo con el estudio de costos, el
+    precio anual inicial se estima en \(\$1{,}091{,}815\) por suscripción.
+    \item \textbf{Escala de usuarios:} se plantea una entrada conservadora al mercado. En el
+    año 1 se supone una base moderada de usuarios, con crecimiento según los
+    porcentajes anteriores. En términos de la modelación de flujos, esto se representa
+    como un número de servicios adquiridos que crece de forma progresiva.
+\end{itemize}
+
+Dado que una parte importante de la estructura de costos es fija (infraestructura
+tecnológica, nómina, arriendo, etc.), a medida que aumenta la cantidad de usuarios el
+costo medio por suscripción disminuye, lo que hace al modelo especialmente atractivo
+para esquemas de contratación con EPS o entidades públicas.
+
+\subsubsection*{Supuestos de impuestos y estructura de capital}
+
+\begin{itemize}
+    \item \textbf{Tasa de impuesto de renta:} \(30\%\) sobre la utilidad operacional.
+    \item \textbf{Horizonte de evaluación:} 5 años.
+    \item \textbf{Inversión inicial:} \(\$208{,}071{,}268\), que incluye activos fijos,
+    activos intangibles, capital de trabajo y costos legales.
+    \item \textbf{Financiación:} aproximadamente \(\$70{,}0\) millones de la inversión
+    inicial se financian mediante un préstamo bancario y el resto proviene de recursos
+    propios de los socios.
+\end{itemize}
+
+\subsection{Proyección de ingresos y costos}
+
+La Tabla~\ref{tab:ingresos-costos} resume los ingresos, costos y utilidades proyectadas
+para los cinco años de análisis (valores aproximados, en pesos colombianos).
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{c r r r}
+\toprule
+\textbf{Año} &
+\textbf{Ingresos totales} &
+\textbf{Costos operacionales totales} &
+\textbf{Utilidad operativa} \\
+\midrule
+1 & \$575\,986\,962 & \$566\,986\,271 & \$9\,000\,691 \\
+2 & \$644\,187\,274 & \$598\,227\,215 & \$45\,960\,059 \\
+3 & \$727\,259\,732 & \$631\,189\,534 & \$96\,070\,198 \\
+4 & \$828\,718\,283 & \$665\,968\,077 & \$162\,750\,205 \\
+5 & \$953\,074\,920 & \$702\,662\,918 & \$250\,412\,001 \\
+\bottomrule
+\end{tabular}
+\caption{Resumen de ingresos, costos y utilidad operativa proyectada.}
+\label{tab:ingresos-costos}
+\end{table}
+
+A partir de estas utilidades se calcula la \textbf{utilidad operativa después de
+impuestos} (UODI), sobre la cual se construyen los \emph{flujos de caja de la
+operación} añadiendo nuevamente los cargos no desembolsables por depreciación y
+amortización.
+
+\subsection{Flujos de caja del proyecto}
+
+\subsubsection*{Flujo de caja operativo}
+
+El flujo de caja operativo (FCO) resulta de sumar a la UODI la depreciación y
+amortización de activos. En el modelo se obtiene el siguiente perfil:
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{c r}
+\toprule
+\textbf{Año} & \textbf{Flujo de caja operativo (FCO)} \\
+\midrule
+0 & \$0 \\
+1 & \(-\$519\,517\) \\
+2 & \$25\,352\,042 \\
+3 & \$60\,429\,139 \\
+4 & \$107\,105\,144 \\
+5 & \$168\,468\,401 \\
+\bottomrule
+\end{tabular}
+\caption{Flujo de caja operativo proyectado.}
+\label{tab:fco}
+\end{table}
+
+El valor ligeramente negativo del año 1 refleja la etapa de puesta en marcha y
+consolidación comercial.
+
+\subsubsection*{Flujo de caja de la inversión}
+
+El \textbf{flujo de caja de la inversión} incluye:
+
+\begin{itemize}
+    \item Inversión en activos fijos (\(\sim\$37{,}6\) millones).
+    \item Inversión en activos intangibles (\(\sim\$25\) millones).
+    \item Costos legales y de constitución (\(\sim\$3{,}7\) millones).
+    \item Inversión en capital de trabajo inicial y sus variaciones año a año.
+    \item Valor de desecho de activos al finalizar el año 5.
+\end{itemize}
+
+El resultado agregado por año se resume en la Tabla~\ref{tab:fci}.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{c r}
+\toprule
+\textbf{Año} & \textbf{Flujo de caja de inversión (FCI)} \\
+\midrule
+0 & \(-\$208\,071\,268\) \\
+1 & \(-\$7\,810\,236\) \\
+2 & \(-\$8\,240\,580\) \\
+3 & \(-\$8\,694\,636\) \\
+4 & \(-\$9\,173\,710\) \\
+5 & \$172\,165\,730 \\
+\bottomrule
+\end{tabular}
+\caption{Flujo de caja de la inversión.}
+\label{tab:fci}
+\end{table}
+
+\subsubsection*{Flujo de caja del proyecto}
+
+El \textbf{flujo de caja libre del proyecto} se calcula como la suma de FCO y FCI:
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{c r}
+\toprule
+\textbf{Año} & \textbf{Flujo de caja del proyecto} \\
+\midrule
+0 & \(-\$208\,071\,268\) \\
+1 & \(-\$8\,329\,752\) \\
+2 & \$17\,111\,462 \\
+3 & \$51\,734\,503 \\
+4 & \$97\,931\,434 \\
+5 & \$340\,634\,130 \\
+\bottomrule
+\end{tabular}
+\caption{Flujo de caja libre del proyecto \emph{Equilibrado}.}
+\label{tab:fcp}
+\end{table}
+
+Estos flujos permiten evaluar la conveniencia del proyecto antes de considerar la
+estructura específica de financiación.
+
+\subsection{Estructura de financiación y costo de capital}
+
+\subsubsection*{Deuda bancaria}
+
+Para financiar \emph{Equilibrado} se plantea un crédito con BBVA por un valor cercano a
+\(\$70{,}9\) millones, con las siguientes condiciones:
+
+\begin{itemize}
+    \item \textbf{Monto del préstamo:} \(\$70{,}873{,}284\) aproximadamente.
+    \item \textbf{Tasa de interés efectiva anual (E.A.):} \(19\%\).
+    \item \textbf{Plazo:} 5 años, con cuota fija anual.
+    \item \textbf{Cuota anual estimada:} \(\sim\$23{,}179{,}119\).
+\end{itemize}
+
+La tabla de amortización considera el beneficio tributario generado por los intereses
+deducibles de renta.
+
+\subsubsection*{Costo de capital (CAPM) y WACC}
+
+El costo de los recursos propios (\(K_e\)) se estimó mediante el modelo CAPM:
+
+\[
+K_e = R_f + \beta \,(E_m - R_f),
+\]
+
+donde:
+
+\begin{itemize}
+    \item \(R_f\): tasa libre de riesgo (rendimiento de TES a un año, aproximadamente
+    \(9\%\)).
+    \item \(E_m\): rendimiento esperado del mercado (\(\sim 35\%\)).
+    \item \(\beta\): medida del riesgo sistemático de la inversión, asumida en \(2\) para
+    reflejar el alto riesgo de un emprendimiento tecnológico en etapa temprana.
+\end{itemize}
+
+Con estos valores se obtiene un \(K_e\) alto (del orden de \(60\%\) anual), coherente con
+las expectativas de retorno para \emph{startups} de base tecnológica.
+
+El \textbf{costo promedio ponderado de capital (WACC)} se calcula combinando la deuda y
+el patrimonio:
+
+\[
+\text{WACC} = w_D\,K_d\,(1 - T) + w_E\,K_e,
+\]
+
+donde \(w_D\) y \(w_E\) son las participaciones de deuda y patrimonio en la estructura de
+capital, \(K_d\) es el costo de la deuda antes de impuestos y \(T\) la tasa impositiva.
+Con la proporción aproximada de \(34\%\) deuda y \(66\%\) recursos propios se obtiene
+un WACC elevado (del orden de \(40{-}50\%\) anual). El detalle numérico se presenta en
+el archivo de Excel.
+
+\subsection{Indicadores de evaluación}
+
+\subsubsection*{Valor Presente Neto (VPN) y TIR}
+
+Usando el WACC estimado como tasa de descuento, el proyecto arroja los siguientes
+indicadores:
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{l r}
+\toprule
+\textbf{Indicador} & \textbf{Valor} \\
+\midrule
+VPN del proyecto & \$127\,669\,212{,}9 \\
+TIR del proyecto & \(21{,}38\%\) \\
+VPN del inversionista & \$105\,613\,971{,}1 \\
+TIR del inversionista & \(23{,}40\%\) \\
+\bottomrule
+\end{tabular}
+\caption{Indicadores principales de rentabilidad.}
+\label{tab:indicadores-financieros}
+\end{table}
+
+El \textbf{VPN positivo} indica que, bajo los supuestos de flujos y tasa de descuento
+utilizados, el proyecto crea valor económico. La \textbf{TIR} se sitúa alrededor del
+\(21{-}23\%\), lo cual es atractivo frente a inversiones tradicionales, aunque puede
+resultar ajustado si los inversionistas exigen retornos \(\geq 25{-}30\%\) típicos de
+negocios tecnológicos en etapa temprana.
+
+\subsubsection*{Periodo de recuperación (Payback)}
+
+El periodo de recuperación simple o \emph{Payback} se calcula a partir de los flujos de
+caja del proyecto. La inversión inicial se recupera en aproximadamente:
+
+\[
+\text{PRI} \approx 4{,}15 \text{ años},
+\]
+
+es decir, \textbf{4 años, 1 mes y 17 días}. A partir de ese momento, los flujos de caja
+adicionales representan beneficios netos para los inversionistas.
+
+\subsubsection*{Flujo de caja del inversionista}
+
+Al incorporar el efecto de la deuda (entrada de recursos en el año 0 y pago de cuotas e
+intereses en los años siguientes), se obtiene el \textbf{flujo de caja del
+inversionista}, que refleja lo que reciben efectivamente los socios:
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{c r}
+\toprule
+\textbf{Año} & \textbf{Flujo de caja del inversionista} \\
+\midrule
+0 & \(-\$137\,197\,984\) \\
+1 & \(-\$27\,469\,095\) \\
+2 & \(-\$2\,581\,533\) \\
+3 & \$31\,382\,663 \\
+4 & \$76\,795\,567 \\
+5 & \$318\,565\,272 \\
+\bottomrule
+\end{tabular}
+\caption{Flujo de caja del inversionista después de financiación.}
+\label{tab:fci-inversionista}
+\end{table}
+
+Este flujo de caja es el insumo para calcular la TIR y el VPN desde la perspectiva de
+los accionistas.
+
+\subsection{Análisis e interpretación}
+
+\subsubsection*{Fortalezas financieras del proyecto}
+
+\begin{itemize}
+    \item VPN positivo y TIR por encima de la rentabilidad de instrumentos tradicionales,
+    lo que sugiere que el proyecto es financieramente atractivo bajo el escenario base.
+    \item Alta proporción de costos fijos, lo que genera economías de escala a medida que
+    se incrementa la base de usuarios.
+    \item Posibilidad de mejorar los indicadores financieros si se cierran contratos
+    B2B2C con EPS o entidades gubernamentales que aceleren la adopción.
+\end{itemize}
+
+\subsubsection*{Aspectos a vigilar}
+
+\begin{itemize}
+    \item El costo de capital estimado (\(K_e\) y WACC) es elevado, reflejando un riesgo
+    significativo. Para que el proyecto sea competitivo frente a otras oportunidades de
+    inversión de alto riesgo, sería deseable alcanzar TIR cercanas o superiores al
+    \(25{-}30\%\).
+    \item La sensibilidad del modelo a variables clave como la \textbf{tasa de adopción de
+    usuarios}, el \textbf{precio promedio} y la \textbf{estructura de costos} sugiere
+    que reducciones en costos fijos o incrementos moderados en el precio podrían mejorar
+    significativamente el VPN.
+    \item La dependencia de deuda bancaria al \(19\%\) E.A. obliga a mantener flujos
+    operativos suficientes para cumplir cómodamente las cuotas sin comprometer la
+    inversión en crecimiento.
+\end{itemize}
+
+\subsubsection*{Conclusión financiera}
+
+En síntesis, la evaluación financiera muestra que \emph{Equilibrado} es \textbf{viable}
+en el escenario base, con recuperación de la inversión en poco más de cuatro años y
+un VPN positivo. No obstante, al tratarse de un emprendimiento tecnológico de alto
+riesgo, los socios e inversionistas deben:
+
+\begin{enumerate}
+    \item Buscar estrategias que incrementen el número de usuarios (alianzas con EPS,
+    municipios y programas de envejecimiento activo).
+    \item Optimizar la estructura de costos, especialmente la nómina y gastos fijos
+    recurrentes.
+    \item Revisar periódicamente los supuestos de crecimiento, inflación y tasas de
+    interés para actualizar el modelo financiero.
+\end{enumerate}
+
+Con estas acciones, el proyecto puede fortalecer su atractivo financiero y alinearse
+mejor con las expectativas de retorno de inversionistas especializados en soluciones
+tecnológicas para el sector salud.
