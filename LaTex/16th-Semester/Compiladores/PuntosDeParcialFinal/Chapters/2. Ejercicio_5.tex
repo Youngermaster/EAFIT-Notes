@@ -1,0 +1,38 @@
+\section{Ejercicio 5 [20 pts]}
+
+Considere el siguiente lenguaje fuente $L$ sobre el alfabeto $\Sigma = \{a, b\}$: todas las cadenas que contienen una o más repeticiones del patrón $ab$.
+
+\begin{enumerate}[label=\alph*.]
+    \item Diseñe una gramática libre de contexto $G$ que genere $L$.
+    \item Extienda dicha gramática para construir una gramática de traducción $G_{\tau}$ que, por cada aparición del patrón $ab$, produzca como salida el símbolo $X$; es decir, si la entrada es $ababab$, entonces la salida es $XXX$.
+    \item Escriba una expresión de traducción regular equivalente a la gramática $G_{\tau}$.
+\end{enumerate}
+
+\section{Desarrollo Ejercicio 5}
+
+\subsection{a. Gramática libre de contexto $G$}
+Para generar el lenguaje $L$ (cadenas con al menos una aparición de $ab$), utilizamos dos no terminales: $S$ (estado inicial, buscando el primer $ab$) y $F$ (estado de aceptación, el patrón ya fue encontrado), siguiendo los principios de diseño de gramáticas formales \cite{crespi2019formal}.
+
+\[
+\begin{aligned}
+S &\rightarrow aS \mid bS \mid abF \\
+F &\rightarrow aF \mid bF \mid abF \mid \epsilon
+\end{aligned}
+\]
+
+\subsection{b. Gramática de traducción $G_{\tau}$}
+Basándonos en el esquema de traducción dirigido por sintaxis \cite{aho2007compilers}, extendemos la gramática anterior. Los caracteres que no forman parte del patrón $ab$ se traducen a la cadena vacía ($\epsilon$), y el patrón $ab$ se traduce a $X$.
+
+\[
+\begin{aligned}
+S &\rightarrow \frac{a}{\epsilon} S \mid \frac{b}{\epsilon} S \mid \frac{ab}{X} F \\
+F &\rightarrow \frac{a}{\epsilon} F \mid \frac{b}{\epsilon} F \mid \frac{ab}{X} F \mid \epsilon
+\end{aligned}
+\]
+
+\subsection{c. Expresión de traducción regular}
+La expresión equivalente describe: cualquier prefijo irrelevante (se borra), seguido de un $ab$ obligatorio (se vuelve $X$), seguido de cualquier sufijo (se procesa según corresponda) \cite{crespi2019formal}.
+
+\[
+e_{\tau} = \left(\frac{a}{\epsilon} \cup \frac{b}{\epsilon}\right)^* \cdot \frac{ab}{X} \cdot \left( \frac{a}{\epsilon} \cup \frac{b}{\epsilon} \cup \frac{ab}{X} \right)^*
+\]

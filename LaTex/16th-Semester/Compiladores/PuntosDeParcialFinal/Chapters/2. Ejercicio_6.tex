@@ -1,0 +1,38 @@
+\section{Ejercicio 6 [20 pts]}
+
+Diseñe un transductor sequencial determinista $M$ que lea cadenas sobre $\Sigma = \{0, 1\}$ y produzca como salida la complementaria de cada bit ($0 \rightarrow 1, 1 \rightarrow 0$); por ejemplo, si la entrada es $10110$, entonces la salida debe ser $01001$. Adicionalmente, dibuje el diagrama de estados del transductor y especifique formalmente las funciones de transición $\delta$ y de salida $\eta$.
+
+\section{Desarrollo Ejercicio 6}
+
+El objetivo es diseñar un transductor secuencial determinista que calcule el complemento a 1 de la entrada (intercambiar 0s y 1s).
+
+\subsection{Definición Formal}
+El transductor se define como la tupla $M = (Q, \Sigma, \Delta, q_0, F, \delta, \eta, \varphi)$, siguiendo la definición formal de autómatas con salida \cite{kozen1997automata}, donde:
+
+\begin{itemize}
+    \item $Q = \{q_0\}$
+    \item $\Sigma = \{0, 1\}$, $\Delta = \{0, 1\}$
+    \item $F = \{q_0\}$
+\end{itemize}
+
+\subsection{Funciones del Transductor}
+\begin{enumerate}
+    \item \textbf{Función de transición} ($\delta$): El autómata permanece en el mismo estado.
+    \[ \delta(q_0, 0) = q_0, \quad \delta(q_0, 1) = q_0 \]
+    
+    \item \textbf{Función de salida} ($\eta$): Emite el bit complementario.
+    \[ \eta(q_0, 0) = 1, \quad \eta(q_0, 1) = 0 \]
+    
+    \item \textbf{Función final} ($\varphi$): No se emite nada al terminar la cadena.
+    \[ \varphi(q_0, \dashv) = \epsilon \]
+\end{enumerate}
+
+\subsection{Diagrama de Estados}
+\begin{center}
+\begin{tikzpicture}[shorten >=1pt,node distance=3cm,on grid,auto] 
+   \node[state, initial, accepting] (q_0)   {$q_0$}; 
+   \path[->] 
+    (q_0) edge [loop above] node {0 / 1} ()
+          edge [loop below] node {1 / 0} ();
+\end{tikzpicture}
+\end{center}
