@@ -12,12 +12,13 @@ El objetivo es diseñar un transductor secuencial determinista que calcule el co
 \end{itemize}
 
 \subsection{Especificación Formal}
-El transductor se define como la tupla $M = (Q, \Sigma, \Delta, q_0, F, \delta, \eta, \varphi)$, siguiendo la definición formal de autómatas con salida \cite{kozen1997automata}, donde:
+El transductor se define como la tupla $M = (Q, \Sigma, \Delta, \delta, \eta, \varphi, q_0, F)$, siguiendo la definición formal de autómatas con salida \cite{kozen1997automata}, donde:
 
 \begin{itemize}
-    \item $Q = \{q_0\}$ (Un único estado funcional).
-    \item $\Sigma = \{0, 1\}$ (Entrada), $\Delta = \{0, 1\}$ (Salida).
-    \item $F = \{q_0\}$ (El estado es final porque cualquier prefijo es válido).
+    \item $Q = \{q_0\}$ (conjunto de estados)
+    \item $\Sigma = \{0, 1\}$ (alfabeto de origen)
+    \item $\Delta = \{0, 1\}$ (alfabeto de destino)
+    \item $F = \{q_0\}$ (conjunto de estados de aceptación)
 \end{itemize}
 
 \subsubsection*{Definición de Funciones}
@@ -39,32 +40,34 @@ El transductor se define como la tupla $M = (Q, \Sigma, \Delta, q_0, F, \delta, 
 El diagrama de transición de estados es entonces:
 
 \begin{center}
-\begin{tikzpicture}[shorten >=1pt,node distance=3cm,on grid,auto] 
+\begin{tikzpicture}[shorten >=1pt, node distance=3.5cm, on grid, auto] 
    \node[state, initial, accepting] (q_0)   {$q_0$}; 
+   
    \path[->] 
-    (q_0) edge [loop above] node {0 / 1} ()
-          edge [loop below] node {1 / 0} ();
+    (q_0) edge [loop above] node {$\frac{0}{1}$} ()
+          edge [loop below] node {$\frac{1}{0}$} ()
+          edge [loop right] node [yshift=-1em] {$\frac{\dashv}{\epsilon}$} (); % Representación visual de la función final (opcional pero clara)
 \end{tikzpicture}
 \end{center}
 
-\subsection{Verificación (Traza)}
-Probamos el diseño con la cadena de ejemplo del enunciado: $w = 10110$.
+\subsection{Verificación (Traza de ejecución)}
+Para verificar la corrección, procesamos la cadena de ejemplo $w = 10110$:
 
 \begin{table}[H]
 \centering
-\begin{tabular}{c|c|c|c}
+\begin{tabular}{c|c|c|l}
 \toprule
-\textbf{Estado Actual} & \textbf{Entrada Leída} & \textbf{Salida Generada ($\eta$)} & \textbf{Siguiente Estado ($\delta$)} \\
+\textbf{Estado} & \textbf{Entrada} & \textbf{Salida ($\eta$)} & \textbf{Descripción} \\
 \midrule
-$q_0$ & 1 & 0 & $q_0$ \\
-$q_0$ & 0 & 1 & $q_0$ \\
-$q_0$ & 1 & 0 & $q_0$ \\
-$q_0$ & 1 & 0 & $q_0$ \\
-$q_0$ & 0 & 1 & $q_0$ \\
+$q_0$ & 1 & 0 & Lectura de 1, complemento 0 \\
+$q_0$ & 0 & 1 & Lectura de 0, complemento 1 \\
+$q_0$ & 1 & 0 & Lectura de 1, complemento 0 \\
+$q_0$ & 1 & 0 & Lectura de 1, complemento 0 \\
+$q_0$ & 0 & 1 & Lectura de 0, complemento 1 \\
+$q_0$ & $\dashv$ & $\epsilon$ & Fin de cadena ($\varphi$) \\
 \midrule
-\multicolumn{2}{r|}{\textbf{Salida Total:}} & \textbf{01001} & \\
+\multicolumn{2}{r|}{\textbf{Resultado Final:}} & \textbf{01001} & \\
 \bottomrule
 \end{tabular}
-\caption{Traza de ejecución para la entrada 10110}
+\caption{Traza paso a paso para la entrada 10110}
 \end{table}
-La salida obtenida $01001$ coincide con el complemento a 1 solicitado.
