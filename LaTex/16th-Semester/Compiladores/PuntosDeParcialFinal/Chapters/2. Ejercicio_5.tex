@@ -1,4 +1,4 @@
-\section{Ejercicio 5 [20 pts]}
+\section{[20 pts] Ejercicio 5}
 
 \subsection{Enunciado}
 Considere el siguiente lenguaje fuente $L$ sobre el alfabeto $\Sigma = \{a, b\}$: todas las cadenas que contienen una o más repeticiones del patrón $ab$.
@@ -20,7 +20,8 @@ F \rightarrow aF \mid bF \mid abF \mid \epsilon
 \]
 
 Con símbolos no terminales $N=\{S, F\}$. 
-\textbf{Justificación:} La producción $S$ consume cualquier prefijo (ruido) hasta encontrar el primer patrón obligatorio $ab$, momento en el cual transiciona a $F$. El no terminal $F$ permite generar repeticiones adicionales del patrón o terminar la cadena con $\epsilon$, asegurando así la condición de una o más repeticiones \cite{crespi2019formal}.
+\textbf{Justificación:} La producción $S$ consume cualquier prefijo hasta encontrar el primer patrón obligatorio $ab$, momento en el cual transiciona a $F$.
+El no terminal $F$ permite generar repeticiones adicionales del patrón o terminar la cadena con $\epsilon$, asegurando así la condición de una o más repeticiones \cite{crespi2019formal}.
 
 \subsection{b. Gramática de traducción $G_{\tau}$}
 Extendemos $G$ para definir la gramática de traducción $G_{\tau}=(V, \Sigma, \Delta, P_{\tau}, S)$ definida a través de las producciones:
@@ -70,10 +71,9 @@ De esta manera, $(ababab, XXX) \in \rho_{\tau}$, confirmando que la traducción 
 \subsection{c. Expresión de traducción regular ($e_{\tau}$)}
 Primero, determinamos una expresión regular capaz de generar el lenguaje fuente $L(G)$:
 \[ (a|b)^* ab (a|b)^* \]
-Sin embargo, para capturar \textbf{cada} ocurrencia de $ab$ como pide la traducción (y no solo la primera), refinamos la expresión conceptualmente como: "Prefijo irrelevante, seguido de grupos de (patrón o ruido)".
 
 Una expresión regular de traducción $e_{\tau}$ equivalente es:
 \[
 e_{\tau} = \underbrace{\left(\frac{a}{\epsilon} \mid \frac{b}{\epsilon}\right)^*}_{\text{Prefijo}} \cdot \frac{ab}{X} \cdot \underbrace{\left[ \left(\frac{a}{\epsilon} \mid \frac{b}{\epsilon}\right)^* \frac{ab}{X} \right]^*}_{\text{Repeticiones}} \cdot \underbrace{\left(\frac{a}{\epsilon} \mid \frac{b}{\epsilon}\right)^*}_{\text{Sufijo}}
 \]
-Esta estructura asegura que el primer $ab$ se traduce, y cualquier $ab$ subsecuente (mezclado con ruido) también se traduce a $X$.
+Esta estructura asegura que el primer $ab$ se traduce, y cualquier $ab$ subsecuente también se traduce a $X$.

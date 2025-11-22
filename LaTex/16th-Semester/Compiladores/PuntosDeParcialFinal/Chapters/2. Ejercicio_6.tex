@@ -1,4 +1,4 @@
-\section{Ejercicio 6 [20 pts]}
+\section{[20 pts] Ejercicio 6}
 
 \subsection{Enunciado}
 
@@ -29,11 +29,11 @@ El transductor se define como la tupla $M = (Q, \Sigma, \Delta, \delta, \eta, \v
     
     \item \textbf{Función de salida} ($\eta: Q \times \Sigma \to \Delta^*$): Emite el bit complementario.
     \[ \eta(q_0, 0) = 1, \quad \eta(q_0, 1) = 0 \]
-    Aquí reside la lógica del complemento: si leemos 0 escribimos 1, y viceversa.
+    Aquí reside la lógica del complemento, porque si leemos 0 escribimos 1, y viceversa.
     
     \item \textbf{Función final} ($\varphi: F \times \{\dashv\} \to \Delta^*$): No se emite nada al terminar la cadena.
     \[ \varphi(q_0, \dashv) = \epsilon \]
-    Al terminar la cadena, no hay bits pendientes ni operaciones de cierre (como acarreos), por lo que la salida final es vacía.
+    Al terminar la cadena, no hay bits pendientes ni operaciones de cierre, por lo que la salida final es vacía.
 \end{enumerate}
 
 \subsection{Diagrama de Estados}
@@ -50,7 +50,7 @@ El diagrama de transición de estados es entonces:
 \end{tikzpicture}
 \end{center}
 
-\subsection{Verificación (Traza de ejecución)}
+\subsection{Verificación (ejecución paso a paso)}
 Para verificar la corrección, procesamos la cadena de ejemplo $w = 10110$:
 
 \begin{table}[H]
