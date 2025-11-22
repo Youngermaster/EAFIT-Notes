@@ -11,28 +11,70 @@ Considere el siguiente lenguaje fuente $L$ sobre el alfabeto $\Sigma = \{a, b\}$
 \section{Desarrollo Ejercicio 5}
 
 \subsection{a. Gramática libre de contexto $G$}
-Para generar el lenguaje $L$ (cadenas con al menos una aparición de $ab$), utilizamos dos no terminales: $S$ (estado inicial, buscando el primer $ab$) y $F$ (estado de aceptación, el patrón ya fue encontrado), siguiendo los principios de diseño de gramáticas formales \cite{crespi2019formal}.
+Una gramática libre de contexto $G = (\Sigma, N, P, S)$ que genera $L$ es:
 
 \[
-\begin{aligned}
-S &\rightarrow aS \mid bS \mid abF \\
-F &\rightarrow aF \mid bF \mid abF \mid \epsilon
-\end{aligned}
+P: \begin{cases} 
+S \rightarrow aS \mid bS \mid abF \\
+F \rightarrow aF \mid bF \mid abF \mid \epsilon
+\end{cases}
 \]
+
+Con símbolos no terminales $N=\{S, F\}$. 
+\textbf{Justificación:} La producción $S$ consume cualquier prefijo (ruido) hasta encontrar el primer patrón obligatorio $ab$, momento en el cual transiciona a $F$. El no terminal $F$ permite generar repeticiones adicionales del patrón o terminar la cadena con $\epsilon$, asegurando así la condición de una o más repeticiones \cite{crespi2019formal}.
 
 \subsection{b. Gramática de traducción $G_{\tau}$}
-Basándonos en el esquema de traducción dirigido por sintaxis \cite{aho2007compilers}, extendemos la gramática anterior. Los caracteres que no forman parte del patrón $ab$ se traducen a la cadena vacía ($\epsilon$), y el patrón $ab$ se traduce a $X$.
+Extendemos $G$ para definir la gramática de traducción $G_{\tau}=(V, \Sigma, \Delta, P_{\tau}, S)$ definida a través de las producciones:
+
+\[
+P_{\tau}: \begin{cases} 
+S \rightarrow \frac{a}{\epsilon}S \mid \frac{b}{\epsilon}S \mid \frac{ab}{X}F \\
+F \rightarrow \frac{a}{\epsilon}F \mid \frac{b}{\epsilon}F \mid \frac{ab}{X}F \mid \epsilon
+\end{cases}
+\]
+
+Con símbolos no terminales $V=\{S, F\}$, símbolos terminales de destino $\Delta=\{X\}$ y el alfabeto terminal de pares $C = \{ \frac{a}{\epsilon}, \frac{b}{\epsilon}, \frac{ab}{X} \} \subseteq \Sigma^* \times \Delta^*$.
+
+\subsubsection*{Esquema de Traducción}
+A partir de $G_{\tau}$ obtenemos el siguiente esquema, separando la sintaxis de origen y la semántica de destino \cite{aho2007compilers}:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l}
+\toprule
+\textbf{Gramática de Origen} & \textbf{Gramática de Destino} \\
+\midrule
+$S \rightarrow aS \mid bS \mid abF$ & $S \rightarrow \epsilon S \mid \epsilon S \mid XF$ \\
+$F \rightarrow aF \mid bF \mid abF \mid \epsilon$ & $F \rightarrow \epsilon F \mid \epsilon F \mid XF \mid \epsilon$ \\
+\bottomrule
+\end{tabular}
+\caption{Esquema de traducción asociado a $G_{\tau}$}
+\end{table}
+
+\subsubsection*{Verificación de la Traducción}
+Procesemos la traducción de la cadena de entrada $w = ababab$. Realizamos la derivación utilizando los pares de traducción:
 
 \[
 \begin{aligned}
-S &\rightarrow \frac{a}{\epsilon} S \mid \frac{b}{\epsilon} S \mid \frac{ab}{X} F \\
-F &\rightarrow \frac{a}{\epsilon} F \mid \frac{b}{\epsilon} F \mid \frac{ab}{X} F \mid \epsilon
+S &\rightarrow \frac{ab}{X}F \\
+  &\rightarrow \frac{ab}{X} \frac{ab}{X}F \\
+  &\rightarrow \frac{ab}{X} \frac{ab}{X} \frac{ab}{X}F \\
+  &\rightarrow \frac{ab}{X} \frac{ab}{X} \frac{ab}{X} \epsilon \\
+  &= \frac{ababab}{XXX} \equiv z
 \end{aligned}
 \]
 
-\subsection{c. Expresión de traducción regular}
-La expresión equivalente describe: cualquier prefijo irrelevante (se borra), seguido de un $ab$ obligatorio (se vuelve $X$), seguido de cualquier sufijo (se procesa según corresponda) \cite{crespi2019formal}.
+Sean $h_{\Sigma}$ y $h_{\Delta}$ los homomorfismos alfabéticos que proyectan sobre los alfabetos de origen y destino respectivamente:
+\[ h_{\Sigma}(z) = ababab, \quad h_{\Delta}(z) = XXX \]
+De esta manera, $(ababab, XXX) \in \rho_{\tau}$, confirmando que la traducción es correcta.
 
+\subsection{c. Expresión de traducción regular ($e_{\tau}$)}
+Primero, determinamos una expresión regular capaz de generar el lenguaje fuente $L(G)$:
+\[ (a|b)^* ab (a|b)^* \]
+Sin embargo, para capturar \textbf{cada} ocurrencia de $ab$ como pide la traducción (y no solo la primera), refinamos la expresión conceptualmente como: "Prefijo irrelevante, seguido de grupos de (patrón o ruido)".
+
+Una expresión regular de traducción $e_{\tau}$ equivalente es:
 \[
-e_{\tau} = \left(\frac{a}{\epsilon} \cup \frac{b}{\epsilon}\right)^* \cdot \frac{ab}{X} \cdot \left( \frac{a}{\epsilon} \cup \frac{b}{\epsilon} \cup \frac{ab}{X} \right)^*
+e_{\tau} = \underbrace{\left(\frac{a}{\epsilon} \mid \frac{b}{\epsilon}\right)^*}_{\text{Prefijo}} \cdot \frac{ab}{X} \cdot \underbrace{\left[ \left(\frac{a}{\epsilon} \mid \frac{b}{\epsilon}\right)^* \frac{ab}{X} \right]^*}_{\text{Repeticiones}} \cdot \underbrace{\left(\frac{a}{\epsilon} \mid \frac{b}{\epsilon}\right)^*}_{\text{Sufijo}}
 \]
+Esta estructura asegura que el primer $ab$ se traduce, y cualquier $ab$ subsecuente (mezclado con ruido) también se traduce a $X$.
